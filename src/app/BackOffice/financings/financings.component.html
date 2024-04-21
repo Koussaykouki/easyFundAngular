@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Popup Dialog</h1>
+<div mat-dialog-content>
+  <p>This is a popup dialog created using Angular Material.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button >Close</button>
+</div>
+<ul>
+    <!-- Loop through each offer and display its details -->
+    <li *ngFor="let financing of financings">
+      <p><strong>id:</strong> {{ financing.financingRequestId }}</p>
+      <p><strong>excel:</strong><a [attr.href]="'http://localhost:8084/' + financing.excel">{{ financing.excel }}</a> </p>
+       <p><button (click)="downloadFile(financing.excel)">Download Excel File</button></p>
+       <p><button (click)="excel()">ww</button></p>
+
+    </li>
+  </ul>

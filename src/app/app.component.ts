@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PopupService } from './services/popup.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,4 @@ import { PopupService } from './services/popup.service';
 })
 export class AppComponent {
   title = 'easyFundAngular';
-  constructor(private popupService: PopupService) {}
-
-  openPopup() {
-    this.popupService.open();
-    console.log(`popup`);
-  }
 }

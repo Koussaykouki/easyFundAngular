@@ -16,6 +16,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExcelComponent } from './BackOffice/excel/excel.component';
+import { FormBuilder, FormGroup, Validators,FormsModule } from '@angular/forms';
+import { saveAs } from 'file-saver';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
     
   ],
   providers: [

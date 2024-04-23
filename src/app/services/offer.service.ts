@@ -15,6 +15,9 @@ export class OfferService {
   showAll():Observable<any>{
     return this.http.get(`${this.url}/alloffers`)
   }
+  bystaus(status : string):Observable<any>{
+    return this.http.get(`${this.url}/getbystatus/${status}`)
+  }
   delete(id : number): Observable<any> {
     let httpheaders=new HttpHeaders()
     .set('Content-type','application/Json');

@@ -4,6 +4,7 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { OffreComponent } from './BackOffice/offre/offre.component';
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
+import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'addoffre',
     component: OffreComponent
+  },
+  {
+    path: 'excel',
+    component: ExcelComponent
   },
   {
     path: 'financings/:id',

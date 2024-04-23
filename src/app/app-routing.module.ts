@@ -6,6 +6,10 @@ import { OffreComponent } from './BackOffice/offre/offre.component';
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 
+import { LoginComponent } from './BackOffice/login/login.component';
+import { RegistrationComponent } from './BackOffice/registration/registration.component';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -26,6 +30,14 @@ const routes: Routes = [
   {
     path: 'financings/:id',
     component: FinancingsComponent
+
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
+
   }
 ];
 

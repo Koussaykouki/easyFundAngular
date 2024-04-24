@@ -30,6 +30,7 @@ const routes: Routes = [
   {
     path: 'financings/:id',
     component: FinancingsComponent
+  },{
 
     path: 'login',
     component: LoginComponent
@@ -39,6 +40,13 @@ const routes: Routes = [
     component: RegistrationComponent
 
   }
+  ,
+  {
+    path: 'admin/claims',
+    component: RegistrationComponent
+
+  }
+
 ];
 
 @NgModule({

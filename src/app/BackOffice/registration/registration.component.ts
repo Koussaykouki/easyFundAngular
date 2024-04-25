@@ -53,7 +53,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.register(registerData).subscribe(
       data => {
         // On successful registration, navigate to a success route or display a success message
-        this.router.navigate(['/registration-success']);
+        this.router.navigate(['/login']);
       },
       error => {
         this.error = 'Registration failed. Please try again later.';

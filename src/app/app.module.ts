@@ -12,7 +12,7 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { OffreComponent } from './BackOffice/offre/offre.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OfferService } from './services/offer.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Uncomment if you are using animations
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
 // import { MatDialogModule } from '@angular/material/dialog'; // Uncomment if using MatDialog
@@ -20,6 +20,10 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { ChatbotComponent } from './BackOffice/chatbot/chatbot.component';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { ClaimsComponent } from './BackOffice/claims/claims.component';
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { RegistrationComponent } from './BackOffice/registration/registration.co
     FinancingsComponent,
     ExcelComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ChatbotComponent,
+    ClaimsComponent,
+    ClaimsListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { RegistrationComponent } from './BackOffice/registration/registration.co
     // MatDialogModule, // Uncomment if using MatDialog
   ],
   providers: [
-    OfferService // Example of a service you might have
+    OfferService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } // Example of a service you might have
     // Add other services here
   ],
   bootstrap: [AppComponent]

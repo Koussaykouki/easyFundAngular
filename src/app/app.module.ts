@@ -24,6 +24,9 @@ import { ChatbotComponent } from './BackOffice/chatbot/chatbot.component';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { ClaimsComponent } from './BackOffice/claims/claims.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
+import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
+import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
     RegistrationComponent,
     ChatbotComponent,
     ClaimsComponent,
-    ClaimsListComponent
+    ClaimsListComponent,
+    YourOpenClaimsComponent,
+    ClaimsAllComponent,
+    HomebackComponent
   ],
   imports: [
     BrowserModule,

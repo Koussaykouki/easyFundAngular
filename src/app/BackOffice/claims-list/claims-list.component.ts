@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ClaimService } from '../../services/claim.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ClaimService } from '../../services/claim.service';
   styleUrls: ['./claims-list.component.css']
 })
 export class ClaimsListComponent implements OnInit {
+  @Output() resolveClaimClicked: EventEmitter<number> = new EventEmitter<number>();
+
 
   claims: any[] = [];
   error: string | null = null;
@@ -48,6 +50,7 @@ export class ClaimsListComponent implements OnInit {
         console.log('Claim resolved successfully');
         // Optionally, reload the claims after resolving
         this.loadClaims();
+        this.resolveClaimClicked.emit(claimId);
       },
       error: (err) => {
         console.error('Error resolving claim:', err);

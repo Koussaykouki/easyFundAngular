@@ -8,6 +8,7 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { MicrocreditsComponent } from './BackOffice/microcredits/microcredits.component';
 
 
 const routes: Routes = [
@@ -45,8 +46,12 @@ const routes: Routes = [
     path: 'admin/claims',
     component: RegistrationComponent
 
-  }
+  },
+  {
 
+    path: 'microcredit',
+    component: MicrocreditsComponent
+  }
 ];
 
 @NgModule({

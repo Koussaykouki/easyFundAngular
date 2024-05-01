@@ -32,7 +32,6 @@ export class OffreComponent implements OnInit {
 
   ngOnInit() {
     this.getOffers();
-
   }
 
   onSubmit() {

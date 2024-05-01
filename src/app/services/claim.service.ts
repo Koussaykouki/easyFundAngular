@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClaimService {
-
   private apiUrl = 'http://localhost:8084/api/claims';
-
+  private repliesApiUrl = `http://localhost:8084/api/replies`; // URL for the replies endpoint
+  private claimResolvedSource = new Subject<void>();
+  claimResolved$ = this.claimResolvedSource.asObservable();
   constructor(private http: HttpClient) { }
 
   getClaimById(claimId: number): Observable<any> {
@@ -21,17 +22,13 @@ export class ClaimService {
 
   saveClaim(claim: any): Observable<any> {
     return this.http.post(this.apiUrl, claim, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
 
   updateClaim(claimId: number, claim: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${claimId}`, claim, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
 
@@ -44,6 +41,23 @@ export class ClaimService {
   }
 
   takeClaim(claimId: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${claimId}/take`, null);
+    return this.http.post(`${this.apiUrl}/${claimId}/take`, null).pipe(
+      tap(() => {
+        this.claimResolvedSource.next();
+      })
+    );
+  }
+
+  // Replies methods
+  getRepliesByClaimId(claimId: number): Observable<any> {
+    return this.http.get(`${this.repliesApiUrl}/by-claim/${claimId}`);
+  }
+
+  saveReply(claimId: number, message: string): Observable<any> {
+    const replyData = { message }; // Reply data without claimId in the object
+
+    return this.http.post(`${this.repliesApiUrl}/save/${claimId}`, replyData, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
   }
 }

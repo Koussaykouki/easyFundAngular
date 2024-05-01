@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ClaimService } from '../../services/claim.service';
+import { interval, Subscription } from 'rxjs';
+import { startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-claims-list',
@@ -12,11 +14,27 @@ export class ClaimsListComponent implements OnInit {
 
   claims: any[] = [];
   error: string | null = null;
+  private refreshSubscription!: Subscription;
 
   constructor(private claimService: ClaimService) { }
 
   ngOnInit(): void {
-    this.loadClaims();
+    // Starts the interval immediately and refreshes every 30000 milliseconds (30 seconds)
+    this.refreshSubscription = interval(30000)
+      .pipe(
+        startWith(0), // Start immediately on component initialization
+        switchMap(() => this.claimService.getAllOpenClaims())
+      )
+      .subscribe({
+        next: (data) => {
+          this.claims = data;
+          this.error = null;
+        },
+        error: (err) => {
+          this.error = 'Error fetching claims';
+          console.error(err);
+        }
+      });
   }
 
   loadClaims(): void {
@@ -57,5 +75,10 @@ export class ClaimsListComponent implements OnInit {
         // Handle error as needed
       }
     });
+  }
+  ngOnDestroy(): void {
+    if (this.refreshSubscription) {
+      this.refreshSubscription.unsubscribe();
+    }
   }
 }

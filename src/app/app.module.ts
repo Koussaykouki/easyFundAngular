@@ -27,6 +27,7 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HomebackComponent } from './BackOffice/homeback/homeback.component';
     ClaimsListComponent,
     YourOpenClaimsComponent,
     ClaimsAllComponent,
-    HomebackComponent
+    HomebackComponent,
+    ClaimDetailsComponent
   ],
   imports: [
     BrowserModule,

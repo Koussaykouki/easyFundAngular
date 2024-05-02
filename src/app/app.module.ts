@@ -29,7 +29,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component'; // Import ReactiveFormsModule
-
+import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
 
 
 
@@ -40,6 +43,7 @@ import { OfferComponent } from './FrontOffice/offer/offer.component'; // Import 
     NavbarBackComponent,
     SidebarBackComponent,
     AllTemplateBackComponent,
+    AllTemplateFrontComponent,
     OfferComponent,
     OffreComponent,
     FinancingsComponent,
@@ -49,17 +53,19 @@ import { OfferComponent } from './FrontOffice/offer/offer.component'; // Import 
     LoginComponent,
     RegistrationComponent,
     FinancingRequestComponent,
-    OfferComponent
+    OfferComponent,
+    HeaderFrontComponent,
+    FooterFrontComponent,
+    RegisterComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule,
     NgbModule
     
   ],

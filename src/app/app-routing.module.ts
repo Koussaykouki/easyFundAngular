@@ -8,6 +8,11 @@ import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
+import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
+import { HomebackComponent } from './BackOffice/homeback/homeback.component'  
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
 const routes: Routes = [
  
   {
@@ -20,7 +25,17 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AllTemplateBackComponent
+    component: AllTemplateBackComponent,
+    children:[
+      {
+        path: '',
+        component: HomebackComponent
+        
+      },
+    {
+      path:'claims',
+      component: ClaimsAllComponent
+    }]
   },
   {
     path: 'addoffre',

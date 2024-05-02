@@ -1,0 +1,38 @@
+<div class="row flex-grow">
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card card-rounded">
+      <div class="card-body">
+        <div class="d-sm-flex justify-content-between align-items-start">
+          <div>
+            <h4 class="card-title card-title-dash">Your Open Claims</h4>
+            <p class="card-subtitle card-subtitle-dash">View the list of your open claims</p>
+          </div>
+        </div>
+        <div class="table-responsive mt-1">
+          <table class="table select-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Claim Type</th>
+                <th>Created At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let claim of openClaims">
+                <td>{{ claim.description }}</td>
+                <td>{{ claim.claimType }}</td>
+                <td>{{ claim.createdAt | date }}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" (click)="onViewClaim(claim.claimId)">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Include the Claim Details Component below or wherever it fits best in your layout -->

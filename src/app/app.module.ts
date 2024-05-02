@@ -10,24 +10,24 @@ import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-tem
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
 import { OffreComponent } from './BackOffice/offre/offre.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { OfferService  } from './services/offer.service';
-import { HttpClientModule } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { OfferService } from './services/offer.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Uncomment if you are using animations
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
-import { MatDialogModule } from '@angular/material/dialog';
+// import { MatDialogModule } from '@angular/material/dialog'; // Uncomment if using MatDialog
 import { ExcelComponent } from './BackOffice/excel/excel.component';
-import { FormBuilder, FormGroup, Validators,FormsModule } from '@angular/forms';
-import { saveAs } from 'file-saver';
 
 import { LoginComponent } from './BackOffice/login/login.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
-
-
-
+import { ChatbotComponent } from './BackOffice/chatbot/chatbot.component';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { ClaimsComponent } from './BackOffice/claims/claims.component';
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
+import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
+import { HomebackComponent } from './BackOffice/homeback/homeback.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 
 @NgModule({
   declarations: [
@@ -37,33 +37,32 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
     SidebarBackComponent,
     AllTemplateBackComponent,
     AllTemplateFrontComponent,
-
     OffreComponent,
     FinancingsComponent,
-    ExcelComponent
-    
-
+    ExcelComponent,
     LoginComponent,
-    RegistrationComponent
-
+    RegistrationComponent,
+    ChatbotComponent,
+    ClaimsComponent,
+    ClaimsListComponent,
+    YourOpenClaimsComponent,
+    ClaimsAllComponent,
+    HomebackComponent,
+    ClaimDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule,
-    FormsModule
-    
+    // BrowserAnimationsModule, // Uncomment if using animations
+    // MatDialogModule, // Uncomment if using MatDialog
   ],
   providers: [
-    provideAnimationsAsync()
-
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
-
+    OfferService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } // Example of a service you might have
+    // Add other services here
   ],
   bootstrap: [AppComponent]
 })

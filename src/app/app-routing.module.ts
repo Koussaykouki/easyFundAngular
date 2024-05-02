@@ -8,6 +8,11 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { ClaimsComponent } from './BackOffice/claims/claims.component';
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
+import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
+import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 
 
 const routes: Routes = [
@@ -17,7 +22,18 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AllTemplateBackComponent
+    component: AllTemplateBackComponent,
+    children: [
+      {
+        path: '',
+        component: HomebackComponent,
+       
+      },
+      {
+        path: 'claims',
+        component: ClaimsAllComponent
+      }
+    ]
   },
   {
     path: 'addoffre',
@@ -40,12 +56,9 @@ const routes: Routes = [
     component: RegistrationComponent
 
   }
-  ,
-  {
-    path: 'admin/claims',
-    component: RegistrationComponent
-
-  }
+  
+  
+  
 
 ];
 

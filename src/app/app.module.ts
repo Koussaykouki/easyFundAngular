@@ -10,21 +10,25 @@ import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-tem
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
 import { OffreComponent } from './BackOffice/offre/offre.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { OfferService  } from './services/offer.service';
-import { HttpClientModule } from '@angular/common/http';
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExcelComponent } from './BackOffice/excel/excel.component';
+
 import { FormBuilder, FormGroup, Validators,FormsModule } from '@angular/forms';
 import { saveAs } from 'file-saver';
-
+import {provideRouter, withInMemoryScrolling } from '@angular/router';
 import { LoginComponent } from './BackOffice/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component'; // Import ReactiveFormsModule
 
 
 
@@ -40,11 +44,12 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
 
     OffreComponent,
     FinancingsComponent,
-    ExcelComponent
+    ExcelComponent,
     
 
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FinancingRequestComponent
 
   ],
   imports: [
@@ -54,15 +59,16 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     
   ],
   providers: [
-    provideAnimationsAsync()
-
+    provideAnimationsAsync(),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 
   ],
   bootstrap: [AppComponent]

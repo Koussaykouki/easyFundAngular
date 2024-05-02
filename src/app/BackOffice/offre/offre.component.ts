@@ -22,22 +22,32 @@ export class OffreComponent implements OnInit {
     offerLink: ['', Validators.required],
     offerPrice: [0, [Validators.required, Validators.pattern(/^\d*\.?\d+$/)]],
     offerStatus: ['', Validators.required],
-    offerCategory: ['', Validators.required]
+    offerCategory: ['', Validators.required],
+    offerImage: ['', Validators.required]
   });
 
   constructor(private fb: FormBuilder, private offerservice: OfferService,) {
     this.statusOffer = ['PENDING', 'ARCHIVED', 'ACTIVE']
-    this.getOffers();
+    //this.getOffers();
   }
 
   ngOnInit() {
     this.getOffers();
 
   }
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.offerForm.patchValue({ offerImage: file });
+    }
+  }
 
   onSubmit() {
     const formData = this.offerForm.value;
+   
+    
 
+     console.log(formData);
     this.offerservice.addOffer(this.offerForm.value).subscribe(
       {
         next: (data) => {

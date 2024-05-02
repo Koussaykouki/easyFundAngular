@@ -17,10 +17,11 @@ export class OffreComponent implements OnInit {
   statusOffer: string[] = [];
   selectedstatus: string = '';
   image: any;
+  imageUrl: any;
   offerForm: FormGroup = this.fb.group({
     offerDescription: ['', Validators.required],
     offerLink: ['', Validators.required],
-    offerPrice: [0, [Validators.required, Validators.pattern(/^\d*\.?\d+$/)]],
+    offerPrice: [0, [Validators.required, Validators.pattern(/^\d*\.?\d+TND/)]],
     offerStatus: ['', Validators.required],
     offerCategory: ['', Validators.required],
     offerImage: ['', Validators.required]
@@ -35,17 +36,42 @@ export class OffreComponent implements OnInit {
     this.getOffers();
 
   }
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.offerForm.patchValue({ offerImage: file });
-    }
-  }
 
+  onFileChange(event: Event): void {
+    const eventTarget = event.target as HTMLInputElement;
+  if (eventTarget.files && eventTarget.files.length > 0) {
+    const file = eventTarget.files[0];
+    const fullPath = eventTarget.value; // This should contain the full path, but it may be sanitized by the browser
+    const fileName = file.name;
+   console.log('filepath : '+fullPath);
+    var reader = new FileReader();
+    reader.onload = (event: ProgressEvent) => {
+      this.imageUrl = (<FileReader>event.target).result ;
+      console.log('filepath : '+this.imageUrl);
+      const base = this.imageUrl.replace('data:image/png;base64,','');
+      this.offerForm.get('offerImage')?.setValue(this.imageUrl);
+     const aaa=  atob(decodeURIComponent(this.imageUrl));
+      if(this.isBase64(this.imageUrl)){
+        
+        var test = atob(this.imageUrl);
+        console.log('decoded: '+aaa);
+        
+      }
+       
+      
+    
+    }
+
+    reader.readAsDataURL(eventTarget.files[0]);
+    
+    // Set the form control value to the full path if available, otherwise set it to just the file name
+    
+  }}
   onSubmit() {
     const formData = this.offerForm.value;
    
-    
+    const fileInput = this.offerForm.get('offerImage') ;
+    console.log(fileInput);
 
      console.log(formData);
     this.offerservice.addOffer(this.offerForm.value).subscribe(
@@ -59,6 +85,45 @@ export class OffreComponent implements OnInit {
 
 
     console.log(this.offerForm.value);
+  }
+  /*onSubmit() {
+    const formData = new FormData();
+    
+    // Append all other form fields
+    Object.keys(this.offerForm.value).forEach(key => {
+        if (key !== 'offerImage') {
+            formData.append(key, this.offerForm.value[key]);
+        }
+    });
+
+    // Handle the file upload
+    const fileInput = this.offerForm.get('offerImage');
+    if (fileInput && fileInput.value) {
+        const file: File = (fileInput.value.files ? fileInput.value.files[0] : null);
+        if (file) {
+            formData.append('offerImage', file, file.name);
+        }
+    }
+
+    // Use your service to send formData to your server
+    this.offerservice.addOffer(formData).subscribe({
+        next: (data) => {
+            console.log('Offer added:', data);
+        },
+        error: (error) => {
+            console.error('Error adding offer', error);
+        }
+    });
+}*/
+  approve(id : number,status:string){
+    this.offerservice.approve(id,status).subscribe({
+      next: (data) => {
+        this.offers = data;
+
+        console.log('Offer approved successfully', data);
+      },
+      error: (error) => console.error('Error approving offer:', error)
+    });
   }
   getOffers() {
 
@@ -140,7 +205,7 @@ export class OffreComponent implements OnInit {
       },
       error: (error) => console.error('error getting status', status)
     });
-    this.getOffers();
+    
   }
   getStatus(status: string): string {
     switch (status) {

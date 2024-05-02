@@ -1,3 +1,14 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Popup Content</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,16 +39,43 @@
     
     <!-- partial:partials/_navbar.html -->
     <app-navbar-back></app-navbar-back>
+    <div class="container-fluid page-body-wrapper">
+    <app-sidebar-back></app-sidebar-back>
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="home-tab">
+      
+      <div class="main-panel">
+        <table>
+          <tr>
+            <th>financing</th>
+            <th>excel</th>
+            <th> status</th>
+            <th>offer</th>
+            <th>user</th>
+           
+          </tr>
+          <tr *ngFor="let financingRequest of financings">
+           <td>{{financingRequest.financingRequestId}}</td>
+           <td>  <button (click)="downloadFile(financingRequest.excel)">{{financingRequest.excel}}</button></td>
+           <td>{{financingRequest.requestStatus}}</td>
+           <td>{{financingRequest.offer.offreId}}</td>
+           <td>{{user}}</td>
+          </tr>
+        </table>
    
-      <app-sidebar-back></app-sidebar-back>
-  
+      </div>
+    
         <app-footer-back></app-footer-back>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
-  
+        </div>
   <!-- container-scroller -->
-
+</div>
+/</div>
+</div></div>
   <!-- plugins:js -->
   <script src="/assets/BackOffice/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
@@ -61,5 +99,12 @@
 </body>
 
 </html>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+</div>
 
+</div>
+</div>
 

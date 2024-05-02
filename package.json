@@ -27,6 +27,7 @@
     "exceljs": "^4.4.0",
     "file-save": "^0.2.0",
     "file-saver": "^2.0.5",
+    "ngx-cookie-service": "^17.1.0",
     "ngx-countdown": "^17.1.1",
     "ngx-pagination": "^6.0.3",
     "ngx-simple-countdown": "^17.0.0",

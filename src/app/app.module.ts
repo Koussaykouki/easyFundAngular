@@ -7,7 +7,6 @@ import { FooterBackComponent } from './BackOffice/footer-back/footer-back.compon
 import { NavbarBackComponent } from './BackOffice/navbar-back/navbar-back.component';
 import { SidebarBackComponent } from './BackOffice/sidebar-back/sidebar-back.component';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
-import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
 import { OffreComponent } from './BackOffice/offre/offre.component';
 
@@ -28,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component'; // Import ReactiveFormsModule
+import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
+import { OfferComponent } from './FrontOffice/offer/offer.component'; // Import ReactiveFormsModule
 
 
 
@@ -40,8 +40,7 @@ import { FinancingRequestComponent } from './BackOffice/financing-request/financ
     NavbarBackComponent,
     SidebarBackComponent,
     AllTemplateBackComponent,
-    AllTemplateFrontComponent,
-
+    OfferComponent,
     OffreComponent,
     FinancingsComponent,
     ExcelComponent,
@@ -49,7 +48,8 @@ import { FinancingRequestComponent } from './BackOffice/financing-request/financ
 
     LoginComponent,
     RegistrationComponent,
-    FinancingRequestComponent
+    FinancingRequestComponent,
+    OfferComponent
 
   ],
   imports: [

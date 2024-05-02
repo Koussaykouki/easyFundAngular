@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,9 +67,11 @@ import { RegisterComponent } from './FrontOffice/register/register.component';
     // MatDialogModule, // Uncomment if using MatDialog
   ],
   providers: [
-    OfferService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } // Example of a service you might have
-    // Add other services here
+    provideAnimationsAsync(),
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

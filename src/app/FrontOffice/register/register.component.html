@@ -25,135 +25,54 @@
         <div class="row">
             <div class="offset-lg-3 col-lg-6">
                 <div class="user-info-tabs">
-                    <div id="add-user-tab" class="step-app">
-                        <ul class="step-steps custom mb-xl-40">
-                          <li class="active">
-                            <a href="#step-1"> <span class="number"></span>
-                              <span class="step-name">Basic Info</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#step-2"> <span class="number"></span>
-                              <span class="step-name">Personal Info</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#step-3"> <span class="number"></span>
-                              <span class="step-name">Business Location</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#step-4"> <span class="number"></span>
-                              <span class="step-name">Business Details</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#step-5"> <span class="number"></span>
-                              <span class="step-name">Verify Identity</span>
-                            </a>
-                          </li>
-                        </ul>
-                        <div class="step-content">
-                            <div class="step-tab-panel active" id="step-1">
-                                <div class="step-tab-inner">
-                                    <div class="heading text-center">
-                                        <h4 class="text-custom-black fw-600">Enter Basic Information</h4>
-                                        <p class="text-custom-black">Check your business's eligibility without impacting your credit.<sup>*</sup></p>
-                                    </div>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Business Name</label>
-                                                    <input type="text" name="#" class="form-control form-control-custom" placeholder="Business Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">First Name</label>
-                                                    <input type="text" name="#" class="form-control form-control-custom" placeholder="First Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Last Name</label>
-                                                    <input type="text" name="#" class="form-control form-control-custom" placeholder="Last Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Phone No.</label>
-                                                    <input type="text" name="#" class="form-control form-control-custom" placeholder="Phone No.">
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Email Address</label>
-                                                    <input type="email" name="#" class="form-control form-control-custom" placeholder="Email Address">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="radio-box form-group">
-                                                    <div class="custom-radio">
-                                                        <input id="phone1" name="phonetype" type="radio" checked>
-                                                        <label for="phone1">Business</label>
-                                                    </div>
-                                                    <div class="custom-radio">
-                                                        <input id="phone2" name="phonetype" type="radio">
-                                                        <label for="phone2">Mobile</label>
-                                                    </div>
-                                                    <div class="custom-radio">
-                                                        <input id="phone3" name="phonetype" type="radio">
-                                                        <label for="phone3">Home</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Primary Loan Purpose</label>
-                                                    <select class="custom-select form-control form-control-custom">
-                                                        <option>Purchase business location</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                        <option>Option 4</option>
-                                                        <option>Option 5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="text-custom-black fs-14 fw-600">Reference</label>
-                                                    <select class="custom-select form-control form-control-custom">
-                                                        <option>Banner/Digital Ad</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                        <option>Option 4</option>
-                                                        <option>Option 5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="custom-checkbox text-custom-black">
-                                                        <input type="checkbox" name="#">
-                                                        <span class="checkmark"></span>
-                                                        I Agree to the <a href="#">terms & conditions</a> and <a href="#">privacy policy.</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                    <div class="step-content">
+                        <div class="step-tab-panel active" id="step-1">
+                            <div class="step-tab-inner">
+                                <div class="heading text-center">
+                                    <h4 class="text-custom-black fw-600">Registration form</h4>
+                                    <p class="text-custom-black">Please fill out this form to register to our services <sup>*</sup></p>
                                 </div>
+                                <form class="pt-3" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" class="form-control form-control-custom" id="firstname" placeholder="First Name" [formControlName]="'firstname'" [ngClass]="{'is-invalid': submitted && formGroup.get('firstname')?.errors}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" class="form-control form-control-custom" id="lastname" placeholder="Last Name" [formControlName]="'lastname'" [ngClass]="{'is-invalid': submitted && formGroup.get('lastname')?.errors}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" class="form-control form-control-custom" id="phoneNumber" placeholder="Phone Number" [formControlName]="'phoneNumber'">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="email" class="form-control form-control-custom" id="email" placeholder="Email" [formControlName]="'email'" [ngClass]="{'is-invalid': submitted && formGroup.get('email')?.errors}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="password" class="form-control form-control-custom" id="password" placeholder="Password" [formControlName]="'password'" [ngClass]="{'is-invalid': submitted && formGroup.get('password')?.errors}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" class="form-control form-control-custom" id="cin" placeholder="CIN" [formControlName]="'cin'">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-custom" id="dateOfBirth" placeholder="Date of Birth (YYYY-MM-DD)" [formControlName]="'dateOfBirth'">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control form-control-custom" id="salary" placeholder="Salary" [formControlName]="'salary'">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control form-control-custom" id="role" [formControlName]="'role'">
+                                            <option value="">Select Role</option>
+                                            
+                                            <option value="USER">User</option>
+                                            <option value="AGENT">Agent</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn-first btn-submit-fill" [disabled]="loading">Submit</button>
+                                    </div>
+                                </form>
+                                
                             </div>
-                            
-                            
-                            
-                        </div>
-                        <div class="step-footer step-tab-pager">
-                          <button data-direction="prev" class="btn-first btn-submit-fill">Previous</button>
-                          <button data-direction="next" class="btn-first btn-submit-fill">Continue</button>
-                          <button data-direction="finish" class="btn-first btn-submit-fill" onclick="window.location.href='loan-calculator.html'">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -161,3 +80,4 @@
         </div>
     </div>
 </section>
+

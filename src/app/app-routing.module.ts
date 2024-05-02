@@ -42,7 +42,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomebackComponent,
+        component: RegisterComponent,
        
       },
       {

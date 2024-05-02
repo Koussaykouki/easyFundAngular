@@ -13,6 +13,7 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,21 @@ const routes: Routes = [
       {
         path: 'claims',
         component: ClaimsAllComponent
+      }
+    ]
+  },
+  {
+    path: 'front',
+    component: AllTemplateFrontComponent,
+    children: [
+      {
+        path: '',
+        component: HomebackComponent,
+       
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
     ]
   },

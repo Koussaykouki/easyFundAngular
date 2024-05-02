@@ -28,6 +28,9 @@ import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
     YourOpenClaimsComponent,
     ClaimsAllComponent,
     HomebackComponent,
-    ClaimDetailsComponent
+    ClaimDetailsComponent,
+    HeaderFrontComponent,
+    FooterFrontComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

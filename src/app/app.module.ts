@@ -32,6 +32,7 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
 import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
+import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { RegisterComponent } from './FrontOffice/register/register.component';
     ClaimDetailsComponent,
     HeaderFrontComponent,
     FooterFrontComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginfrontComponent
+    
   ],
   imports: [
     BrowserModule,

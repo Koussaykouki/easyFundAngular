@@ -19,16 +19,30 @@ import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode
 import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
 import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
 import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthGuardFront } from './services/authfront.guard';
+import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
+import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: AllTemplateFrontComponent
+  },{
+
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
+
   },
   {
     path: 'admin',
     component: AllTemplateBackComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -44,20 +58,45 @@ const routes: Routes = [
   {
     path: 'front',
     component: AllTemplateFrontComponent,
+    canActivate: [AuthGuardFront],
     children: [
       {
         path: '',
-        component: RegisterComponent,
+        component: HomefrontComponent,
        
       },
       {
         path: 'register',
         component: RegisterComponent
       },
+      
       {
+        path: 'sendcodefront',
+        component: SendresetcodefrontComponent
+      },
+      {
+        path: 'resetpasswordfront',
+        component: ResetpasswordfrontComponent
+      }
+    ]
+  },{
+    path: 'home',
+    component: AllhomefrontComponent,
+   
+    children: [
+      {
+        path: '',
+        component: HomefrontComponent,
+       
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },{
         path: 'login',
         component: LoginfrontComponent
       },
+      
       {
         path: 'sendcodefront',
         component: SendresetcodefrontComponent
@@ -79,15 +118,6 @@ const routes: Routes = [
   {
     path: 'financings/:id',
     component: FinancingsComponent
-  },{
-
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegistrationComponent
-
   },
   {
     path: 'sendresetcode',

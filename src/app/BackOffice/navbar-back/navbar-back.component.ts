@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-back',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './navbar-back.component.css'
 })
 export class NavbarBackComponent {
+  
   private scripts: any = {
     "vendorBundleBase": { loaded: false, src: "/assets/BackOffice/vendors/js/vendor.bundle.base.js" },
     "chartJs": { loaded: false, src: "/assets/BackOffice/vendors/chart.js/Chart.min.js" },
@@ -20,7 +22,14 @@ export class NavbarBackComponent {
     "roundedBarCharts": { loaded: false, src: "/assets/BackOffice/js/Chart.roundedBarCharts.js" }
 };
 
-  constructor() { }
+constructor(private router: Router) {}
+  logout(): void {
+    // Clear user data from localStorage
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    // Redirect to login page
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit(): void {
     this.loadScripts();

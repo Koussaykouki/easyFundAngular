@@ -16,6 +16,7 @@ import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.co
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
+import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
 const routes: Routes = [
  
@@ -50,6 +51,11 @@ const routes: Routes = [
       {
         path: '',
         component: RegisterComponent,
+       
+      },
+      {
+        path: 'offerFront',
+        component: OfferComponent
        
       },
       {

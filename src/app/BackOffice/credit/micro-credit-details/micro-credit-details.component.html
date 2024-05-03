@@ -1,0 +1,34 @@
+<div class="popup-container">
+    <div class="popup-content">
+        <button class="close-button" (click)="closePopup()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        <h2 style="padding-bottom:60px; padding-top:20px;"> <strong> Microcredit Details </strong></h2>
+        <div class="details-container">
+            <p><strong>ID Account:</strong> {{ data.idAccount }}</p>
+            <p><strong>Microcredit ID:</strong> {{ data.microCreditId }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Credit Amount:</strong> {{ data.creditAmount }} TND</p>
+            <p><strong>Period:</strong> {{ data.period }}</p>
+            <p><strong>Type Period:</strong> {{ data.typePeriod }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Start Date:</strong> {{ data.startDate }}</p>
+            <p><strong>Due Date:</strong> {{ data.dueDate }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Payed Amount:</strong> {{ data.payedAmount }} TND</p>
+            <p><strong>Credit Remaining:</strong> {{ data.creditRemaining }} TND</p>
+            <p><strong>Interest Rate:</strong> {{ data.interestRate }}%</p>
+        </div>
+        
+        <div class="details-container">
+            <p><strong>Status:</strong> {{ data.creditstatus }}</p>
+            <p><strong>Type:</strong> {{ data.creditType }}</p>
+        </div>
+    </div>
+</div>

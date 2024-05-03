@@ -27,3 +27,19 @@ select.form-control {
 .readonly-wrapper .readonly-block {
     pointer-events: none;
 }
+
+/* component.css */
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .success-message p {
+    margin: 0;
+  }
+  

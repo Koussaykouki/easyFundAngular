@@ -26,4 +26,15 @@ export class MicroCreditService {
     };
     return this.http.delete(`${this.url}/deleteCredit/${id}`)
   }
+
+
+  getCreditByAccount(id : number): Observable<any> {
+    let httpheaders=new HttpHeaders()
+    .set('Content-type','application/Json');
+    let options={
+      headers:httpheaders
+    };
+    return this.http.delete(`${this.url}/getCreditByAccount/${id}`)
+  }
+
 }

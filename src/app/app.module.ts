@@ -20,11 +20,24 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { MicrocreditsComponent } from './BackOffice/microcredits/microcredits.component';
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
 
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { MicroCreditService } from './services/microcredit.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MicroCreditDetailsComponent } from './BackOffice/credit/micro-credit-details/micro-credit-details.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
+
+import { MatCardModule } from '@angular/material/card';
+// DropDown
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DropzoneCdkModule } from '@ngx-dropzone/cdk';
+import { DropzoneMaterialModule } from '@ngx-dropzone/material';
+
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MessagesModule } from 'primeng/messages';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +52,11 @@ import { AuthInterceptor } from './services/auth.interceptor';
     ExcelComponent,
     LoginComponent,
     RegistrationComponent,
-    MicrocreditsComponent
+    MicrocreditsComponent,
+    MicroCreditListComponent,
+    MicroCreditDetailsComponent,
+    MyMicroCreditsComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -47,6 +64,12 @@ import { AuthInterceptor } from './services/auth.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatCardModule,
+    DropzoneMaterialModule,
+    MatFormFieldModule,
+    NgxDropzoneModule,
+    MessagesModule,
+
     // BrowserAnimationsModule, // Uncomment if using animations
     // MatDialogModule, // Uncomment if using MatDialog
   ],

@@ -8,7 +8,10 @@ import { ExcelComponent } from './BackOffice/excel/excel.component';
 
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { MicrocreditsComponent } from './BackOffice/microcredits/microcredits.component';
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
+
 
 
 const routes: Routes = [
@@ -45,13 +48,20 @@ const routes: Routes = [
   {
     path: 'admin/claims',
     component: RegistrationComponent
-
   },
   {
-
-    path: 'microcredit',
+    path: 'credit/applyMicrocredit',
     component: MicrocreditsComponent
-  }
+  },
+  {
+    path: 'credit/myCredits',
+    component: MyMicroCreditsComponent
+  },
+  {
+    path: 'admin/getAllMicroCredits',
+    component: MicroCreditListComponent
+  },
+  
 ];
 
 @NgModule({

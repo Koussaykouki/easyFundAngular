@@ -41,8 +41,6 @@ export class FinancingsComponent implements OnInit {
 downloadFile(name:any) {
   this.offerservice.downloadFile(name).subscribe({
     next :(data) => {
-      
-     
     const blob = new Blob([data], { type: 'application/vnd.ms-excel' });
    // saveAs(blob,name);
    const now = new Date();

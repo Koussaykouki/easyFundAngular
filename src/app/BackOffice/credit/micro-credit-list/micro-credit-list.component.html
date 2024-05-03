@@ -299,9 +299,10 @@
                     <td>{{ credit.creditType }}</td>
                     <td>
                       <!-- <button class="btn btn-primary" (click)="openPopup(credit)">View</button> -->
+                      <button class="btn btn-sm btn-success" (click)="downloadCreditExcel(credit)"><i class="bi bi-download"></i></button>
                       <button class="btn btn-sm btn-primary me-1" (click)="openPopup(credit)"><i class="bi bi-eye"></i></button>
                       <button class="btn btn-sm btn-warning me-1"><i class="bi bi-pen"></i></button>
-                      <button class="btn btn-sm btn-danger" (click)="deleteCredit(credit.id)"><i
+                      <button class="btn btn-sm btn-danger" (click)="deleteCredit(credit.microCreditId)"><i
                           class="bi bi-trash"></i></button>
                     </td> <!-- Buttons column -->
                     <!-- Add more table data cells as needed -->

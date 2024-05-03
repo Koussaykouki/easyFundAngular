@@ -54,7 +54,7 @@ const routes: Routes = [
     component: MicrocreditsComponent
   },
   {
-    path: 'credit/myCredits',
+    path: 'credit/getCreditByConnectedUser',
     component: MyMicroCreditsComponent
   },
   {

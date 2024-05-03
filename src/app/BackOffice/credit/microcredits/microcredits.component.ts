@@ -21,13 +21,14 @@ export class MicrocreditsComponent implements OnInit {
   creditStatus: string[] = [];
   creditType: string[] = [];
   typePeriode: string[] = [];
+  
   guarantorFile: File[] = [];
   showSuccessMessage: boolean = false;
   countdown: number = 5;
 
   defaultCreditStatus = 'OPEN';
   defaultCreditType = 'MICROCREDIT';
-  defaultPeriodeType = 'MONTHLY';
+  defaultPeriodeType = 'Monthly';
 
   microcreditForm: FormGroup = this.fb.group({
     startDate: ['',Validators.required],
@@ -42,15 +43,15 @@ export class MicrocreditsComponent implements OnInit {
 
     creditAmmount: ['', [Validators.required, Validators.min(100), Validators.max(40000)]],
     cinGuarantor: [''],
-    guarantorFile: [''],
+    guarantorFile: [,'']
   });
 
   constructor(private fb: FormBuilder, private microcreditservice: MicroCreditService, private router: Router
              
    ) {
-    this.creditStatus = ['OPEN', 'ACCEPTED', 'INPROGRESS', 'REFUSED', 'CLOSED', 'ARCHIVED']
-    this.creditType = ['MICROCREDIT', 'MICROLEASING']
-    this.typePeriode = ['MONTHLY' ,'QUARTERLY' ,'HALF-YEARLY', 'YEARLY']
+    this.creditStatus = ['OPEN', 'ACCEPTED', 'INPROGRESS', 'REFUSED', 'CLOSED', 'ARCHIVED'];
+    this.creditType = ['MICROCREDIT', 'MICROLEASING'];
+    this.typePeriode = ['Monthly', 'Quarterly', 'Half_Yearly', 'Yearly'];
   }
 
   
@@ -59,10 +60,10 @@ export class MicrocreditsComponent implements OnInit {
     this.guarantorFile.push(...event.addedFiles);
   }
   
-  onRemove(event: File) {
-    console.log(event);
-    this.guarantorFile.splice(this.guarantorFile.indexOf(event), 1);
-  }
+  // onRemove(event: File) {
+  //   console.log(event);
+  //   this.guarantorFile.splice(this.guarantorFile.indexOf(event), 1);
+  // }
 
   getCredits() {
     this.microcreditservice.showAllCredits().subscribe({
@@ -74,6 +75,17 @@ export class MicrocreditsComponent implements OnInit {
     });
   }
 
+  // onFileChange(event: Event): void {
+  //   const eventTarget = event.target as HTMLInputElement;
+  //   if (eventTarget.files && eventTarget.files.length > 0) {
+  //       const file = eventTarget.files[0];
+  //       console.log(file)
+  //       this.microcreditForm.patchValue({
+  //         guarantorFile: file
+  //       });
+  //   }
+  // }
+  
   onSubmit() {
     console.log('Form Valid:', this.microcreditForm.valid);
     console.log('Form Control Validity:', this.microcreditForm.controls);
@@ -92,16 +104,14 @@ export class MicrocreditsComponent implements OnInit {
         // Show the success message
         this.showSuccessMessage = true;
         
-        // Start the countdown
-        // const countdownInterval = setInterval(() => {
-        //   this.countdown--;
+          const countdownInterval = setInterval(() => {
+          this.countdown--;
     
-        //   // Redirect when countdown reaches 0
-        //   if (this.countdown === 0) {
-        //     clearInterval(countdownInterval);
-        //     this.router.navigate(['/']); // Replace 'your-redirect-route' with your actual route
-        //   }
-        //       }, 1000);    
+          if (this.countdown === 0) {
+            clearInterval(countdownInterval);
+            this.router.navigate(['/']); // Replace 'your-redirect-route' with your actual route
+          }
+            }, 1000);    
             }
           }
         )
@@ -116,14 +126,14 @@ export class MicrocreditsComponent implements OnInit {
   }
 
   delete(id: number) {
+    console.log("here")
     this.microcreditservice.deleteCredit(id).subscribe({
       next: (data) => {
         console.log('microCredit deleted', data);
       },
       error: (error) => console.error('Error deleting MicroCredit', error)
     });
-    this.microCredits = this.microCredits.filter(Microcredit => Microcredit.microCreditId !== id);
-    this.getCredits();
+    // this.microCredits = this.microCredits.filter(Microcredit => Microcredit.microCreditId !== id);
   }
 
 

@@ -12,12 +12,13 @@ export class MyMicroCreditsComponent {
 
     user=localStorage.getItem('id');
     microCredits : any = [];
-  dialog: any;
+    dialog: any;
     constructor(private microCreditService: MicroCreditService ,public router: Router) { }
   
     ngOnInit(): void {
-  
-      this.microCreditService.getCreditByAccount(1).subscribe(
+      
+      // get login user id 
+      this.microCreditService.getCreditByAccount().subscribe(
         data => {
           console.log(data);
           this.microCredits=data;

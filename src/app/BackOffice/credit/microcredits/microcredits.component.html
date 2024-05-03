@@ -233,142 +233,165 @@
       <!-- partial:partials/_sidebar.html -->
       <app-sidebar-back></app-sidebar-back>
       <!-- partial -->
-        <div class="container form-panel">
-          <h2 class="form-header" style="margin-bottom: 30px; font-weight: bold;">Applying for MicroCredit</h2> <!-- Header -->
-          <form [formGroup]="microcreditForm" (ngSubmit)="onSubmit()">
-            <div class="form-group row">
-              <!-- Start Date -->
-              <div class="col">
-                <label for="startDate">Start Date<span class="text-danger">*</span></label>
-                <input type="date" class="form-control" formControlName="startDate" id="startDate" required 
-                      [ngClass]="{'is-invalid': microcreditForm.get('startDate')?.touched && microcreditForm.get('startDate')?.invalid}" />
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('startDate')?.touched && microcreditForm.get('startDate')?.invalid" class="invalid-feedback">
-                  Start Date is required.
-                </div>
+      <div class="container form-panel" style="width: 1400px;;">
+        <h2 class="form-header" style="margin-bottom: 30px; font-weight: bold;">Applying for MicroCredit</h2>
+        <!-- Header -->
+        <form [formGroup]="microcreditForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <!-- Start Date -->
+            <div class="col">
+              <label for="startDate">Start Date<span class="text-danger">*</span></label>
+              <input type="date" class="form-control" formControlName="startDate" id="startDate" required
+                [ngClass]="{'is-invalid': microcreditForm.get('startDate')?.touched && microcreditForm.get('startDate')?.invalid}" />
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('startDate')?.touched && microcreditForm.get('startDate')?.invalid"
+                class="invalid-feedback">
+                Start Date is required.
               </div>
-
-
-              <!-- Due Date -->
-              <div class="col">
-                <label for="dueDate">Due Date<span class="text-danger">*</span></label>
-                <input type="date" class="form-control" formControlName="dueDate" id="dueDate" required 
-                      [ngClass]="{'is-invalid': microcreditForm.get('dueDate')?.touched && microcreditForm.get('dueDate')?.invalid}" />
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('dueDate')?.touched && microcreditForm.get('dueDate')?.invalid" class="invalid-feedback">
-                  Due Date is required.
-                </div>
-              </div>
-              
-              <!-- Period -->
-              <div class="col">
-                <label for="period">Period (between 2 and 48)<span class="text-danger">*</span></label>
-                <input type="number" class="form-control" formControlName="period" id="period" required 
-                      [ngClass]="{'is-invalid': microcreditForm.get('period')?.touched && microcreditForm.get('period')?.invalid}" />
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('period')?.invalid && microcreditForm.get('period')?.touched" class="invalid-feedback">
-                  Period must be between 2 and 48.
-                </div>
-              </div>
-
-
-              <!-- Type Period -->
-              <div class="col">
-                <label for="typePeriode">Type Period<span class="text-danger">*</span></label>
-                <select class="form-control" formControlName="typePeriode" id="typePeriode" required 
-                        [ngClass]="{'is-invalid': microcreditForm.get('typePeriode')?.touched && microcreditForm.get('typePeriode')?.invalid}">
-                  <option *ngFor="let type of typePeriode" [value]="type">{{ type }}</option>
-                </select>
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('typePeriode')?.invalid && microcreditForm.get('typePeriode')?.touched" class="invalid-feedback">
-                  Type Period is required.
-                </div>
-                <input type="text" class="form-control" formControlName="interestRate" id="interestRate" hidden />
-              </div>
-
             </div>
 
-            <div class="form-group row">
-              <!-- Credit Type -->
-              <div class="col">
-                <label for="creditType">Credit Type<span class="text-danger">*</span></label>
-                <select class="form-control" formControlName="creditType" id="creditType" required 
-                        [ngClass]="{'is-invalid': microcreditForm.get('creditType')?.touched && microcreditForm.get('creditType')?.invalid}">
-                  <option *ngFor="let type of creditType" [value]="type">{{ type }}</option>
-                </select>
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('creditType')?.invalid && microcreditForm.get('creditType')?.touched" class="invalid-feedback">
-                  Please select a Credit Type.
-                </div>
-              </div>
-              <!-- Credit Status -->
-              <div class="col">
-                <label for="creditStatus">Credit Status<span class="text-danger">*</span></label>
-                <select class="form-control" formControlName="creditStatus" id="creditStatus" required 
-                        [ngClass]="{'is-invalid': microcreditForm.get('creditStatus')?.touched && microcreditForm.get('creditStatus')?.invalid}">
-                  <option *ngFor="let type of creditStatus" [value]="type">{{ type }}</option>
-                </select>
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('creditStatus')?.invalid && microcreditForm.get('creditStatus')?.touched" class="invalid-feedback">
-                  Please select a Credit Status.
-                </div>
-              </div>
-              <!-- Credit Amount -->
-              <div class="col">
-                <label for="creditAmmount">Credit Amount<span class="text-danger">*</span></label>
-                <input type="number" class="form-control" formControlName="creditAmmount" id="creditAmmount" required 
-                       [ngClass]="{'is-invalid': microcreditForm.get('creditAmmount')?.touched && microcreditForm.get('creditAmmount')?.invalid}" />
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('creditAmmount')?.invalid && microcreditForm.get('creditAmmount')?.touched" class="invalid-feedback">
-                  Please enter a Credit Amount between 100 and 4000.
-                </div>
-              </div>
-            </div>            
-            
-            <div class="form-group row">
-              <div class="col">
-                <label for="cinGuarantor">Guarantor's CIN</label>
-                <input type="text" class="form-control" formControlName="cinGuarantor" id="cinGuarantor"
-                       [ngClass]="{'is-invalid': microcreditForm.get('cinGuarantor')?.touched && microcreditForm.get('cinGuarantor')?.invalid}" />
-                <!-- Add Angular's form validation classes -->
-                <div *ngIf="microcreditForm.get('cinGuarantor')?.invalid && microcreditForm.get('cinGuarantor')?.touched" class="invalid-feedback">
-                  Please enter a Guarantor's CIN.
-                </div>
-              </div>
 
-              <div class="col">
-                <!-- in app.component.html -->
-                <ngx-dropzone (change)="onSelect($event)">
+            <!-- Due Date -->
+            <div class="col">
+              <label for="dueDate">Due Date<span class="text-danger">*</span></label>
+              <input type="date" class="form-control" formControlName="dueDate" id="dueDate" required
+                [ngClass]="{'is-invalid': microcreditForm.get('dueDate')?.touched && microcreditForm.get('dueDate')?.invalid}" />
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('dueDate')?.touched && microcreditForm.get('dueDate')?.invalid"
+                class="invalid-feedback">
+                Due Date is required.
+              </div>
+            </div>
+
+            <!-- Period -->
+            <div class="col">
+              <label for="period">Period (between 2 and 48)<span class="text-danger">*</span></label>
+              <input type="number" class="form-control" formControlName="period" id="period" required
+                [ngClass]="{'is-invalid': microcreditForm.get('period')?.touched && microcreditForm.get('period')?.invalid}" />
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('period')?.invalid && microcreditForm.get('period')?.touched"
+                class="invalid-feedback">
+                Period must be between 2 and 48.
+              </div>
+            </div>
+
+
+            <!-- Type Period -->
+            <div class="col">
+              <label for="typePeriode">Type Period<span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="typePeriode" id="typePeriode" required
+                [ngClass]="{'is-invalid': microcreditForm.get('typePeriode')?.touched && microcreditForm.get('typePeriode')?.invalid}">
+                <option *ngFor="let type of typePeriode" [value]="type">{{ type }}</option>
+              </select>
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('typePeriode')?.invalid && microcreditForm.get('typePeriode')?.touched"
+                class="invalid-feedback">
+                Type Period is required.
+              </div>
+            </div>
+            <input type="text" class="form-control" formControlName="interestRate" id="interestRate" hidden />
+          </div>
+
+
+          <div class="form-group row">
+            <!-- Credit Type -->
+            <div class="col">
+              <label for="creditType">Credit Type<span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="creditType" id="creditType" required
+                [ngClass]="{'is-invalid': microcreditForm.get('creditType')?.touched && microcreditForm.get('creditType')?.invalid}">
+                <option *ngFor="let type of creditType" [value]="type">{{ type }}</option>
+              </select>
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('creditType')?.invalid && microcreditForm.get('creditType')?.touched"
+                class="invalid-feedback">
+                Please select a Credit Type.
+              </div>
+            </div>
+
+            <!-- Credit Status -->
+            <div class="col">
+              <label for="creditStatus">Credit Status<span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="creditStatus" id="creditStatus" required
+                [ngClass]="{'is-invalid': microcreditForm.get('creditStatus')?.touched && microcreditForm.get('creditStatus')?.invalid}">
+                <option *ngFor="let type of creditStatus" [value]="type">{{ type }}</option>
+              </select>
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('creditStatus')?.invalid && microcreditForm.get('creditStatus')?.touched"
+                class="invalid-feedback">
+                Please select a Credit Status.
+              </div>
+            </div>
+            
+            <!-- Credit Amount -->
+            <div class="col">
+              <label for="creditAmmount">Credit Amount<span class="text-danger">*</span></label>
+              <input type="number" class="form-control" formControlName="creditAmmount" id="creditAmmount" required
+                [ngClass]="{'is-invalid': microcreditForm.get('creditAmmount')?.touched && microcreditForm.get('creditAmmount')?.invalid}" />
+              <!-- Add Angular's form validation classes -->
+              <div
+                *ngIf="microcreditForm.get('creditAmmount')?.invalid && microcreditForm.get('creditAmmount')?.touched"
+                class="invalid-feedback">
+                Please enter a Credit Amount between 100 and 4000.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col">
+              <label for="cinGuarantor">Guarantor's CIN</label>
+              <input type="text" class="form-control" formControlName="cinGuarantor" id="cinGuarantor"
+                [ngClass]="{'is-invalid': microcreditForm.get('cinGuarantor')?.touched && microcreditForm.get('cinGuarantor')?.invalid}" />
+              <!-- Add Angular's form validation classes -->
+              <div *ngIf="microcreditForm.get('cinGuarantor')?.invalid && microcreditForm.get('cinGuarantor')?.touched"
+                class="invalid-feedback">
+                Please enter a Guarantor's CIN.
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group row">
+                <input type="file" class="form-control-file" formControlName="guarantorFile" id="guarantorFile" />
+              </div>
+              <!-- in app.component.html -->
+              <!-- <ngx-dropzone (change)="onSelect($event)">
                   <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
                   <ngx-dropzone-preview *ngIf="guarantorFile.length > 0" [removable]="true" (removed)="onRemove(guarantorFile[0])">
                     <ngx-dropzone-label>{{ guarantorFile[0].name }} ({{ guarantorFile[0].type }})</ngx-dropzone-label>
                   </ngx-dropzone-preview>
-                </ngx-dropzone>
-              </div>
-              
+                </ngx-dropzone> -->
+
+              <!-- <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of guarantorFile" [removable]="true" (removed)="onRemove(f)">
+                  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+              </ngx-dropzone> -->
+
             </div>
-            
-            <div class="form-group row">
-              <div class="col text-right">
-                <!-- Erase button -->
-              </div>
-              <div class="col text-right">
-                <button type="submit" class="btn btn-primary" style="margin: 20px;">Submit</button>
-                <button type="button" class="btn btn-danger" (click)="eraseValues()">Erase</button>
-              </div>
-            </div>     
-            <div *ngIf="showSuccessMessage" class="success-message">
-              <p>Success! Redirecting in {{ countdown }} seconds...</p>
+
+          </div>
+
+          <div class="form-group row">
+            <div class="col text-right">
+              <!-- Erase button -->
             </div>
-          </form>
-        </div>
+            <div class="col text-right">
+              <button type="submit" class="btn btn-primary" style="margin: 20px;">Submit</button>
+              <button type="button" class="btn btn-danger" (click)="eraseValues()">Erase</button>
+            </div>
+          </div>
+          <div *ngIf="showSuccessMessage" class="success-message">
+            <p>Success! Redirecting in {{ countdown }} seconds...</p>
+          </div>
+        </form>
       </div>
     </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:partials/_footer.html -->
-    <app-footer-back></app-footer-back>
-    <!-- partial -->
-    
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <app-footer-back></app-footer-back>
+  <!-- partial -->
+
 
   <!-- plugins:js -->
   <script src="/assets/BackOffice/vendors/js/vendor.bundle.base.js"></script>

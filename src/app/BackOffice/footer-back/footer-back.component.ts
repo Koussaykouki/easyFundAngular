@@ -15,5 +15,6 @@ export class FooterBackComponent {
     script.setAttribute('chatbotId', 'R6wF5LGsKyew3SBvTkILC');
     script.setAttribute('domain', 'www.chatbase.co');
     document.body.appendChild(script);
+    
   }
 }

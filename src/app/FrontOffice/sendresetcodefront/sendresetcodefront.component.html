@@ -1,0 +1,54 @@
+<div class="sub-header overlapsec p-relative">
+    <div class="overlay overlay-bg-black"></div>
+    <div class="pattern"></div>
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sub-header-content p-relative">
+                        <h1 class="text-custom-white lh-default fw-600">Login</h1>
+                        <ul class="custom">
+                            <li> <a href="index.html" class="text-custom-white">Home</a>
+                            </li>
+                            <li class="text-custom-white active">Login</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Subheader -->
+<!-- Start User Details -->
+<section class="section-padding-bottom user-info-details">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="user-info-tabs">
+                    <div class="step-content">
+                        <div class="step-tab-panel active" id="step-1">
+                            <div class="step-tab-inner">
+                                <div class="heading text-center">
+                                    <h4 class="text-custom-black fw-600">Reset password</h4>
+                                    <p class="text-custom-black">Please enter your email to get a reset code <sup>*</sup></p>
+                                </div>
+                                <form class="pt-3" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input type="email" class="form-control form-control-custom" id="email" placeholder="Email" [formControlName]="'email'" [ngClass]="{'is-invalid': submitted && formGroup.get('email')?.errors}">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn-first btn-submit-fill" [disabled]="loading">Get code</button>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

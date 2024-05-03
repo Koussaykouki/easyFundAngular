@@ -30,6 +30,22 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
+import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
+import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
+import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
+import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
+import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthGuardFront } from './services/authfront.guard';
+import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
+import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
+import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +64,27 @@ import { HomebackComponent } from './BackOffice/homeback/homeback.component';
     HeaderFrontComponent,
     FooterFrontComponent,
     RegisterComponent,
+
+    LoginfrontComponent,
+    SendresetcodeComponent,
+    ResetPasswordComponent,
+    ResetpasswordfrontComponent,
+    SendresetcodefrontComponent,
+    HomefrontComponent,
+    AllhomefrontComponent,
+    HeaderhomeFrontComponent,
+    
+    
+    
+    
+    
+
     ClaimsAllComponent,
     ClaimDetailsComponent,
     ClaimsListComponent,
     YourOpenClaimsComponent,
     HomebackComponent
+
   ],
   imports: [
     BrowserModule,

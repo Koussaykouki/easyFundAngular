@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +12,10 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private cookie:CookieService,private loginService: LoginService, private router: Router) {}
 
   login(): void {
+    
     this.loginService.authenticate({ email: this.email, password: this.password })
       .subscribe({
         next: (response) => {
@@ -26,7 +27,8 @@ export class LoginComponent {
             console.log('Login successful', response);
             localStorage.setItem('accessToken', response.accessToken);
             localStorage.setItem('refreshToken', response.refreshToken);
-            this.router.navigate(['/admin']);
+            this.cookie.set("emailUser",this.email);
+            this.router.navigate(['/addoffre']);
           }
         },
         error: (error) => {

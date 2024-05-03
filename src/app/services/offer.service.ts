@@ -35,4 +35,8 @@ export class OfferService {
   getfinancings(id :number): Observable<any>{
     return this.http.get(`${this.url}/getfinancing/${id}`)
   }
+  approve(id :number,offerStatus:string): Observable<any>{
+    return this.http.put(`${this.url}/approve/${id}/${offerStatus}`,{id,offerStatus})
+
+  }
 }

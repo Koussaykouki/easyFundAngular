@@ -24,6 +24,11 @@ import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.co
 import { RegisterComponent } from './FrontOffice/register/register.component';
 
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
+import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { AuthInterceptor } from './services/auth.interceptor';
     AllTemplateFrontComponent,
     HeaderFrontComponent,
     FooterFrontComponent,
-    RegisterComponent
+    RegisterComponent,
+    ClaimsAllComponent,
+    ClaimDetailsComponent,
+    ClaimsListComponent,
+    YourOpenClaimsComponent,
+    HomebackComponent
   ],
   imports: [
     BrowserModule,

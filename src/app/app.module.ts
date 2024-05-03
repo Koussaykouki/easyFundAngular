@@ -33,6 +33,10 @@ import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.co
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
+import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
+import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
+import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
+import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,12 @@ import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.compone
     HeaderFrontComponent,
     FooterFrontComponent,
     RegisterComponent,
-    LoginfrontComponent
+    LoginfrontComponent,
+    SendresetcodeComponent,
+    ResetPasswordComponent,
+    ResetpasswordfrontComponent,
+    SendresetcodefrontComponent,
+    
     
   ],
   imports: [

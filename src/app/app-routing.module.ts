@@ -15,6 +15,10 @@ import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
+import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
+import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
+import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
+import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
 
 
 const routes: Routes = [
@@ -53,6 +57,14 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginfrontComponent
+      },
+      {
+        path: 'sendcodefront',
+        component: SendresetcodefrontComponent
+      },
+      {
+        path: 'resetpasswordfront',
+        component: ResetpasswordfrontComponent
       }
     ]
   },
@@ -76,7 +88,23 @@ const routes: Routes = [
     path: 'register',
     component: RegistrationComponent
 
+  },
+  {
+    path: 'sendresetcode',
+    component: SendresetcodeComponent
+
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+
   }
+  
   
   
   

@@ -87,4 +87,37 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.table-responsive {
+    max-height: 400px; /* Adjust based on your preference */
+    overflow-y: scroll;
+    overflow-x: scroll; /* Optionally hide horizontal scrollbar if not needed */
+}
+.form-panel {
+    background-color: white;
+    border-radius: 15px;
+    /* Creates the curved edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: adds shadow for 3D effect */
+    width: 1000px;
+    margin: auto;
+    /* Center the panel */
+    padding: 20px;
+    border: 1px solid #0e37db;
+}
 
+
+
+select.form-control {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+
+.readonly-wrapper {
+    cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+    pointer-events: none;
+}

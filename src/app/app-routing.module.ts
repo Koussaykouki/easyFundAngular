@@ -20,11 +20,21 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
 import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
+import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
+import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 const routes: Routes = [
  
   {
     path: 'financingRequest',
     component: FinancingRequestComponent
+  },
+  {
+    path: 'myfinancing',
+    component: MyFinancingsComponent
+  },
+  {
+    path: 'pay',
+    component: StripeComponent
   },
   {
     path: 'devis',
@@ -75,7 +85,19 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
-      }
+      },
+      {
+        path: 'devis',
+        component: DevisExcelComponent
+      },
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
+       
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
+     }
     ]
 
   },

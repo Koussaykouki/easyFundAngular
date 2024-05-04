@@ -39,6 +39,8 @@ import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
 import { DatePipe } from '@angular/common';
+import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
+import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 
 
 @NgModule({
@@ -66,7 +68,9 @@ import { DatePipe } from '@angular/common';
     HomebackComponent,
     OfferDetailsComponent,
     FiancingFrontComponent,
-    DevisExcelComponent
+    DevisExcelComponent,
+    MyFinancingsComponent,
+    StripeComponent
   ],
   imports: [
     BrowserModule,

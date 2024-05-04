@@ -18,6 +18,6 @@ export class OfferDetailsComponent {
   }
   apply(offer:Offer): void {
     this.dialogRef.close(); // Close the popup first if needed
-    this.router.navigate(['/demandFinancing', { offer: JSON.stringify(offer) }]); // Navigate to the offer list route
+    this.router.navigate(['/front/demandFinancing', { offer: JSON.stringify(offer) }]); // Navigate to the offer list route
   }
 }

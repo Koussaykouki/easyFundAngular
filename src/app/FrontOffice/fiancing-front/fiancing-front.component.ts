@@ -32,8 +32,7 @@ export class FiancingFrontComponent  implements OnInit{
     this.financingForm.patchValue({
       startDate :s,
     endDate: f
-
- });
+    });
     this.financingService.add(this.financingForm.value).subscribe(
       {
         next: (data) => {
@@ -42,7 +41,7 @@ export class FiancingFrontComponent  implements OnInit{
         },
         error: (error) => console.error('error adding offer', error)
       });;
-    
+      this.router.navigate(['/myfinancing']);
   }
   //Oninit
   ngOnInit() {
@@ -57,8 +56,9 @@ export class FiancingFrontComponent  implements OnInit{
       offer : this.offer
 
  });
-   // const startDateControl = this.financingForm.get('startDate');
-  
+   const startDateControl = this.financingForm.get('startDate');
+   
+    //var s= this.datePipe.transform(startDateControl, 'yyyy-MM-dd') || '';
     
   }
   calculateAmortizationSchedule(
@@ -137,5 +137,9 @@ export class FiancingFrontComponent  implements OnInit{
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
     const year = date.getFullYear();
     return `${day} ${month} ${year}`;
+  }
+  apply(): void {
+     // Close the popup first if needed
+    this.router.navigate(['/myfinancing']); // Navigate to the offer list route
   }
 }

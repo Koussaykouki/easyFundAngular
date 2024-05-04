@@ -15,8 +15,21 @@ import { HomebackComponent } from './BackOffice/homeback/homeback.component'
 import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
+
+import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
+import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
+import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
+import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
+import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthGuardFront } from './services/authfront.guard';
+import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
+import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
+
+
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
+
 import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
 import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
@@ -25,6 +38,17 @@ import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 const routes: Routes = [
  
   {
+
+    path: '',
+    component: AllTemplateFrontComponent
+  },{
+
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+   
+
     path: 'financingRequest',
     component: FinancingRequestComponent
   },
@@ -51,10 +75,15 @@ const routes: Routes = [
   {
     path: 'offerFront',
     component: OfferComponent
+
   },
   {
     path: 'admin',
     component: AllTemplateBackComponent,
+
+    canActivate: [AuthGuard],
+
+
 
     children: [
       {
@@ -71,10 +100,11 @@ const routes: Routes = [
   {
     path: 'front',
     component: AllTemplateFrontComponent,
+    canActivate: [AuthGuardFront],
     children: [
       {
         path: '',
-        component: RegisterComponent,
+        component: HomefrontComponent,
        
       },
       {
@@ -113,7 +143,30 @@ const routes: Routes = [
     path: 'financings/:id',
     component: FinancingsComponent
 
-  },{
+  },
+  {
+    path: 'sendresetcode',
+    component: SendresetcodeComponent
+
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+
+  },
+  
+  
+  
+  
+
+
+ 
+ {
 
 
     path: 'login',
@@ -125,6 +178,7 @@ const routes: Routes = [
     component: RegistrationComponent
   }
   
+
 
 ];
 

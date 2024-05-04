@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegistrationService, RegisterRequest } from '../../services/registration.service';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   formGroup!: FormGroup;
@@ -12,7 +14,11 @@ export class RegisterComponent {
   submitted = false;
   error = '';
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private registrationService: RegistrationService,
+    private router: Router // Inject Router
+  ) {}
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -21,44 +27,40 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      cin: [''], // No specific validators, adjust as needed
+      cin: [''],
       dateOfBirth: ['', Validators.required],
       salary: ['', [Validators.required, Validators.min(0)]],
       role: ['', Validators.required]
     });
   }
 
-  // Convenience getter for easy access to form fields
   get f() { return this.formGroup.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.formGroup.invalid) {
       return;
     }
 
     this.loading = true;
-    // Logic to handle your form submission goes here.
-    // For example, you could call a service to save the form data.
-    console.log('Form data is valid and can be sent to the server:', this.formGroup.value);
+    const registerRequest: RegisterRequest = this.formGroup.value;
 
-    // Reset loading state and submitted state after the form is processed
-    // For demonstration, just simulate with a timeout
-    setTimeout(() => {
-      this.loading = false;
-      this.submitted = false;
-      // Optionally reset the form or navigate away
-      // this.formGroup.reset();
-      // Navigate to another component or display success message
-      // this.router.navigate(['/success']);
-    }, 2000);
-  }
-
-  handleError(error: any) {
-    this.loading = false;
-    this.error = 'An error occurred';
-    console.error('An error occurred:', error);
+    this.registrationService.register(registerRequest).subscribe(
+      response => {
+        console.log('Registration successful:', response);
+        // Reset form, loading state, and submission state
+        this.formGroup.reset();
+        this.loading = false;
+        this.submitted = false;
+        // Navigate to the loginfront component
+        this.router.navigate(['/loginfront']);
+      },
+      error => {
+        console.error('Registration error:', error);
+        this.loading = false;
+        this.error = 'An error occurred during registration';
+      }
+    );
   }
 }

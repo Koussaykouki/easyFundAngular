@@ -43,7 +43,7 @@ export class SendresetcodefrontComponent implements OnInit {
         // Handle success response
         console.log('Reset code sent successfully.');
         // Redirect to Resetpasswordfront component
-        this.router.navigate(['/front/resetpasswordfront']); // Adjust the route according to your routing configuration
+        this.router.navigate(['/home/resetpasswordfront']); // Adjust the route according to your routing configuration
       },
       (error) => {
         // Handle error response

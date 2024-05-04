@@ -23,6 +23,8 @@ import { AuthGuard } from './services/auth.guard';
 import { AuthGuardFront } from './services/authfront.guard';
 import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
 import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
+import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
+import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
 
 
 const routes: Routes = [
@@ -66,17 +68,12 @@ const routes: Routes = [
        
       },
       {
-        path: 'register',
-        component: RegisterComponent
-      },
-      
-      {
-        path: 'sendcodefront',
-        component: SendresetcodefrontComponent
+        path: 'claimsallfront/:id',
+        component: ClaimsallfrontComponent,
       },
       {
-        path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent
+        path: 'claims',
+        component: ClaimslistfrontComponent,
       }
     ]
   },{
@@ -130,8 +127,8 @@ const routes: Routes = [
 
   },
   {
-    path: 'reset-password',
-    component: ResetPasswordComponent
+    path: 'claimsaa',
+    component: ClaimslistfrontComponent
 
   }
   

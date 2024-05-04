@@ -42,6 +42,9 @@ import { AuthGuardFront } from './services/authfront.guard';
 import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
 import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
 import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
+import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
+import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,8 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     HomefrontComponent,
     AllhomefrontComponent,
     HeaderhomeFrontComponent,
+    ClaimsallfrontComponent,
+    ClaimslistfrontComponent,
     
     
     
@@ -94,6 +99,7 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -1,7 +1,10 @@
-import { Component, OnInit, HostListener , OnDestroy  } from '@angular/core';
+import { Component, OnInit, HostListener , OnDestroy ,Directive , Output, EventEmitter} from '@angular/core';
 import { OfferService } from '../../services/offer.service';
 import { CookieService } from 'ngx-cookie-service';
 import { interval, take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { OfferDetailsComponent } from '../offer-details/offer-details.component';
+
 interface ElementInfo {
   id: string;
   time: number;
@@ -12,13 +15,14 @@ interface ElementInfo {
   styleUrl: './offer.component.css'
 })
 export class OfferComponent implements OnInit ,OnDestroy{
+ 
   offers:any[]=[];
    approved :string='';
   scrollingStartTime: number=0;
   info:ElementInfo[]=[];
   scrol:boolean=false;
   //stored:ElementInfo[]=[];
-  constructor(private cookie:CookieService,private offerservice:OfferService){
+  constructor(private cookie:CookieService,private offerservice:OfferService,private dialog: MatDialog){
     this.approved='ACTIVE';
     this.scrollingStartTime = Date.now();
 
@@ -30,12 +34,15 @@ export class OfferComponent implements OnInit ,OnDestroy{
    console.log(JSON.parse(this.cookie.get('info')));
 
   }
+  
   ngOnDestroy(): void {
-    
+    this.offerservice.test(this.info);
+    console.log('destroyed');
+    this.addElementInfo(this.info);
   }
   ionViewWillLeave(){
-    console.log('page detruit');
-    this.cookie.set('destroy','destroyed');
+    //console.log('page detruit');
+    //this.cookie.set('destroy','destroyed');
     this.addElementInfo(this.info);
   }
     
@@ -80,32 +87,36 @@ export class OfferComponent implements OnInit ,OnDestroy{
     });
     
   }
+  //event listener pour scrolling
   @HostListener('window:scroll', [])
   onScroll(): void {
     if (!this.scrollingStartTime) {
       this.scrollingStartTime = Date.now();
       
     }
+   
      setTimeout(() => {
       
-      this.scrollingStartTime = Date.now();
-      this.addElementInfo(this.info);
-      console.log("L'écran est maintenant fixe.");
-    }, 200);
-    const topElementInfo = this.getTopElementInfo();
+      
+      const topElementInfo = this.getTopElementInfo();
     this.info.push({ id: topElementInfo.id,time:  topElementInfo.time })
     this.info=this.calculateTotalTimes(this.info);
     console.log(this.info);
+    this.addElementInfo(this.info);//envoie de cookies
+      console.log("L'écran est maintenant fixe.");
+    }, 2000);
+    //lazem yarja3 bch nakhedh il interval
+    this.scrollingStartTime = Date.now();
     
-    this.cookie.set('destroy','destroyed');
+    
+    //this.cookie.set('destroy','destroyed');
     
     
     
    // this.cookie.set('info', JSON.stringify(this.info), { expires: 365 });
-    console.log('Top element ID:', topElementInfo.id);
-    console.log('Time at top:', topElementInfo.time);
+    
   }
- 
+      //id in topscrolling + timer
      getTopElementInfo(): ElementInfo {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const elements = document.querySelectorAll('.card'); // Assuming this is the class of your offer elements
@@ -127,7 +138,8 @@ export class OfferComponent implements OnInit ,OnDestroy{
       
 
       const currentTime = Date.now();
-      const timeInSeconds = (currentTime - this.scrollingStartTime) / 1000;
+      //badalta lil minutes bch nsagher il data
+      const timeInSeconds = (currentTime - this.scrollingStartTime) / 60000;
       
       // this.scrollingStartTime =Date.now();
       return { id: topElementId, time:timeInSeconds };
@@ -176,5 +188,11 @@ export class OfferComponent implements OnInit ,OnDestroy{
       }
     
       return result;
+    }
+    openPopup(credit: any) {
+      const dialogRef = this.dialog.open(OfferDetailsComponent, {
+        width: '1200ox',
+        data: credit
+      });
     }
 }

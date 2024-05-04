@@ -30,6 +30,9 @@ import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.c
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
+import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
+import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
+import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 
 const routes: Routes = [
  
@@ -50,6 +53,18 @@ const routes: Routes = [
     path: 'financingRequest',
     component: FinancingRequestComponent
   },
+  {
+    path: 'devis',
+    component: DevisExcelComponent
+  },
+  { path: 'offer-details',
+    component: OfferDetailsComponent, 
+    outlet: 'popup'
+   },
+   
+  { path: 'demandFinancing',
+  component: FiancingFrontComponent
+ },
   {
     path: 'offerFront',
     component: OfferComponent

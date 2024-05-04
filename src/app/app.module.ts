@@ -29,6 +29,17 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
+import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
+import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
+import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '@syncfusion/ej2-angular-spreadsheet';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
+import { DatePipe } from '@angular/common';
+
 
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
@@ -83,7 +94,14 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     ClaimDetailsComponent,
     ClaimsListComponent,
     YourOpenClaimsComponent,
+
+    HomebackComponent,
+    OfferDetailsComponent,
+    FiancingFrontComponent,
+    DevisExcelComponent
+
     HomebackComponent
+
 
   ],
   imports: [
@@ -92,11 +110,18 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule,
+    GridModule,
+    SpreadsheetAllModule
+    
+    
+    
   ],
   providers: [
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

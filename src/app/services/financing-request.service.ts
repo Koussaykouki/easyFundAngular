@@ -23,5 +23,8 @@ export class FinancingRequestService {
  findUser(id:number):Observable<any>{
   return this.http.get(`${this.url}/finduser/${id}`)
  }
+ add(form :any):Observable<any>{
+  return this.http.post(`${this.url}/addfinancing`,form);
+ }
  
 }

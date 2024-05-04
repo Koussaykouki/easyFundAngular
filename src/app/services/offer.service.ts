@@ -39,4 +39,7 @@ export class OfferService {
     return this.http.put(`${this.url}/approve/${id}/${offerStatus}`,{id,offerStatus})
 
   }
+  test(some:any[]){
+    console.log('destroyed :'+some);
+  }
 }

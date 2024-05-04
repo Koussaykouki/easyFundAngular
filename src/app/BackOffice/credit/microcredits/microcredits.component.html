@@ -320,7 +320,7 @@
                 Please select a Credit Status.
               </div>
             </div> -->
-            
+
             <!-- Credit Amount -->
             <div class="col">
               <label for="creditAmmount">Credit Amount<span class="text-danger">*</span></label>
@@ -375,8 +375,9 @@
               <!-- Erase button -->
             </div>
             <div class="col text-right">
-              <button type="submit" class="btn btn-primary" style="margin: 20px;">Submit</button>
-              <button type="button" class="btn btn-danger" (click)="eraseValues()">Erase</button>
+              <!-- Disable the submit button when timerStarted is true -->
+              <button class="btn btn-primary" [disabled]="timerStarted" (click)="onSubmit()">Submit</button>
+              <button type="button" disabled]="timerStarted" class="btn btn-danger" (click)="eraseValues()">Erase</button>
             </div>
           </div>
           <div *ngIf="showSuccessMessage" class="success-message">

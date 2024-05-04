@@ -61,7 +61,6 @@
                   <select class="form-control form-control-lg" id="role" [formControlName]="'role'">
                     <option value="">Select Role</option>
                     <option value="ADMIN">Admin</option>
-                    <option value="USER">User</option>
                     <option value="AGENT">Agent</option>
                   </select>
                 </div>
@@ -72,7 +71,7 @@
                   </button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Sign in</a>
+                  Already have an account? <a routerLink="/login" class="text-primary">Sign in</a>
                 </div>
                 <div class="text-center mt-2 text-danger" *ngIf="error">{{ error }}</div>
               </form>

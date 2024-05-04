@@ -54,7 +54,7 @@ export class RegisterComponent {
         this.loading = false;
         this.submitted = false;
         // Navigate to the loginfront component
-        this.router.navigate(['/loginfront']);
+        this.router.navigate(['/home/login']);
       },
       error => {
         console.error('Registration error:', error);

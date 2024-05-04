@@ -13,7 +13,7 @@
             <table class="table select-table">
               <thead>
                 <tr>
-                  <th>Description</th>
+                  <th>Title</th>
                   <th>Claim Type</th>
                   <th>Created At</th>
                   <th>Actions</th>
@@ -21,7 +21,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let claim of claims">
-                  <td>{{ claim.description }}</td>
+                  <td>{{ claim.title }}</td>
                   <td>{{ claim.claimType }}</td>
                   <td>{{ claim.createdAt | date }}</td>
                   <td>

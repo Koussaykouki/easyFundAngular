@@ -25,6 +25,8 @@ import { AuthGuard } from './services/auth.guard';
 import { AuthGuardFront } from './services/authfront.guard';
 import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
 import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
+import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
+import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
 
 
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
@@ -47,6 +49,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: RegistrationComponent
+  },{
+
    
 
     path: 'financingRequest',
@@ -108,11 +114,28 @@ const routes: Routes = [
        
       },
       {
+        path: 'claimsallfront/:id',
+        component: ClaimsallfrontComponent,
+      },{
         path: 'offerFront',
         component: OfferComponent
        
       },
       {
+
+        path: 'claims',
+        component: ClaimslistfrontComponent,
+      }
+    ]
+  },{
+    path: 'home',
+    component: AllhomefrontComponent,
+   
+    children: [
+      {
+        path: '',
+        component: HomefrontComponent,
+
         path: 'register',
         component: RegisterComponent
       },
@@ -155,8 +178,8 @@ const routes: Routes = [
 
   },
   {
-    path: 'reset-password',
-    component: ResetPasswordComponent
+    path: 'claimsaa',
+    component: ClaimslistfrontComponent
 
   },
   
@@ -164,6 +187,9 @@ const routes: Routes = [
   
   
 
+
+
+  
 
  
  {

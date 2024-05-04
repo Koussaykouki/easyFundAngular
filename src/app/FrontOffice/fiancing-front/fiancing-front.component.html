@@ -7,21 +7,22 @@
   
  <div class="form-panel">
     <form [formGroup]="financingForm" (ngSubmit)="onSubmit()" >
-        <div class="form-group">
+        
             <label>Start Date:</label>
             <input formControlName="dateFinancingRequest" type="date">
-          </div>
+          
           <div class="form-group">
             <label>End Date</label>
             <input formControlName="finalDate" type="date">
           </div>
           
          
-          <button type="submit">Submit</button>
+          <button class="btn btn-sm btn-primary me-1" type="submit">Submit</button>
     </form>
-    <div *ngIf="starDate!== null && endDate!== null" >
-        <button  (click)="calculateAmortizationSchedule(offer.offerPrice,endDate,starDate)">Devis</button>
-      </div>
+   
  </div>  
+ <div *ngIf="starDate!== null && endDate!== null" >
+    <button  (click)="calculateAmortizationSchedule(offer.offerPrice,endDate,starDate)">Devis</button>
+  </div>
 </div> 
 </section>

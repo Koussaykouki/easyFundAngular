@@ -33,7 +33,8 @@ import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-
 import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
 import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
-
+import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
+import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 const routes: Routes = [
  
   {
@@ -46,12 +47,18 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'register',
-    component: RegistrationComponent
-
+   
 
     path: 'financingRequest',
     component: FinancingRequestComponent
+  },
+  {
+    path: 'myfinancing',
+    component: MyFinancingsComponent
+  },
+  {
+    path: 'pay',
+    component: StripeComponent
   },
   {
     path: 'devis',
@@ -109,42 +116,18 @@ const routes: Routes = [
         path: 'register',
         component: RegisterComponent
       },
-      
       {
-        path: 'sendcodefront',
-        component: SendresetcodefrontComponent
+        path: 'devis',
+        component: DevisExcelComponent
       },
-      {
-        path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent
-      }
-    ]
-  },{
-    path: 'home',
-    component: AllhomefrontComponent,
-   
-    children: [
-      {
-        path: '',
-        component: HomefrontComponent,
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
        
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      },{
-        path: 'login',
-        component: LoginfrontComponent
-      },
-      
-      {
-        path: 'sendcodefront',
-        component: SendresetcodefrontComponent
-      },
-      {
-        path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent
-      }
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
+     }
     ]
 
   },
@@ -175,14 +158,15 @@ const routes: Routes = [
     path: 'reset-password',
     component: ResetPasswordComponent
 
-  }
+  },
   
   
   
   
 
 
-  },{
+ 
+ {
 
 
     path: 'login',

@@ -1,0 +1,49 @@
+
+  
+  <div class="container" >
+    <div class="row" >
+      <table class="table" style="background-color: white;">
+        <thead>
+          <tr>
+            <th class="custom-black">financingRequestID</th>
+            <th class="custom-black">Start Date</th>
+            <th class="custom-black">End Date</th>
+            <th class="custom-black">download</th>
+            <th class="custom-black" style="text-align: center;">TypePeriod</th>
+            <th class="custom-black">Start Date</th>
+            <th class="custom-black">Due Date</th>
+            <th class="custom-black">Payed</th>
+            <th class="custom-black">To Pay</th>
+            <th class="custom-black">Rate</th>
+            <th class="custom-black" style="text-align: center;">Status</th>
+            <th class="custom-black" style="text-align: center;">Type</th>
+            <th class="custom-black" style="text-align: center;">Actions</th>
+            <th></th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let financing of financingList">
+            <td>{{ financing.financingRequestId }}</td>
+            <td>{{ financing.dateFinancingRequest }}</td>
+            <td>{{ financing.finalDate }}</td>
+            <td><button class="btn btn-sm btn-warning me-1" (click)="downloadFile(financing.excel)"><i class="bi bi-pen" ></i>download</button></td>
+            <td><button class="btn btn-sm btn-warning me-1" (click)="pay(financing.financingRequestId)"><i class="bi bi-pen" ></i>pay</button></td>
+            <td>
+              <ng-container *ngIf="financing.creditAmomunt !== null; else nullTemplate">
+                {{ financing.creditAmmount }} TND
+              </ng-container>
+              <ng-template #nullTemplate>
+                0 TND
+              </ng-template>
+            </td>
+          
+            <td>
+              <!-- <button class="btn btn-primary" (click)="openPopup(credit)">View</button> -->
+              <button class="btn btn-sm btn-primary me-1" ><i class="bi bi-eye"></i></button>
+              <button class="btn btn-sm btn-warning me-1"><i class="bi bi-pen"></i></button>
+            </td> <!-- Buttons column -->
+            <!-- Add more table data cells as needed -->
+          </tr>
+        </tbody>
+      </table>
+  </div>

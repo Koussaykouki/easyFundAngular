@@ -1,0 +1,63 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc; /* Border style for the popup */
+    border-radius: 10px; /* Border radius for curved edges */
+    overflow: hidden;
+  }
+  
+  .popup-content {
+    width: 50%; /* Adjust width as needed */
+    height: 100%;
+    background-color: #fff; /* White background */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .offer-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .offer-details-content {
+    display: flex;
+  }
+  
+  .card-img-top {
+    width: auto;
+    max-width: 50%; /* Limit image width */
+    height: 100%;
+  }
+  
+  .offer-info {
+    padding-left: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .btn-close {
+    align-self: flex-end; /* Align button to top right */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-close-popup {
+    margin-top: auto; /* Align button to bottom */
+  }
+  .offer-image-container {
+    margin-right: 20px; /* Adjust spacing between image and text */
+    border-radius: 10px; /* Border radius for image container */
+    overflow: hidden; /* Hide overflow content */
+  }

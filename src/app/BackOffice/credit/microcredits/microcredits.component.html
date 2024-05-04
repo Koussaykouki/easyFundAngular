@@ -278,27 +278,27 @@
 
             <!-- Type Period -->
             <div class="col">
-              <label for="typePeriode">Type Period<span class="text-danger">*</span></label>
-              <select class="form-control" formControlName="typePeriode" id="typePeriode" required
-                [ngClass]="{'is-invalid': microcreditForm.get('typePeriode')?.touched && microcreditForm.get('typePeriode')?.invalid}">
-                <option *ngFor="let type of typePeriode" [value]="type">{{ type }}</option>
+              <label for="typePeriod">Type Period<span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="typePeriod" id="typePeriod" required
+                [ngClass]="{'is-invalid': microcreditForm.get('typePeriod')?.touched && microcreditForm.get('typePeriod')?.invalid}">
+                <option *ngFor="let type of typePeriod" [value]="type">{{ type }}</option>
               </select>
               <!-- Add Angular's form validation classes -->
-              <div *ngIf="microcreditForm.get('typePeriode')?.invalid && microcreditForm.get('typePeriode')?.touched"
+              <div *ngIf="microcreditForm.get('typePeriod')?.invalid && microcreditForm.get('typePeriod')?.touched"
                 class="invalid-feedback">
                 Type Period is required.
               </div>
             </div>
-            <input type="text" class="form-control" formControlName="interestRate" id="interestRate" hidden />
           </div>
 
+          <input type="text" class="form-control" formControlName="interestRate" id="interestRate" hidden />
 
           <div class="form-group row">
             <!-- Credit Type -->
             <div class="col">
               <label for="creditType">Credit Type<span class="text-danger">*</span></label>
               <select class="form-control" formControlName="creditType" id="creditType" required
-                [ngClass]="{'is-invalid': microcreditForm.get('creditType')?.touched && microcreditForm.get('creditType')?.invalid}">
+                [ngClass]="{'is-creditType': microcreditForm.get('creditType')?.touched && microcreditForm.get('creditType')?.invalid}">
                 <option *ngFor="let type of creditType" [value]="type">{{ type }}</option>
               </select>
               <!-- Add Angular's form validation classes -->
@@ -309,18 +309,17 @@
             </div>
 
             <!-- Credit Status -->
-            <div class="col">
+            <!-- <div class="col">
               <label for="creditStatus">Credit Status<span class="text-danger">*</span></label>
               <select class="form-control" formControlName="creditStatus" id="creditStatus" required
                 [ngClass]="{'is-invalid': microcreditForm.get('creditStatus')?.touched && microcreditForm.get('creditStatus')?.invalid}">
                 <option *ngFor="let type of creditStatus" [value]="type">{{ type }}</option>
               </select>
-              <!-- Add Angular's form validation classes -->
               <div *ngIf="microcreditForm.get('creditStatus')?.invalid && microcreditForm.get('creditStatus')?.touched"
                 class="invalid-feedback">
                 Please select a Credit Status.
               </div>
-            </div>
+            </div> -->
             
             <!-- Credit Amount -->
             <div class="col">

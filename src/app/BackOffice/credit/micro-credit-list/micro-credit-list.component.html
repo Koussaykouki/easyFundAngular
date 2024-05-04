@@ -235,14 +235,41 @@
       <!-- partial:partials/_sidebar.html -->
       <app-sidebar-back></app-sidebar-back>
       <!-- partial -->
+
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <!-- your-component.component.html -->
             <div class="container form-panel">
-
-              <!-- --------------------------------------------- -->
-              <h1 class="form-header custom-blue" style="margin-bottom: 30px; font-weight: bold;">List of Credits</h1> <!-- Header -->
+              <h1 class="form-header custom-blue" style="margin-bottom: 30px; font-weight: bold;">List of Credits</h1>
+              <!-- Filters -->
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="typePeriodFilter" class="form-label">Type Period</label>
+                  <select class="form-select" id="typePeriodFilter" [(ngModel)]="typePeriodFilter"
+                    (change)="applyFilters()">
+                    <option value="">All</option>
+                    <option *ngFor="let typePeriod of typePeriodOptions" [value]="typePeriod">{{ typePeriod }}</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="creditTypeFilter" class="form-label">Credit Type</label>
+                  <select class="form-select" id="creditTypeFilter" [(ngModel)]="creditTypeFilter"
+                    (change)="applyFilters()">
+                    <option value="">All</option>
+                    <option *ngFor="let creditType of creditTypeOptions" [value]="creditType">{{ creditType }}</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="creditStatusFilter" class="form-label">Credit Status</label>
+                  <select class="form-select" id="creditStatusFilter" [(ngModel)]="creditStatusFilter"
+                    (change)="applyFilters()">
+                    <option value="">All</option>
+                    <option *ngFor="let creditStatus of creditStatusOptions" [value]="creditStatus">{{ creditStatus }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- Table -->
               <table class="table" style="background-color: white;">
                 <thead>
                   <tr>
@@ -259,15 +286,22 @@
                     <th class="custom-black" style="text-align: center;">Status</th>
                     <th class="custom-black" style="text-align: center;">Type</th>
                     <th class="custom-black" style="text-align: center;">Actions</th>
-                    <th></th> 
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let credit of microCredits">
-                    <td>{{ credit.idAccount }}</td>
+                    <td>
+                      <ng-container *ngIf="credit.accountFK; else nullTemplate">
+                        {{ credit.accountFK.accountId }}
+                      </ng-container>
+                      <ng-template #nullTemplate>
+                        N/A
+                      </ng-template>
+                    </td>
                     <td>{{ credit.microCreditId }}</td>
                     <td>
-                      <ng-container *ngIf="credit.creditAmomunt !== null; else nullTemplate">
+                      <ng-container *ngIf="credit.creditAmmount !== null; else nullTemplate">
                         {{ credit.creditAmmount }} TND
                       </ng-container>
                       <ng-template #nullTemplate>
@@ -275,7 +309,7 @@
                       </ng-template>
                     </td>
                     <td style="text-align: center;">{{ credit.period }}</td>
-                    <td style="text-align: center;">{{ credit.typePeriod }}</td>
+                    <td style="text-align: center;">{{ credit.typePeriod}}</td>
                     <td style="text-align: center;">{{ credit.startDate }}</td>
                     <td>{{ credit.dueDate }}</td>
                     <td>
@@ -295,13 +329,15 @@
                       </ng-template>
                     </td>
                     <td>{{ credit.interestRate }} %</td>
-                    <td>{{ credit.creditstatus }}</td>
+                    <td>{{ credit.creditStatus }}</td>
                     <td>{{ credit.creditType }}</td>
                     <td>
-                      <!-- <button class="btn btn-primary" (click)="openPopup(credit)">View</button> -->
-                      <button class="btn btn-sm btn-success" (click)="downloadCreditExcel(credit)"><i class="bi bi-download"></i></button>
-                      <button class="btn btn-sm btn-primary me-1" (click)="openPopup(credit)"><i class="bi bi-eye"></i></button>
-                      <button class="btn btn-sm btn-warning me-1"><i class="bi bi-pen"></i></button>
+                      <button class="btn btn-sm btn-success" (click)="downloadCreditExcel(credit)"><i
+                          class="bi bi-download"></i></button>
+                      <button class="btn btn-sm btn-primary me-1" (click)="openPopup(credit)"><i
+                          class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-warning me-1" (click)="openEditCreditStatusDialog(credit)"><i
+                          class="bi bi-pen"></i></button>
                       <button class="btn btn-sm btn-danger" (click)="deleteCredit(credit.microCreditId)"><i
                           class="bi bi-trash"></i></button>
                     </td> <!-- Buttons column -->
@@ -309,17 +345,17 @@
                   </tr>
                 </tbody>
               </table>
-
-
-              <!-- ----------------------- -->
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <app-footer-back></app-footer-back>
-        <!-- partial -->
+      <app-footer-back></app-footer-back>
       </div>
+
+
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <!-- partial -->
+
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->

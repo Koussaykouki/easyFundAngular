@@ -17,10 +17,11 @@ import {MessageService} from 'primeng/api';
 export class MicrocreditsComponent implements OnInit {
   show: boolean = false;
   microCredits: any[] = [];
-
+  accountFK: any;
+  
   creditStatus: string[] = [];
   creditType: string[] = [];
-  typePeriode: string[] = [];
+  typePeriod: string[] = [];
   
   guarantorFile: File[] = [];
   showSuccessMessage: boolean = false;
@@ -28,7 +29,7 @@ export class MicrocreditsComponent implements OnInit {
 
   defaultCreditStatus = 'OPEN';
   defaultCreditType = 'MICROCREDIT';
-  defaultPeriodeType = 'Monthly';
+  defaultPeriodType = 'Monthly';
 
   microcreditForm: FormGroup = this.fb.group({
     startDate: ['',Validators.required],
@@ -36,14 +37,16 @@ export class MicrocreditsComponent implements OnInit {
 
     period: [12,''],
     interestRate: ['',],
-
     creditStatus: [this.defaultCreditStatus,''],
     creditType: [this.defaultCreditType, ''],
-    typePeriode: [this.defaultPeriodeType,''],
+    typePeriod: [this.defaultPeriodType,''],
 
     creditAmmount: ['', [Validators.required, Validators.min(100), Validators.max(40000)]],
+    payedAmount: ['',],
+
     cinGuarantor: [''],
-    guarantorFile: [,'']
+    guarantorFile: [,''],
+    accountFK: [,'']
   });
 
   constructor(private fb: FormBuilder, private microcreditservice: MicroCreditService, private router: Router
@@ -51,7 +54,7 @@ export class MicrocreditsComponent implements OnInit {
    ) {
     this.creditStatus = ['OPEN', 'ACCEPTED', 'INPROGRESS', 'REFUSED', 'CLOSED', 'ARCHIVED'];
     this.creditType = ['MICROCREDIT', 'MICROLEASING'];
-    this.typePeriode = ['Monthly', 'Quarterly', 'Half_Yearly', 'Yearly'];
+    this.typePeriod = ['Monthly', 'Quarterly', 'Half_Yearly', 'Yearly'];
   }
 
   
@@ -109,7 +112,7 @@ export class MicrocreditsComponent implements OnInit {
     
           if (this.countdown === 0) {
             clearInterval(countdownInterval);
-            this.router.navigate(['/']); // Replace 'your-redirect-route' with your actual route
+            this.router.navigate(['/admin/getAllMicroCredits']); // Replace 'your-redirect-route' with your actual route
           }
             }, 1000);    
             }
@@ -173,4 +176,24 @@ export class MicrocreditsComponent implements OnInit {
     this.microcreditForm.reset();
   }
 
+
+  openEditForm(credit: any) {
+    this.show = true; // Assuming `this.show` controls the visibility of the form
+    // Here you can populate the form fields with the credit details
+    this.microcreditForm.patchValue({
+      // Assuming these are your form controls, adjust accordingly if they are different
+      startDate: credit.startDate,
+      dueDate: credit.dueDate,
+      period: credit.period,
+      interestRate: credit.interestRate,
+      creditStatus: credit.creditStatus,
+      creditType: credit.creditType,
+      typePeriod: credit.typePeriod,
+      creditAmmount: credit.creditAmmount,
+      cinGuarantor: credit.cinGuarantor
+      // You may need to handle guarantorFile separately if it's a file input
+    });
+  }
+
+  
 }

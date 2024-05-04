@@ -1,6 +1,6 @@
 .popup-container {
-    width: 1000px; /* Adjust width as needed */
-    height: 500px; /* Adjust height as needed */
+    width: 2000px; /* Adjust width as needed */
+    height: 900px; /* Adjust height as needed */
     background-color: white; /* Optionally, you can set a background color */
     border: 1px solid #ccc; /* Optionally, add border for better visibility */
     border-radius: 5px; /* Optionally, add border-radius for rounded corners */
@@ -14,26 +14,31 @@
     height: 100%; /* Ensure popup content stretches to fill the container */
 }
 
-h2 strong {
-    color: #8D8D8D; /* Set color to #1F3BB2 */
-    font-size: 42px; /* Increase font size */    
+h1{
+  color: #1F3BB2;
+  font-size: 40px;
 }
 
-.details-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 40px; /* Add spacing below the details container */
+h2{
+  color: #1F3BB2;
+  font-size: 28px;
 }
 
-.details-container p {
-    margin-right: 40px; /* Adjust as needed */
-    font-size: 26px; /* Set font size */
+
+label {
+  color: gray;
 }
 
-.details-container strong {
-    color: #1F3BB2; /* Set color to #1F3BB2 */
+input[type="text"] {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-weight: bold;
 }
+
+
 
 
 .close-button {
@@ -47,9 +52,100 @@ h2 strong {
 
 .close-button i {
   font-size: 1.5rem;
-  color: #333; /* Adjust color as needed */
+  color: #333;
 }
 
 .close-button:hover i {
-  color: red; /* Adjust hover color as needed */
+  color: red;
 }
+
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.form-panel {
+    background-color: white;
+    border-radius: 15px;
+    width: 1000px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #0e37db;
+}
+
+.select.form-control {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.success-message p {
+    margin: 0;
+}
+
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+/* 
+h2 strong {
+    color: #8D8D8D; 
+    font-size: 42px;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.details-container p {
+    margin-right: 40px; 
+    font-size: 26px;
+}
+
+.details-container strong {
+    color: #1F3BB2; 
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.close-button i {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.close-button:hover i {
+  color: red;
+} */

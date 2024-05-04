@@ -46,3 +46,10 @@
   }
 
   
+
+  /* Styling for the filter labels */
+.form-label {
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+  margin-bottom: 0.5rem; /* Adjust margin as needed */
+}

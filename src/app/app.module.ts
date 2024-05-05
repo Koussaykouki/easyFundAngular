@@ -19,16 +19,25 @@ import { RegistrationComponent } from './BackOffice/registration/registration.co
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
-import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
-import { RegisterComponent } from './FrontOffice/register/register.component';
 
 import { AuthInterceptor } from './services/auth.interceptor';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
-import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { HomebackComponent } from './BackOffice/homeback/homeback.component';
+import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
+import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
+import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '@syncfusion/ej2-angular-spreadsheet';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
+import { DatePipe } from '@angular/common';
+import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
+import { StripeComponent } from './FrontOffice/stripe/stripe.component';
+
 
 
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
@@ -43,7 +52,10 @@ import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.c
 import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
 import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
 import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
-import { DatePipe } from '@angular/common';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 
 
 @NgModule({
@@ -64,7 +76,6 @@ import { DatePipe } from '@angular/common';
     HeaderFrontComponent,
     FooterFrontComponent,
     RegisterComponent,
-
     LoginfrontComponent,
     SendresetcodeComponent,
     ResetPasswordComponent,
@@ -85,7 +96,17 @@ import { DatePipe } from '@angular/common';
     ClaimDetailsComponent,
     ClaimsListComponent,
     YourOpenClaimsComponent,
-    HomebackComponent
+
+    HomebackComponent,
+    OfferDetailsComponent,
+    FiancingFrontComponent,
+
+    DevisExcelComponent,
+    MyFinancingsComponent,
+    StripeComponent,
+
+   
+
 
   ],
   imports: [
@@ -94,7 +115,15 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+
+    
+
+    NgbModule,
+    MatDialogModule,
+    GridModule,
+    SpreadsheetAllModule
+    
+    
     
   ],
   providers: [

@@ -32,7 +32,11 @@ import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimsli
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
-
+import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
+import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
+import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
+import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
+import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 const routes: Routes = [
  
   {
@@ -51,6 +55,26 @@ const routes: Routes = [
 
     path: 'financingRequest',
     component: FinancingRequestComponent
+  },
+  {
+    path: 'myfinancing',
+    component: MyFinancingsComponent
+  },
+  {
+    path: 'pay',
+    component: StripeComponent
+  },
+  {
+    path: 'devis',
+    component: DevisExcelComponent
+  },
+  { path: 'offer-details',
+    component: OfferDetailsComponent, 
+    outlet: 'popup'
+   },
+   
+  { path: 'demandFinancing',
+  component: FiancingFrontComponent
   },
   {
     path: 'offerFront',
@@ -113,18 +137,26 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
-      },{
-        path: 'login',
-        component: LoginfrontComponent
       },
       
+      {
+        path: 'devis',
+        component: DevisExcelComponent
+      },
       {
         path: 'sendcodefront',
         component: SendresetcodefrontComponent
       },
       {
         path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent
+        component: ResetpasswordfrontComponent},
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
+       
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
       }
     ]
 
@@ -156,14 +188,28 @@ const routes: Routes = [
     path: 'claimsaa',
     component: ClaimslistfrontComponent
 
+  },
+  
+  
+  
+  
+  
+
+
+  
+
+ 
+ {
+
+
+    path: 'login',
+    component: LoginComponent
   }
-  
-  
-  
-  
-
-
-  
+  ,
+  {
+    path: 'register',
+    component: RegistrationComponent
+  }
   
 
 

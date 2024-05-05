@@ -39,10 +39,7 @@ import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 
 
-import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
-import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
-import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
-import { RegisterComponent } from './FrontOffice/register/register.component';
+
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
 import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
 import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
@@ -53,6 +50,12 @@ import { AuthGuardFront } from './services/authfront.guard';
 import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
 import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
 import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
+import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
+import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 
 
 @NgModule({
@@ -73,7 +76,6 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     HeaderFrontComponent,
     FooterFrontComponent,
     RegisterComponent,
-
     LoginfrontComponent,
     SendresetcodeComponent,
     ResetPasswordComponent,
@@ -82,6 +84,8 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     HomefrontComponent,
     AllhomefrontComponent,
     HeaderhomeFrontComponent,
+    ClaimsallfrontComponent,
+    ClaimslistfrontComponent,
     
     
     
@@ -111,6 +115,9 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    
+
     NgbModule,
     MatDialogModule,
     GridModule,
@@ -121,8 +128,13 @@ import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerh
   ],
   providers: [
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    DatePipe
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+
+   
   ],
   bootstrap: [AppComponent]
 })

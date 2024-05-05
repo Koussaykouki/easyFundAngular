@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService, RegisterRequest } from '../../services/registration.service';
-import { Router } from '@angular/router'; // Import Router
+import { NavigationEnd, Router } from '@angular/router'; // Import Router
+import { PageViewService } from '../../services/page-view.service';
 
 @Component({
   selector: 'app-register',
@@ -17,10 +18,18 @@ export class RegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private registrationService: RegistrationService,
-    private router: Router // Inject Router
+    private router: Router, // Inject Router
+    private PageViewService:PageViewService
   ) {}
 
   ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.PageViewService.logPageView().subscribe(response => {
+          console.log('Page view logged:', response);
+        });
+      }
+    });
     this.formGroup = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -54,7 +63,7 @@ export class RegisterComponent {
         this.loading = false;
         this.submitted = false;
         // Navigate to the loginfront component
-        this.router.navigate(['/loginfront']);
+        this.router.navigate(['/home/login']);
       },
       error => {
         console.error('Registration error:', error);

@@ -1,0 +1,88 @@
+<div class="sub-header p-relative">
+    <div class="overlay overlay-bg-black"></div>
+    <div class="pattern"></div>
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sub-header-content p-relative">
+                        <h1 class="text-custom-white lh-default fw-600">Claim thread</h1>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Subheader -->
+<!-- Start Blog -->
+<section class="section-padding bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog-detail padding-20">
+                    <!-- article -->
+                    <article class="post">
+                        <div class="post-wrapper">
+                            <div class="blog-meta" *ngIf="claim$ | async as claim">
+                                <h5 class="text-custom-black fw-600">{{ claim.title }}</h5>
+                                <p class="text-light-white">{{ claim.description }}</p>
+                                <p class="text-light-white no-margin">Created At: {{ claim.createdAt | date: 'medium' }}</p>
+                                <div class="btn-group mt-3" *ngIf="claim.claimStatus !== 'CLOSED'">
+                                    <button type="button" (click)="closeClaim()" class="btn-first btn-submit text-light-blue mr-2">Close Claim</button>
+                                    <button type="button" (click)="deleteClaim()" class="btn-first btn-submit text-light-blue">Delete Claim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- article -->
+                    <hr>
+                    <!-- tags & social -->
+                    <div class="post-details-tags-social"></div>
+                    <!-- tags & social -->
+                    <hr class="mt-0">
+                    <!-- comments -->
+                    <div class="comment-box section-padding-top p-relative" *ngIf="claim$ | async as claim">
+                        <div id="comment-box">
+                            <h4 class="text-custom-black fw-600">Responses</h4>
+                            <ul class="comments">
+                                <li class="comment" *ngFor="let reply of replies$ | async">
+                                    <article>
+                                        <div class="comment-content">
+                                            <div class="comment-meta">
+                                                <div class="comment-meta-header">
+                                                    <div class="post-date">
+                                                        <a href="#" class="date text-custom-white">{{ reply.createdAt | date: 'MMM dd, yyyy' }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comment">
+                                                <p class="text-light-white">{{ reply.message }}</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>
+                            </ul>
+                            <!-- Comment Reply Form -->
+                            <div class="comment-respond" id="respond" *ngIf="claim.claimStatus !== 'CLOSED'">
+                                <h4 class="text-custom-black fw-600">Reply</h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="text-custom-black fw-600 fs-14">Comment</label>
+                                                <textarea rows="4" name="replyMessage" [(ngModel)]="replyMessage" class="form-control form-control-custom" placeholder="Comment"></textarea>
+                                            </div>
+                                            <button type="button" (click)="submitReply()" class="btn-first btn-submit text-light-blue">Leave Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- comments -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

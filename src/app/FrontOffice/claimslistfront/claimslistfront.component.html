@@ -1,0 +1,71 @@
+<div class="sub-header p-relative">
+    <div class="overlay overlay-bg-black"></div>
+    <div class="pattern"></div>
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sub-header-content p-relative">
+                        <h1 class="text-custom-white lh-default fw-600">Your claims</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Subheader -->
+<!-- Start Blog -->
+<section class="section-padding bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog-detail padding-20">
+                    <!-- article -->
+                    <!-- article -->
+                    <!-- tags & social -->
+                    <div class="post-details-tags-social">
+                    </div>
+                    <!-- tags & social -->
+                    <hr class="mt-0">
+                    <!-- post pagination -->
+                    <!-- post pagination -->
+                    <!-- comments -->
+                    <div class="comment-box section-padding-top p-relative">
+                        <div id="comment-box">
+                            <ul class="comments">
+                                <li class="comment" *ngFor="let claim of claims$ | async">
+                                    <article>
+                                        <div class="comment-content">
+                                            <div class="comment-meta">
+                                                <div class="comment-meta-header">
+                                                    <h5 class="text-custom-black fw-600 author mb-3">{{ claim.title }}</h5>
+                                                    <div class="post-date">
+                                                        <a href="blog-single.html" class="date text-custom-white">{{ claim.createdAt | date: 'MMM dd, yyyy' }}</a>
+                                                    </div>
+                                                    <!-- Add status section -->
+                                                    <div class="status">
+                                                        <span class="text-light-white">{{ claim.claimStatus }}</span>
+                                                    </div>
+                                                    <!-- End status section -->
+                                                </div>
+                                                <div class="comment-meta-reply">
+                                                    <a [routerLink]="['/front/claimsallfront', claim.claimId]" class="comment-reply-link btn-first btn-submit text-light-blue">
+                                                        <i class="fas fa-reply"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="comment">
+                                                <p class="text-light-white">{{ claim.description }}</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- comments -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

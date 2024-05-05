@@ -39,6 +39,9 @@ export class ClaimService {
   getClaimsAssignedToAgent(): Observable<any> {
     return this.http.get(`${this.apiUrl}/assigned-to-agent`);
   }
+  getClaimsAssignedToUser(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/assigned-to-user`);
+  }
 
   takeClaim(claimId: number): Observable<any> {
     return this.http.post(`${this.apiUrl}/${claimId}/take`, null).pipe(
@@ -46,6 +49,9 @@ export class ClaimService {
         this.claimResolvedSource.next();
       })
     );
+  }
+  closeClaim(claimId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${claimId}/close`, null);
   }
 
   // Replies methods

@@ -25,6 +25,8 @@ import { AuthGuard } from './services/auth.guard';
 import { AuthGuardFront } from './services/authfront.guard';
 import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
 import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
+import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
+import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
 
 
 import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
@@ -47,6 +49,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: RegistrationComponent
+  },{
+
    
 
     path: 'financingRequest',
@@ -71,7 +77,9 @@ const routes: Routes = [
    
   { path: 'demandFinancing',
   component: FiancingFrontComponent
+
  },
+
   {
     path: 'offerFront',
     component: OfferComponent
@@ -108,15 +116,18 @@ const routes: Routes = [
        
       },
       {
+        path: 'claimsallfront/:id',
+        component: ClaimsallfrontComponent,
+      },{
         path: 'offerFront',
         component: OfferComponent
        
       },
       {
-        path: 'register',
-        component: RegisterComponent
-      },
-      {
+
+        path: 'claims',
+        component: ClaimslistfrontComponent,
+      },{
         path: 'devis',
         component: DevisExcelComponent
       },
@@ -128,6 +139,52 @@ const routes: Routes = [
       { path: 'demandFinancing',
       component: FiancingFrontComponent
      }
+    ]
+  },{
+    path: 'home',
+    component: AllhomefrontComponent,
+   
+    children: [
+      {
+        path: '',
+        component: HomefrontComponent,
+      },{
+
+        path: 'register',
+        component: RegisterComponent
+
+      },
+      {
+        path:'login',
+        component:LoginfrontComponent
+
+      },
+      {
+        path: 'devis',
+        component: DevisExcelComponent
+
+      },
+      {
+        path: 'sendcodefront',
+        component: SendresetcodefrontComponent
+      },
+      {
+        path: 'resetpasswordfront',
+        component: ResetpasswordfrontComponent},
+
+      },
+
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
+       
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
+      }
+
+     
+
     ]
 
   },
@@ -155,15 +212,19 @@ const routes: Routes = [
 
   },
   {
-    path: 'reset-password',
-    component: ResetPasswordComponent
+    path: 'claimsaa',
+    component: ClaimslistfrontComponent
 
   },
+
   
   
   
   
 
+
+
+  
 
  
  {

@@ -2,10 +2,12 @@ import { Component, OnInit, HostListener , OnDestroy ,Directive , Output, EventE
 import { OfferService } from '../../services/offer.service';
 import { CookieService } from 'ngx-cookie-service';
 import { interval, take } from 'rxjs';
+
 import { PageViewService } from '../../services/page-view.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { OfferDetailsComponent } from '../offer-details/offer-details.component';
 import { MatDialog } from '@angular/material/dialog';
+
 interface ElementInfo {
   id: string;
   time: number;
@@ -23,7 +25,9 @@ export class OfferComponent implements OnInit ,OnDestroy{
   info:ElementInfo[]=[];
   scrol:boolean=false;
   //stored:ElementInfo[]=[];
+
   constructor(private cookie:CookieService,private offerservice:OfferService,private PageViewService:PageViewService,private router:Router,private dialog:MatDialog){
+
     this.approved='ACTIVE';
     this.scrollingStartTime = Date.now();
 

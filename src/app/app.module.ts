@@ -133,6 +133,8 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
     ReactiveFormsModule,
     DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+
+   
   ],
   bootstrap: [AppComponent]
 })

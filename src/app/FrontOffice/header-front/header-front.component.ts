@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header-front',
@@ -19,6 +19,10 @@ export class HeaderFrontComponent {
     localStorage.removeItem('refreshToken');
     // Redirect to login page
     this.router.navigate(['/home/login']);
+  }
+  @HostListener('window:scroll', [])
+  onScroll():void{
+    console.log('scrolling header');
   }
 
 }

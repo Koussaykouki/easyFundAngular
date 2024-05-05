@@ -56,6 +56,7 @@ import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.co
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
     DevisExcelComponent,
     MyFinancingsComponent,
     StripeComponent,
+    PerformanceLineChartComponent,
 
    
 

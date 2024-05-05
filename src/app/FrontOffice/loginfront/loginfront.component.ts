@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { LoginService, AuthenticationRequest } from '../../services/login.service';
+import { PageViewService } from '../../services/page-view.service';
 
 @Component({
   selector: 'app-loginfront',
@@ -17,10 +18,19 @@ export class LoginfrontComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private PageViewService : PageViewService
   ) { }
+  
 
   ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.PageViewService.logPageView().subscribe(response => {
+          console.log('Page view logged:', response);
+        });
+      }
+    });
     this.formGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]

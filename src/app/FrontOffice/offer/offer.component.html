@@ -1,38 +1,44 @@
-<section class="section-padding-bottom user-info-details">
-  <div class="container">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Recherche..." (input)="onSearch($event)">
-      </div>
-    <h1>Liste des offres</h1>
-    <div class="row">
-      <div class="col-md-4" *ngFor="let offer of offers">
-        <div class="card" [attr.id]="offer.offreId">
-          <img class="card-img-top" [src]=" offer.offerImage" alt="Offer Image">
-          <div class="card-body" >
-            <h5 class="card-title">{{ offer.offerPrice | currency }}</h5>
-            <p class="card-text">{{ offer.offerDescription }}</p>
-            <a href="#" class="btn btn-primary">Plus d'infos</a>
+
+        
+
+  <section class="contact-area section-padding-bottom" >
+    <div class="container">
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Recherche..." (input)="onSearch($event)">
+        </div>
+      <h1>Liste des offres</h1>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let offer of offers">
+          <div class="card" [attr.id]="offer.offreId">
+            <img class="card-img-top" [src]=" offer.offerImage" alt="Offer Image">
+            <div class="card-body" >
+              <h5 class="card-title">{{ offer.offerPrice | currency }}</h5>
+              <p class="card-text">{{ offer.offerDescription }}</p>
+              <button class="btn btn-sm btn-primary me-1" (click)="openPopup(offer)">Deatils<i class="bi bi-eye"></i></button>
+              
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  
+    <!-- Angular et dépendances -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.3.5/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.15.0/minified.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.11.4/zone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.13/Reflect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.10.3/system.min.js"></script>
+  
+    <!-- Angular Framework -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/core.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/common.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/compiler.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/platform-browser.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/platform-browser-dynamic.umd.min.js"></script>
   
 
-  <!-- Angular et dépendances -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.3.5/typescript.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.15.0/minified.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.11.4/zone.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.13/Reflect.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.10.3/system.min.js"></script>
-
-  <!-- Angular Framework -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/core.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/common.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/compiler.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/platform-browser.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular/12.2.0-rc.0/platform-browser-dynamic.umd.min.js"></script>
 
   <!-- Votre script Angular -->
 

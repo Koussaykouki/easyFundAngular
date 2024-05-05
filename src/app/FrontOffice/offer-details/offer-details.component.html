@@ -1,0 +1,21 @@
+<div class="popup-container">
+    <div class="popup-content">
+      <div class="offer-details">
+        <h2>Détails de l'offre</h2>
+        <button type="button" class="btn-close"  aria-label="Close" (click)="closePopup()"></button>
+        <div class="offer-details-content">
+            
+          <img class="card-img-top" [src]="data.offerImage" alt="Offer Image">
+          <div class="offer-info">
+            <p><strong>Price:</strong> {{ data.offerPrice | currency }}</p>
+            <p><strong>Description:</strong>{{ data.offerDescription }}</p>
+            <button class="btn btn-primary" (click)="apply(data)">Request financing</button>
+
+            <!-- Additional offer details -->
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

@@ -40,7 +40,29 @@
               "src/styles.css",
               "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/FrontOffice/assets/js/jquery.min.js",
+              "src/assets/FrontOffice/assets/js/popper.min.js",
+              "src/assets/FrontOffice/assets/js/bootstrap.min.js",
+              "src/assets/FrontOffice/assets/js/ion.rangeSlider.min.js",
+              "src/assets/FrontOffice/assets/js/slick.min.js",
+              "src/assets/FrontOffice/assets/js/datepicker.js",
+              "src/assets/FrontOffice/assets/js/datepicker.en.js",
+              "src/assets/FrontOffice/assets/js/jquery.nice-select.js",
+              "src/assets/FrontOffice/assets/js/jquery-steps.js",
+              "src/assets/FrontOffice/assets/js/particles.js",
+              "src/assets/FrontOffice/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/FrontOffice/assets/js/isotope.pkgd.min.js",
+              "src/assets/FrontOffice/assets/js/wow.min.js",
+              "src/assets/FrontOffice/assets/js/custom.js",
+              "src/assets/FrontOffice/assets/js/jquery.validate.min.js",
+              "src/assets/FrontOffice/assets/js/form.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/typescript/4.3.5/typescript.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/core-js/3.15.0/minified.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.11.4/zone.min.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.13/Reflect.js",
+              "https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.10.3/system.min.js"
+            ]
           },
           "configurations": {
             "production": {

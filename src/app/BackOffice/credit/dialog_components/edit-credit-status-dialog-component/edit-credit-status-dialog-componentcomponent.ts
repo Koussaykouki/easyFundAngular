@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MicroCreditService } from '../../../services/microcredit.service';
+import { MicroCreditService } from '../../../../services/microcredit.service';
 
 @Component({
   selector: 'app-edit-credit-status-dialog-component',

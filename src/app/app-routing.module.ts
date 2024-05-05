@@ -11,7 +11,8 @@ import { RegistrationComponent } from './BackOffice/registration/registration.co
 import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
 import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
 import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
-
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -61,7 +62,11 @@ const routes: Routes = [
     path: 'admin/getAllMicroCredits',
     component: MicroCreditListComponent
   },
-  
+  {
+    path: 'admin/simulator',
+    component: LoanCalculatorComponent
+  }
+
 ];
 
 @NgModule({

@@ -348,8 +348,8 @@
             </div>
 
             <div class="col">
-              <div class="form-group row">
-                <input type="file" class="form-control-file" formControlName="guarantorFile" id="guarantorFile" />
+              <div>
+                <input cFormControl id="formFileLg" sizing="lg" type="file" />
               </div>
               <!-- in app.component.html -->
               <!-- <ngx-dropzone (change)="onSelect($event)">
@@ -375,9 +375,8 @@
               <!-- Erase button -->
             </div>
             <div class="col text-right">
-              <!-- Disable the submit button when timerStarted is true -->
-              <button class="btn btn-primary" [disabled]="timerStarted" (click)="onSubmit()">Submit</button>
-              <button type="button" disabled]="timerStarted" class="btn btn-danger" (click)="eraseValues()">Erase</button>
+              <button type="submit" class="btn btn-primary" style="margin: 20px;">Submit</button>
+              <button type="button" class="btn btn-danger" (click)="eraseValues()">Erase</button>
             </div>
           </div>
           <div *ngIf="showSuccessMessage" class="success-message">

@@ -16,15 +16,13 @@ import {MessageService} from 'primeng/api';
 })
 export class MicrocreditsComponent implements OnInit {
   show: boolean = false;
-  timerStarted: boolean = false; // Flag to track whether the timer has started
-
   microCredits: any[] = [];
   accountFK: any;
-  
+
   creditStatus: string[] = [];
   creditType: string[] = [];
   typePeriod: string[] = [];
-  
+
   guarantorFile: File[] = [];
   showSuccessMessage: boolean = false;
   countdown: number = 5;
@@ -52,19 +50,19 @@ export class MicrocreditsComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private microcreditservice: MicroCreditService, private router: Router
-             
+
    ) {
     this.creditStatus = ['OPEN', 'ACCEPTED', 'INPROGRESS', 'REFUSED', 'CLOSED', 'ARCHIVED'];
     this.creditType = ['MICROCREDIT', 'MICROLEASING'];
     this.typePeriod = ['Monthly', 'Quarterly', 'Half_Yearly', 'Yearly'];
   }
 
-  
+
   onSelect(event: { addedFiles: any; }) {
     console.log(event);
     this.guarantorFile.push(...event.addedFiles);
   }
-  
+
   // onRemove(event: File) {
   //   console.log(event);
   //   this.guarantorFile.splice(this.guarantorFile.indexOf(event), 1);
@@ -90,37 +88,57 @@ export class MicrocreditsComponent implements OnInit {
   //       });
   //   }
   // }
-  
+
   onSubmit() {
     console.log('Form Valid:', this.microcreditForm.valid);
     console.log('Form Control Validity:', this.microcreditForm.controls);
     console.log('Form Control Values:', this.microcreditForm.value);
-  
+
     if (this.microcreditForm.invalid) {
       alert('Form is invalid');
       return;
     }
-  
     console.log('Microcredit form is valid..');
     this.microcreditservice.addMicroCredit(this.microcreditForm.value).subscribe({
       next: (data) => {
+
         console.log('Microcredit submitted successfully', data);
+
         // Show the success message
         this.showSuccessMessage = true;
-        // Set timerStarted to true when the submission is successful
-        this.timerStarted = true;
-  
-        const countdownInterval = setInterval(() => {
+
+          const countdownInterval = setInterval(() => {
           this.countdown--;
+
           if (this.countdown === 0) {
             clearInterval(countdownInterval);
             this.router.navigate(['/admin/getAllMicroCredits']); // Replace 'your-redirect-route' with your actual route
           }
-        }, 1000);    
-      },
-      error: (error) => console.error('Error submitting Microcredit', error)
-    });
+            }, 1000);
+            }
+          }
+        )
+      // console.log('microcredit form is valid..')
+      // this.microcreditservice.addMicroCredit(formData).subscribe({
+      //   next: (data) => {
+      //     console.log('Microcredit submitted successfully', data);
+      //     // this.eraseValues();
+      //   },
+      //   error: (error) => console.error('Error submitting Microcredit', error)
+      // });
   }
+
+  delete(id: number) {
+    console.log("here")
+    this.microcreditservice.deleteCredit(id).subscribe({
+      next: (data) => {
+        console.log('microCredit deleted', data);
+      },
+      error: (error) => console.error('Error deleting MicroCredit', error)
+    });
+    // this.microCredits = this.microCredits.filter(Microcredit => Microcredit.microCreditId !== id);
+  }
+
 
 
   openPopup() {
@@ -177,5 +195,5 @@ export class MicrocreditsComponent implements OnInit {
     });
   }
 
-  
+
 }

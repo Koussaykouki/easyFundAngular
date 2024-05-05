@@ -15,9 +15,18 @@ export class MicroCreditService {
   showAllCredits(): Observable<any> {
     return this.http.get(`${this.url}/getAllCredits`)
   }
+
   creditByStaus(status: string): Observable<any> {
     return this.http.get(`${this.url}/getCreditsByStatus/${status}`)
   }
+
+  updateCreditStatus(id: number, status: string) {
+    const body = {  // Define the body object with status property
+      status: status
+    }
+    return this.http.put(`${this.url}/updateCreditStatus/${id}/${status}`, body);
+  }
+
   deleteCredit(id: number): Observable<any> {
     let httpheaders = new HttpHeaders()
       .set('Content-type', 'application/Json');

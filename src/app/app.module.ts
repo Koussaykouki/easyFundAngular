@@ -37,6 +37,52 @@ import { DropzoneMaterialModule } from '@ngx-dropzone/material';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { MessagesModule } from 'primeng/messages';
+import { EditCreditStatusDialogComponentcomponent } from './BackOffice/credit/dialog_components/edit-credit-status-dialog-component/edit-credit-status-dialog-componentcomponent';
+
+
+import { NumericTextBoxModule, SliderModule } from '@syncfusion/ej2-angular-inputs';
+import { RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { AccumulationChartModule, ChartModule } from '@syncfusion/ej2-angular-charts';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { TreeGridModule } from '@syncfusion/ej2-angular-treegrid';
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { GridAppComponent } from './BackOffice/credit/loan-calculator/grid-app/grid-app.component';
+import { BarChartComponentComponent } from './BackOffice/credit/loan-calculator/bar-chart-component/bar-chart-component.component';
+import { HomeComponent } from './BackOffice/credit/loan-calculator/home/home.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
+import { InputComponent } from './BackOffice/credit/loan-calculator/home/input/input.component';
+import { StatementComponent } from './BackOffice/credit/loan-calculator/statement/statement.component';
+import { BarChartComponent } from './BackOffice/credit/loan-calculator/bar-chart/bar-chart.component';
+import { DataService } from './BackOffice/credit/loan-calculator/data-service';
+import { MatIconModule } from '@angular/material/icon';
+
+import { NgxBootstrapIconsModule, alarm, alarmFill, alignBottom } from 'ngx-bootstrap-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { DOCUMENT, NgStyle } from '@angular/common';
+import { Component, DestroyRef, effect, inject, OnInit, Renderer2, signal, WritableSignal } from '@angular/core';
+import Chart, { ChartOptions } from 'chart.js/auto';
+import { ChartjsComponent } from '@coreui/angular-chartjs';
+
+import {
+  AvatarComponent,
+  ButtonDirective,
+  ButtonGroupComponent,
+  CardBodyComponent,
+  CardComponent,
+  CardFooterComponent,
+  CardHeaderComponent,
+  ColComponent,
+  FormCheckLabelDirective,
+  GutterDirective,
+  ProgressBarDirective,
+  ProgressComponent,
+  RowComponent,
+  TableDirective,
+  TextColorDirective
+} from '@coreui/angular';
+import { IconDirective } from '@coreui/icons-angular';
 
 
 @NgModule({
@@ -55,8 +101,16 @@ import { MessagesModule } from 'primeng/messages';
     MicrocreditsComponent,
     MicroCreditListComponent,
     MicroCreditDetailsComponent,
-    MyMicroCreditsComponent
-    
+    MyMicroCreditsComponent,
+    EditCreditStatusDialogComponentcomponent,
+    LoanCalculatorComponent,
+    GridAppComponent,
+    BarChartComponentComponent,
+    HomeComponent,
+    DashboardComponent,
+    InputComponent,
+    StatementComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -69,12 +123,36 @@ import { MessagesModule } from 'primeng/messages';
     MatFormFieldModule,
     NgxDropzoneModule,
     MessagesModule,
-
-    // BrowserAnimationsModule, // Uncomment if using animations
-    // MatDialogModule, // Uncomment if using MatDialog
+    TreeGridModule,
+    DatePickerModule,
+    ChartModule,
+    AccumulationChartModule,
+    RadioButtonModule,
+    NumericTextBoxModule,
+    SliderModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    RowComponent,
+    ColComponent,
+    ButtonDirective,
+    IconDirective,
+    ReactiveFormsModule,
+    ButtonGroupComponent,
+    FormCheckLabelDirective,
+    ChartjsComponent, NgStyle,
+    CardFooterComponent,
+    GutterDirective,
+    ProgressBarDirective,
+    ProgressComponent,
+    CardHeaderComponent,
+    TableDirective,
+    AvatarComponent
   ],
   providers: [
-    OfferService,
+    OfferService, DataService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 
     // Add other services here

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MicroCreditService } from '../../../services/microcredit.service';
 import { MicroCreditDetailsComponent } from '../micro-credit-details/micro-credit-details.component';
 import * as FileSaver from 'file-saver';
-import { EditCreditStatusDialogComponentcomponent } from '../../dialog_components/edit-credit-status-dialog-component/edit-credit-status-dialog-componentcomponent';
+import { EditCreditStatusDialogComponentcomponent } from '../dialog_components/edit-credit-status-dialog-component/edit-credit-status-dialog-componentcomponent';
 
 @Component({
   selector: 'app-micro-credit-list',

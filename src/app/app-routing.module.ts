@@ -77,7 +77,9 @@ const routes: Routes = [
    
   { path: 'demandFinancing',
   component: FiancingFrontComponent
+
  },
+
   {
     path: 'offerFront',
     component: OfferComponent
@@ -125,21 +127,7 @@ const routes: Routes = [
 
         path: 'claims',
         component: ClaimslistfrontComponent,
-      }
-    ]
-  },{
-    path: 'home',
-    component: AllhomefrontComponent,
-   
-    children: [
-      {
-        path: '',
-        component: HomefrontComponent,
-
-        path: 'register',
-        component: RegisterComponent
-      },
-      {
+      },{
         path: 'devis',
         component: DevisExcelComponent
       },
@@ -151,6 +139,52 @@ const routes: Routes = [
       { path: 'demandFinancing',
       component: FiancingFrontComponent
      }
+    ]
+  },{
+    path: 'home',
+    component: AllhomefrontComponent,
+   
+    children: [
+      {
+        path: '',
+        component: HomefrontComponent,
+      },{
+
+        path: 'register',
+        component: RegisterComponent
+
+      },
+      {
+        path:'login',
+        component:LoginfrontComponent
+
+      },
+      {
+        path: 'devis',
+        component: DevisExcelComponent
+
+      },
+      {
+        path: 'sendcodefront',
+        component: SendresetcodefrontComponent
+      },
+      {
+        path: 'resetpasswordfront',
+        component: ResetpasswordfrontComponent},
+
+      },
+
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
+       
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
+      }
+
+     
+
     ]
 
   },
@@ -182,6 +216,7 @@ const routes: Routes = [
     component: ClaimslistfrontComponent
 
   },
+
   
   
   

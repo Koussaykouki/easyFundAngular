@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ClaimService } from '../../services/claim.service';
 import { Router } from '@angular/router';
+import { PageViewService } from '../../services/page-view.service';
 
 @Component({
   selector: 'app-claimsallfront',
@@ -14,9 +15,16 @@ export class ClaimsallfrontComponent implements OnInit {
   replies$!: Observable<any>;
   replyMessage: string = '';
   
-  constructor(private route: ActivatedRoute, private yourService: ClaimService,private router:Router) { }
+  constructor(private route: ActivatedRoute, private yourService: ClaimService,private router:Router,private PageViewService:PageViewService) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.PageViewService.logPageView().subscribe(response => {
+          console.log('Page view logged:', response);
+        });
+      }
+    });
     const claimId = +this.route.snapshot.paramMap.get('id')!;
     this.claim$ = this.yourService.getClaimById(claimId);
     this.replies$ = this.yourService.getRepliesByClaimId(claimId);

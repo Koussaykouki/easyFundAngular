@@ -52,7 +52,10 @@ import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.c
 import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
 import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
 import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
-import { DatePipe } from '@angular/common';
+import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
+import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+import { RegisterComponent } from './FrontOffice/register/register.component';
+import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 
 
 @NgModule({
@@ -73,7 +76,6 @@ import { DatePipe } from '@angular/common';
     HeaderFrontComponent,
     FooterFrontComponent,
     RegisterComponent,
-
     LoginfrontComponent,
     SendresetcodeComponent,
     ResetPasswordComponent,

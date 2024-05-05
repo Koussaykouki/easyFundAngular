@@ -1,0 +1,262 @@
+[33mcommit ea990622f8e57bad4f271c92f040c34bf4a61996[m[33m ([m[1;36mHEAD -> [m[1;32muser[m[33m, [m[1;31morigin/user[m[33m)[m
+Merge: 1cabd14 550506b
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat May 4 23:04:34 2024 +0100
+
+    Merge branch 'user' of https://github.com/Koussaykouki/easyFundAngular into user
+
+[33mcommit 1cabd14186863ce86f46c86b7793306f3c9d0850[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat May 4 23:02:32 2024 +0100
+
+    user browsing data collection
+
+[33mcommit 550506b688dd517c7c7ba92a66ad035efc42fb4b[m
+Merge: 785dd5d d4cf7a7
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Sat May 4 16:14:38 2024 +0100
+
+    Merge branch 'Master' into user
+
+[33mcommit 785dd5ddc916d802db919ef631fe5757dddc20a9[m
+Merge: 283a30d 5a205e7
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat May 4 16:11:17 2024 +0100
+
+    Merge branch 'user' of  into user
+
+[33mcommit 283a30d65bead9f00a6f0c10ba336c9d8be1b9e3[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat May 4 16:03:46 2024 +0100
+
+    finished claim thread and scenario front and back
+
+[33mcommit d4cf7a7ebfb684ffe43d95ab1f83b4eccadbe271[m
+Merge: b5fcd37 4225d37
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Sat May 4 07:43:53 2024 +0100
+
+    Merge pull request #13 from Koussaykouki/offer
+    
+    stripe
+
+[33mcommit 4225d37e740d74dda1c86a1baa6d5a4ad54654d7[m[33m ([m[1;31morigin/offer[m[33m)[m
+Merge: b89c582 805ddb0
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Sat May 4 07:42:11 2024 +0100
+
+    Merge branch 'offer' of https://github.com/Koussaykouki/easyFundAngular into offer
+
+[33mcommit b89c58241214d213b891a2effd14229daff74dfa[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Sat May 4 07:33:07 2024 +0100
+
+    stripe api
+
+[33mcommit b5fcd37d2fcaa18a73a4b62228b3c26b9f6e7f17[m
+Merge: 663e0ee 805ddb0
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Sat May 4 02:16:40 2024 +0100
+
+    Merge pull request #12 from Koussaykouki/offer
+    
+    financingFront
+
+[33mcommit 805ddb045ee3ca722196950acce252fd1128e90d[m
+Merge: 289ad0b 663e0ee
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Sat May 4 02:16:28 2024 +0100
+
+    Merge branch 'Master' into offer
+
+[33mcommit 289ad0bee8d9b14574f050a95f1279ea15e8b4ea[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Sat May 4 01:58:40 2024 +0100
+
+    financingFront
+
+[33mcommit 663e0ee9666de6739f30d727c86e27defeaec975[m
+Merge: 6a2105a 5a205e7
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Fri May 3 22:12:16 2024 +0100
+
+    Merge pull request #11 from Koussaykouki/user
+    
+    forgot password, authguard, logout, template cleaning, new unlogged session
+
+[33mcommit 5a205e72a00d15e46a44dd5c737bd79e8d025a9d[m
+Merge: 4b69ddb 6a2105a
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Fri May 3 22:12:06 2024 +0100
+
+    Merge branch 'Master' into user
+
+[33mcommit 4b69ddb7421dcd165766887e91b881e3d67eaba1[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Fri May 3 22:06:10 2024 +0100
+
+    logout front and back
+
+[33mcommit dcade1cbd70bccb854dc8bb2a2c60c68032c8d76[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Fri May 3 14:46:05 2024 +0100
+
+    added authguard and new front intefrace for non logged in users
+
+[33mcommit b1c4e1f003d44e3cd65ccda43786bb6664f0285a[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Fri May 3 13:10:59 2024 +0100
+
+    reset password front and back
+
+[33mcommit 6a2105ab6922dbfd4a8ac8905d770ca6d621b7f4[m
+Merge: 6ba4d14 9b7c9b4
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Fri May 3 02:06:20 2024 +0100
+
+    Merge pull request #10 from Koussaykouki/offer
+    
+    Offer
+
+[33mcommit 9b7c9b47c34eea9d763cdddaaa3cd00395e8e47c[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Fri May 3 02:05:00 2024 +0100
+
+    cookies with valid form
+
+[33mcommit fcb4604fae526368f681b6ad78e31570d33cfb3c[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Thu May 2 19:30:35 2024 +0100
+
+    front register and login
+
+[33mcommit 4b508b49668e277cf2f1c673f7b1cd33df98493c[m
+Merge: e49dc67 6ba4d14
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Thu May 2 13:13:28 2024 +0100
+
+    Merge pull request #9 from Koussaykouki/Master
+    
+    Merge pull request #6 from Koussaykouki/offer
+
+[33mcommit 6ba4d14516e6d6ca6d2d2d9c8b83b07915f43af8[m
+Merge: 1f7fbf1 e49dc67
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Thu May 2 13:12:35 2024 +0100
+
+    Merge pull request #6 from Koussaykouki/offer
+    
+    Offer
+
+[33mcommit e49dc67ecab88eb85457231c7666feaff3ff4652[m
+Merge: cb9e6bb 1f7fbf1
+Author: gaddour77 <80348309+gaddour77@users.noreply.github.com>
+Date:   Thu May 2 13:12:21 2024 +0100
+
+    Merge branch 'Master' into offer
+
+[33mcommit 1f7fbf132ebade4f49e0dbbab902956bfff5f38a[m
+Merge: 7269d74 e0cc51f
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Thu May 2 13:03:01 2024 +0100
+
+    Merge pull request #8 from Koussaykouki/user
+    
+    updates
+
+[33mcommit e0cc51f7b401f805065b157969d95da0c3bd78f8[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Thu May 2 13:02:18 2024 +0100
+
+    updates
+
+[33mcommit cb9e6bb2a745b615c38492150dd9094144f9507f[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Thu May 2 12:59:57 2024 +0100
+
+    merge
+
+[33mcommit 9900c608c2716f7d001702999e00ea49c993ccf0[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Thu May 2 12:16:07 2024 +0100
+
+    offerCard2
+
+[33mcommit a5cb2eb1faa5ad343dddccb5cd59295d8c45369b[m
+Author: gaddour77 <mohamedabdelkader.benfraj@esprit.tn>
+Date:   Thu May 2 12:15:24 2024 +0100
+
+    offerCard
+
+[33mcommit 7269d74054b9178d3204ed3c8383aa4a9591f233[m
+Merge: 8890bbc c66ca22
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Thu May 2 11:14:29 2024 +0100
+
+    Merge pull request #5 from Koussaykouki/user
+    
+    front office template integration
+
+[33mcommit c66ca224967eb5f11257538a3a6876c88945baad[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Thu May 2 11:10:08 2024 +0100
+
+    frontoffice template integration and register template integration
+
+[33mcommit 24a2cf09fcb1840ee68b214310d047e4a35a89f4[m
+Merge: 764ffac 8890bbc
+Author: Koussay kouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Thu May 2 01:00:25 2024 +0100
+
+    Merge pull request #4 from Koussaykouki/Master
+    
+    User and Claim handling
+
+[33mcommit 8890bbca2a963d9e2d7e2112a1750d95ebb96914[m[33m ([m[1;32mMaster[m[33m)[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Thu May 2 00:58:46 2024 +0100
+
+    dynamic claim handling for agents
+
+[33mcommit 69d74f4c6a7486d087b89dd64fc2d5c1302acef9[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Wed May 1 17:48:47 2024 +0100
+
+    template clean and added claim handlin
+
+[33mcommit 7925c6fc052689bf54a5ddc8a21cbb4d7f1a5d74[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Tue Apr 30 19:08:40 2024 +0100
+
+    claim services implementation
+
+[33mcommit 5a600f278aaefc70ea15c898190a5a266638fd92[m
+Merge: ef9ab13 e2e8ae0
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat Apr 27 23:32:28 2024 +0100
+
+    Merge branch 'Master' of https://github.com/Koussaykouki/easyFundAngular into Master
+
+[33mcommit ef9ab130db476c06758d19bab1d51f829783f228[m
+Author: Koussaykouki <koussay.kouki@esprit.tn>
+Date:   Sat Apr 27 23:31:54 2024 +0100
+
+    claimservices
+
+[33mcommit e2e8ae09451e1556c431651d9ac0a3587e18f798[m
+Merge: 634a394 764ffac
+Author: Koussaykouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Thu Apr 25 22:52:18 2024 +0100
+
+    Merge pull request #3 from Koussaykouki/user
+    
+    Merge pull request #2 from Koussaykouki/Master
+
+[33mcommit 764ffacf9e49853e8739c9c1af68000429beaa46[m
+Merge: da05691 634a394
+Author: Koussaykouki <80454723+Koussaykouki@users.noreply.github.com>
+Date:   Thu Apr 25 22:51:17 2024 +0100
+
+    Merge pull request #2 from Koussaykouki/Master
+    
+    pr

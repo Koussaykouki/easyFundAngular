@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClaimService } from '../../services/claim.service';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { PageViewService } from '../../services/page-view.service';
 
 
 @Component({
@@ -13,9 +14,16 @@ import { Router } from '@angular/router';
 export class ClaimslistfrontComponent {
   claims$!: Observable<any>;
 
-  constructor(private ClaimService: ClaimService, private datePipe: DatePipe,private router: Router) { }
+  constructor(private ClaimService: ClaimService, private datePipe: DatePipe,private router: Router,private PageViewService:PageViewService) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.PageViewService.logPageView().subscribe(response => {
+          console.log('Page view logged:', response);
+        });
+      }
+    });
     this.claims$ = this.ClaimService.getClaimsAssignedToUser();
   }
 }

@@ -172,7 +172,7 @@ const routes: Routes = [
         path: 'resetpasswordfront',
         component: ResetpasswordfrontComponent},
 
-      },
+      
 
       { path: 'offer-details',
         component: OfferDetailsComponent, 

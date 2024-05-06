@@ -25,8 +25,10 @@
     "@popperjs/core": "^2.11.8",
     "@syncfusion/ej2": "^25.1.42",
     "@syncfusion/ej2-angular-grids": "^25.1.42",
+    "@syncfusion/ej2-angular-splitbuttons": "^25.1.38",
     "@syncfusion/ej2-angular-spreadsheet": "^25.1.42",
     "@syncfusion/ej2-base": "^25.1.35",
+    "@syncfusion/ej2-material-theme": "~25.1.42",
     "bootstrap": "^5.3.2",
     "exceljs": "^4.4.0",
     "file-save": "^0.2.0",
@@ -40,8 +42,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
-    "zone.js": "~0.14.2",
-    "@syncfusion/ej2-material-theme": "~25.1.42"
+    "zone.js": "~0.14.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.8",

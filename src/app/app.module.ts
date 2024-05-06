@@ -56,6 +56,9 @@ import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.co
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
+import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
 
 
 @NgModule({
@@ -104,6 +107,8 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
     DevisExcelComponent,
     MyFinancingsComponent,
     StripeComponent,
+    AllofferComponent,
+    OfferPopUpComponent,
 
    
 
@@ -121,7 +126,8 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
     NgbModule,
     MatDialogModule,
     GridModule,
-    SpreadsheetAllModule
+    SpreadsheetAllModule,
+    DropDownButtonModule
     
     
     

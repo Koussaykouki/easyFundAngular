@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { OfferService } from '../../services/offer.service';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';  // Import Router
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-
+import { FinancingsComponent } from '../financings/financings.component';
+import { OfferPopUpComponent } from '../offer-pop-up/offer-pop-up.component';
 @Component({
   selector: 'app-offre',
   templateUrl: './offre.component.html',
   styleUrl: './offre.component.css'
 })
-export class OffreComponent implements OnInit {
+export class OffreComponent implements OnInit ,AfterViewInit {
+  @ViewChild('actionSelect') actionSelect!: ElementRef;
+  selectedOption: string = 'Choose Action';
   show: boolean = false;
   offers: any[] = [];
   financings: any[] = [];
@@ -27,9 +30,16 @@ export class OffreComponent implements OnInit {
     offerImage: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private offerservice: OfferService,) {
+  constructor(private fb: FormBuilder, private offerservice: OfferService,private router:Router,private dialog:MatDialog) {
     this.statusOffer = ['PENDING', 'ARCHIVED', 'ACTIVE']
     //this.getOffers();
+  }
+  //drop down button 
+  ngAfterViewInit() {
+    this.actionSelect.nativeElement.on('hidden.bs.dropdown', () => {
+      // Update the selected option when the dropdown is hidden
+      this.selectedOption = this.actionSelect.nativeElement.find('.dropdown-item').text().trim();
+    });
   }
 
   ngOnInit() {
@@ -116,14 +126,16 @@ export class OffreComponent implements OnInit {
     });
 }*/
   approve(id : number,status:string){
+    
     this.offerservice.approve(id,status).subscribe({
       next: (data) => {
         this.offers = data;
-
+        
         console.log('Offer approved successfully', data);
       },
       error: (error) => console.error('Error approving offer:', error)
     });
+    this.getOffers();
   }
   getOffers() {
 
@@ -180,12 +192,9 @@ export class OffreComponent implements OnInit {
 
     });
     this.show = true;
-    this.openPopup();
+   
   }
-  openPopup() {
-    this.show = true;
-    console.log('pop -up:');
-  }
+  
 
   closePopup(event?: MouseEvent) {
     if (event) {
@@ -225,5 +234,17 @@ export class OffreComponent implements OnInit {
     }
     return str.startsWith('data:image');
     
+  }
+  openPopup(id: any) {
+    const dialogRef = this.dialog.open(FinancingsComponent, {
+      width: '1200ox',
+      data: id
+    });
+  }
+  openDetails(offer: any) {
+    const dialogRef = this.dialog.open(OfferPopUpComponent, {
+      width: '1200ox',
+      data: offer
+    });
   }
 }

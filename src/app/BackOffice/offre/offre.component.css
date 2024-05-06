@@ -28,10 +28,18 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 .td,th{
-    padding: 15px 20px;
+    padding: 15px 10px;
     text-align: center;
     background-image: linear-gradient(to top left, #f9f9f9, #fff);
     position: relative; /* Needed for the pseudo-elements */
+    position: sticky;
+    top: 0;
+}
+.fixed{
+    position: sticky;
+  top: 0;
+  background-color: white; /* Adjust as needed */
+  z-index: 999;
 }
 tr:not(:first-child) th, tr:not(:first-child) td {
     border-radius: 12px solid #f0f0f0;
@@ -88,9 +96,10 @@ input[type="text"] {
     border-radius: 4px;
 }
 .table-responsive {
-    max-height: 400px; /* Adjust based on your preference */
+    max-height: 800px; /* Adjust based on your preference */
     overflow-y: scroll;
     overflow-x: scroll; /* Optionally hide horizontal scrollbar if not needed */
+    border-radius: 15px;
 }
 .form-panel {
     background-color: white;
@@ -120,4 +129,9 @@ select.form-control {
 
 .readonly-wrapper .readonly-block {
     pointer-events: none;
+}
+.delete{
+    background-color: rgb(186, 19, 19);
+    color: rgb(243, 239, 239);
+    border-radius: 15px; 
 }

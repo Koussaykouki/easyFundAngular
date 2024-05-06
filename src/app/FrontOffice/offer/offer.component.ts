@@ -7,6 +7,7 @@ import { PageViewService } from '../../services/page-view.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { OfferDetailsComponent } from '../offer-details/offer-details.component';
 import { MatDialog } from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table'
 
 interface ElementInfo {
   id: string;

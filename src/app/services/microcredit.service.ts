@@ -20,6 +20,10 @@ export class MicroCreditService {
     return this.http.get(`${this.url}/getCreditsByStatus/${status}`)
   }
 
+  simulator(amount: number, period: number, typePeriod: string): Observable<any> {
+    return this.http.get(`${this.url}/simulator/${amount}/${period}/${typePeriod}`)
+  }
+
   updateCreditStatus(id: number, status: string) {
     const body = {  // Define the body object with status property
       status: status

@@ -15,11 +15,12 @@ export class EditCreditStatusDialogComponentcomponent {
                private microCreditService: MicroCreditService){
 
   }
-  
+
   onSave(): void {
     // Pass the updated credit status back to the list component
     this.dialogRef.close({ ...this.data, creditStatus: this.updatedCreditStatus });
     this.updateCreditStatus(this.data.microCreditId, this.updatedCreditStatus);
+
   }
 
   onCancel(): void {

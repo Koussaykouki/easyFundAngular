@@ -60,9 +60,22 @@ export class MicroCreditListComponent {
   }
 
   openPopup(credit: any) {
-    const dialogRef = this.dialog.open(MicroCreditDetailsComponent, {
-      width: '1200ox',
-      data: credit
+    // Call the simulator method to fetch simulation data
+    this.microCreditService.simulator(credit.creditAmmount, credit.period, credit.typePeriod)
+      .subscribe(simulationData => {
+        // Combine credit data with simulation data
+        const dialogData = {
+          credit: credit,
+          simulation: simulationData
+        };
+
+    console.log(dialogData)
+
+      // Open the dialog with combined data
+      const dialogRef = this.dialog.open(MicroCreditDetailsComponent, {
+        width: '1200px',
+        data: dialogData
+      });
     });
   }
 

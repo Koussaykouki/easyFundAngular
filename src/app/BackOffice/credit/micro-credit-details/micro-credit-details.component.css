@@ -1,18 +1,39 @@
 .popup-container {
-    width: 2000px; /* Adjust width as needed */
-    height: 900px; /* Adjust height as needed */
-    background-color: white; /* Optionally, you can set a background color */
-    border: 1px solid #ccc; /* Optionally, add border for better visibility */
-    border-radius: 5px; /* Optionally, add border-radius for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90%; /* Set maximum width */
+  max-height: 90%; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
 }
 
 .popup-content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px; /* Add padding inside the popup */
-    height: 100%; /* Ensure popup content stretches to fill the container */
+  /* Content styles */
 }
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .popup-container {
+    padding: 10px;
+    max-width: 95%;
+    max-height: 95%;
+  }
+}
+
 
 h1{
   color: #1F3BB2;
@@ -39,16 +60,6 @@ input[type="text"] {
 }
 
 
-
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
 
 .close-button i {
   font-size: 1.5rem;
@@ -111,9 +122,9 @@ input[type="text"] {
   background-color: red;
 }
 
-/* 
+/*
 h2 strong {
-    color: #8D8D8D; 
+    color: #8D8D8D;
     font-size: 42px;
 }
 
@@ -125,12 +136,12 @@ h2 strong {
 }
 
 .details-container p {
-    margin-right: 40px; 
+    margin-right: 40px;
     font-size: 26px;
 }
 
 .details-container strong {
-    color: #1F3BB2; 
+    color: #1F3BB2;
 }
 .close-button {
   position: absolute;

@@ -195,5 +195,4 @@ export class MicrocreditsComponent implements OnInit {
     });
   }
 
-
 }

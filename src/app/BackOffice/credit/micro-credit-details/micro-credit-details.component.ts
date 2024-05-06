@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MicroCreditService } from '../../../services/microcredit.service';
 
 @Component({
   selector: 'app-micro-credit-details',
@@ -10,8 +11,14 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class MicroCreditDetailsComponent {
 
   guarantorFile: any;
+  currentSection: string = 'account-details'; // Default to account-details section
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any , public dialogRef: MatDialogRef<MicroCreditDetailsComponent>, private sanitizer: DomSanitizer) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<MicroCreditDetailsComponent>,
+    private sanitizer: DomSanitizer,
+    private microCreditService: MicroCreditService
+  ) { }
 
   closePopup(): void {
     this.dialogRef.close();
@@ -22,6 +29,5 @@ export class MicroCreditDetailsComponent {
     const fileUrl = URL.createObjectURL(fileBlob);
     // Sanitize the URL to prevent security risks
     return this.sanitizer.bypassSecurityTrustUrl(fileUrl);
-    }
-
+  }
 }

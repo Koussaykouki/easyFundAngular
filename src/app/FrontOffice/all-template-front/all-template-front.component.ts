@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-all-template-front',
   templateUrl: './all-template-front.component.html',
   styleUrl: './all-template-front.component.css'
 })
-export class AllTemplateFrontComponent {
-
+export class AllTemplateFrontComponent  {
+  onChildScrolled(event: Event) {
+    // Handle the scroll event emitted by the child component
+    console.log('Child component scrolled:', event);
+  }
+  @HostListener('window:scroll', [])
+  onScroll():void{
+    console.log('scrolling parent');
+  }
 }

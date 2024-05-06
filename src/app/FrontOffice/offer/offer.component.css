@@ -1,0 +1,21 @@
+.card {
+    height: 100%; /* Ensure all cards have the same height */
+  }
+  
+  .card-body {
+    height: 200px; /* Set a fixed height for the card body */
+    overflow: hidden; /* Hide overflow content if necessary */
+  }
+  body {
+    
+    overflow: auto;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust the z-index as needed */
+    /* Additional styling for the header */
+  }
+  

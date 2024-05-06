@@ -19,4 +19,8 @@ export class FinancingsService {
   excel(filename: number): Observable<ArrayBuffer> {
    return this.http.get(`${this.url}/downloadExcel11/${filename}`, { responseType: 'arraybuffer' });
  }
+ myFianancing():Observable<any>{
+  return this.http.get(`${this.url}/mylist`);
+ }
+
   }

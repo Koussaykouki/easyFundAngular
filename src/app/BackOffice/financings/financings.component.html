@@ -1,19 +1,35 @@
-<h1 mat-dialog-title>Popup Dialog</h1>
-<div mat-dialog-content>
-  <p>This is a popup dialog created using Angular Material.</p>
+<div class="popup-container">
+  <div class="popup-content">
+    <section class="contact-area section-padding-bottom">
+      <div class="container"> 
+        <div class="offer-details">
+          <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+          <h2>Finacings of this offer</h2>
+          <div class="offer-details-content">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>excel</th>
+                  <th>status</th>
+                  <th>user</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Loop through each offer and display its details -->
+                <tr *ngFor="let financing of financings">
+                  <td>{{ financing.financingRequestId }}</td>
+                  <td><a [href]="financing.excel">{{ financing.excel }}</a></td>
+                  <td>{{ financing.requestStatus }}</td>
+                  <td>{{user}}</td>
+                  <td><button cclass="btn btn-sm btn-primary me-1"  (click)="downloadFile(financing.excel)">Download Excel File</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button >Close</button>
-</div>
-
-<ul>
-    <!-- Loop through each offer and display its details -->
-    <li *ngFor="let financing of financings">
-      <p><strong>id:</strong> {{ financing.financingRequestId }}</p>
-      
-      <p><strong>excel:</strong><a >{{ financing.excel }}</a> </p>
-       <p><button (click)="downloadFile(financing.excel)">Download Excel File</button></p>
-       <p><button (click)="excel(financing.excel)">ww</button></p>
-       <!-- <button (click)="openPopup()">Open Popup</button> -->
-    </li>
-  </ul>

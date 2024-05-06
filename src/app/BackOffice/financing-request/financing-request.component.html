@@ -1,0 +1,69 @@
+<div class="row">
+<section class="contact-area section-padding-bottom">
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      choose
+    </button>
+    <div class="dropdown-menu">
+      <button class="dropdown-item" (click)="geBytStatus('ACCEPTED')">ACCEPTED</button>
+      <button class="dropdown-item" (click)="geBytStatus('PENDING')">PENDING</button>
+      
+    </div>
+  </div>
+  
+    <div class="content-wrapper">
+      
+        <div class="col-sm-12">
+          <div class="home-tab">
+      
+      <div class="table-responsive  mt-1">
+        <table class="table select-table" >
+          <thead>
+          <tr>
+            <th>financing Id</th>
+            <th>excel</th>
+            <th> status</th>
+            <th>offer</th>
+            <th>user</th>
+            <th>actions</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let financingRequest of financings">
+           <td>{{financingRequest.financingRequestId}}</td>
+           <td>  <button class="btn btn-success" (click)="downloadFile(financingRequest.excel)"><i class="bi bi-download"></i>download Excel</button></td>
+           <td > <span [ngStyle]="{'background-color': getStatus(financingRequest.requestStatus), 'border-radius': '5px', 'padding': '5px', 'color': 'white'}">{{financingRequest.requestStatus}}</span></td>
+           <td>{{financingRequest.offer.offreId}}</td>
+           <td>{{user}}</td>
+           <td>  <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                choose
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" (click)="approve(financingRequest.financingRequestId,'ACCEPTED')">ACCEPT</button>
+                <button class="dropdown-item" (click)="delet(financingRequest.financingRequestId)">REFUSE</button>
+              </div>
+            </div>
+          </td>
+          
+          </tr>
+        </tbody>
+        </table>
+        
+      </div>
+      
+    </div> 
+  </div>
+      
+</div>   
+</section>
+</div>
+      
+ 
+       
+      
+
+
+

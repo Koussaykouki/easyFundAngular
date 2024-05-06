@@ -56,7 +56,13 @@ import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.co
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
+
+import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
+import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
+
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+
 
 
 @NgModule({
@@ -105,7 +111,12 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     DevisExcelComponent,
     MyFinancingsComponent,
     StripeComponent,
+
+    AllofferComponent,
+    OfferPopUpComponent,
+
     PerformanceLineChartComponent,
+
 
    
 
@@ -123,7 +134,8 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     NgbModule,
     MatDialogModule,
     GridModule,
-    SpreadsheetAllModule
+    SpreadsheetAllModule,
+    DropDownButtonModule
     
     
     

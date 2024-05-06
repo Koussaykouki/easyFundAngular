@@ -37,6 +37,7 @@ import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-fr
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
+import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 const routes: Routes = [
  
   {
@@ -100,8 +101,18 @@ const routes: Routes = [
        
       },
       {
+        path: 'offer',
+        component: AllofferComponent
+      },
+      {
         path: 'claims',
         component: ClaimsAllComponent
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
       }
     ]
   },
@@ -181,6 +192,12 @@ const routes: Routes = [
        
       { path: 'demandFinancing',
       component: FiancingFrontComponent
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
       }
 
      
@@ -248,4 +265,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

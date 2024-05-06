@@ -58,6 +58,7 @@
               "src/assets/FrontOffice/assets/js/custom.js",
               "src/assets/FrontOffice/assets/js/jquery.validate.min.js",
               "src/assets/FrontOffice/assets/js/form.js"
+
             ]
           },
           "configurations": {

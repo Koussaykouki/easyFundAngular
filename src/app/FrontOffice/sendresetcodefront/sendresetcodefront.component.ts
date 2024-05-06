@@ -24,7 +24,9 @@ export class SendresetcodefrontComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.PageViewService.logPageView().subscribe(response => {
+        const pageUrl = this.router.url;
+
+        this.PageViewService.logPageView(pageUrl).subscribe(response => {
           console.log('Page view logged:', response);
         });
       }

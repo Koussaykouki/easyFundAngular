@@ -57,6 +57,8 @@ import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.co
 import { RegisterComponent } from './FrontOffice/register/register.component';
 import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-chart-top-urls.component';
+import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 
 
 @NgModule({
@@ -106,6 +108,8 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     MyFinancingsComponent,
     StripeComponent,
     PerformanceLineChartComponent,
+    BarChartTopUrlsComponent,
+    AddclaimComponent,
 
    
 

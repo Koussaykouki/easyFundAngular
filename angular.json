@@ -1,5 +1,6 @@
-{
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+
+  {
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -58,80 +59,40 @@
               "src/assets/FrontOffice/assets/js/custom.js",
               "src/assets/FrontOffice/assets/js/jquery.validate.min.js",
               "src/assets/FrontOffice/assets/js/form.js"
-
             ]
           },
-          "@schematics/angular:directive": {
-            "standalone": false
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
-          "@schematics/angular:pipe": {
-            "standalone": false
-          }
+          "defaultConfiguration": "production"
         },
-        "root": "",
-        "sourceRoot": "src",
-        "prefix": "app",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-angular:application",
-            "options": {
-              "outputPath": "dist/easy-fund-angular",
-              "index": "src/index.html",
-              "browser": "src/main.ts",
-              "polyfills": [
-                "zone.js"
-              ],
-              "tsConfig": "tsconfig.app.json",
-              "assets": [
-                "src/favicon.ico",
-                "src/assets"
-              ],
-              "styles": [
-                "@angular/material/prebuilt-themes/indigo-pink.css",
-                "src/styles.css"
-              ],
-              "scripts": []
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "easyFundAngular:build:production"
             },
-            "configurations": {
-              "production": {
-                "budgets": [
-                  {
-                    "type": "initial",
-                    "maximumWarning": "500kb",
-                    "maximumError": "1mb"
-                  },
-                  {
-                    "type": "anyComponentStyle",
-                    "maximumWarning": "2kb",
-                    "maximumError": "4kb"
-                  }
-                ],
-                "outputHashing": "all"
-              },
-              "development": {
-                "optimization": false,
-                "extractLicenses": false,
-                "sourceMap": true
-              }
-            },
-            "defaultConfiguration": "production"
-          },
-          "serve": {
-            "builder": "@angular-devkit/build-angular:dev-server",
-            "configurations": {
-              "production": {
-                "buildTarget": "easyFundAngular:build:production"
-              },
-              "development": {
-                "buildTarget": "easyFundAngular:build:development"
-              }
-            },
-            "defaultConfiguration": "development"
-          },
-          "extract-i18n": {
-            "builder": "@angular-devkit/build-angular:extract-i18n",
-            "options": {
-              "buildTarget": "easyFundAngular:build"
+            "development": {
+              "buildTarget": "easyFundAngular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -163,9 +124,9 @@
           }
         }
       }
-    },
-    "cli": {
-      "analytics": false
     }
+  },
+  "cli": {
+    "analytics": false
   }
-
+}

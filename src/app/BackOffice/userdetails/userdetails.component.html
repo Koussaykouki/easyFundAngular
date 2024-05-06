@@ -1,0 +1,41 @@
+<!-- src/app/components/user-list/user-list.component.html -->
+<div class="col-12 grid-margin stretch-card">
+    <div class="card card-rounded">
+        <div class="card-body">
+            <div class="d-sm-flex justify-content-between align-items-start">
+                <div>
+                    <h4 class="card-title card-title-dash">User List</h4>
+                </div>
+            </div>
+            <div class="table-responsive mt-1">
+                <table class="table select-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.userId }}</td>
+                            <td>{{ user.firstname }} {{ user.lastname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.phoneNumber }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" (click)="updateUser(user)">Edit</button>
+                                <!-- Only render the button if userId is defined -->
+<button class="btn btn-danger btn-sm" *ngIf="user.userId" (click)="banUser(user.userId)">Ban</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

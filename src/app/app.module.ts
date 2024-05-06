@@ -59,6 +59,9 @@ import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
 import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-chart-top-urls.component';
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
+import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.component';
+import { UserListComponent } from './BackOffice/user-list/user-list.component';
+
 
 
 @NgModule({
@@ -89,6 +92,7 @@ import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
     HeaderhomeFrontComponent,
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
+    PerformanceLineChartComponent,
     
     
     
@@ -107,9 +111,12 @@ import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
     DevisExcelComponent,
     MyFinancingsComponent,
     StripeComponent,
-    PerformanceLineChartComponent,
     BarChartTopUrlsComponent,
     AddclaimComponent,
+    UserdetailsComponent,
+    UserListComponent
+    
+
 
    
 
@@ -127,7 +134,8 @@ import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
     NgbModule,
     MatDialogModule,
     GridModule,
-    SpreadsheetAllModule
+    SpreadsheetAllModule,
+    
     
     
     

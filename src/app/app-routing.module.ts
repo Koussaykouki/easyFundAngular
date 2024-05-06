@@ -6,6 +6,11 @@ import { FinancingsComponent } from './BackOffice/financings/financings.componen
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
 
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
@@ -254,6 +259,22 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'credit/applyMicrocredit',
+    component: MicrocreditsComponent
+  },
+  {
+    path: 'credit/getCreditByConnectedUser',
+    component: MyMicroCreditsComponent
+  },
+  {
+    path: 'admin/getAllMicroCredits',
+    component: MicroCreditListComponent
+  },
+  {
+    path: 'admin/simulator',
+    component: LoanCalculatorComponent
   }
   
 

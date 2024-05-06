@@ -16,52 +16,59 @@ import { FinancingsComponent } from './BackOffice/financings/financings.componen
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
-import { OfferComponent } from './FrontOffice/offer/offer.component';
-import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
-
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
+import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { MicroCreditService } from './services/microcredit.service';
 import { AuthInterceptor } from './services/auth.interceptor';
-import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
-import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
-import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
-import { HomebackComponent } from './BackOffice/homeback/homeback.component';
-import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MicroCreditDetailsComponent } from './BackOffice/credit/micro-credit-details/micro-credit-details.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
-import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
-import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '@syncfusion/ej2-angular-spreadsheet';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
-import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
-import { DatePipe } from '@angular/common';
-import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
-import { StripeComponent } from './FrontOffice/stripe/stripe.component';
-
-
-
-import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
-import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
-import { ResetPasswordComponent } from './BackOffice/reset-password/reset-password.component';
-import { ResetpasswordfrontComponent } from './FrontOffice/resetpasswordfront/resetpasswordfront.component';
-import { SendresetcodefrontComponent } from './FrontOffice/sendresetcodefront/sendresetcodefront.component';
-import { AuthGuard } from './services/auth.guard';
-import { AuthGuardFront } from './services/authfront.guard';
-import { HomefrontComponent } from './FrontOffice/homefront/homefront.component';
-import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.component';
-import { HeaderhomeFrontComponent } from './FrontOffice/headerhome-front/headerhome-front.component';
-import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
-import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
-import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
-import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
-import { RegisterComponent } from './FrontOffice/register/register.component';
-import { ClaimDetailsComponent } from './BackOffice/claim-details/claim-details.component';
-
-import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
-import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
-import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
-
-import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DropzoneCdkModule } from '@ngx-dropzone/cdk';
+import { DropzoneMaterialModule } from '@ngx-dropzone/material';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MessagesModule } from 'primeng/messages';
+import { EditCreditStatusDialogComponentcomponent } from './BackOffice/credit/dialog_components/edit-credit-status-dialog-component/edit-credit-status-dialog-componentcomponent';
+import { NumericTextBoxModule, SliderModule } from '@syncfusion/ej2-angular-inputs';
+import { RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { AccumulationChartModule, ChartModule } from '@syncfusion/ej2-angular-charts';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { TreeGridModule } from '@syncfusion/ej2-angular-treegrid';
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { GridAppComponent } from './BackOffice/credit/loan-calculator/grid-app/grid-app.component';
+import { BarChartComponentComponent } from './BackOffice/credit/loan-calculator/bar-chart-component/bar-chart-component.component';
+import { HomeComponent } from './BackOffice/credit/loan-calculator/home/home.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
+import { InputComponent } from './BackOffice/credit/loan-calculator/home/input/input.component';
+import { StatementComponent } from './BackOffice/credit/loan-calculator/statement/statement.component';
+import { BarChartComponent } from './BackOffice/credit/loan-calculator/bar-chart/bar-chart.component';
+import { DataService } from './BackOffice/credit/loan-calculator/data-service';
+import { MatIconModule } from '@angular/material/icon';
+import { NgxBootstrapIconsModule, alarm, alarmFill, alignBottom } from 'ngx-bootstrap-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DOCUMENT, NgStyle } from '@angular/common';
+import { Component, DestroyRef, effect, inject, OnInit, Renderer2, signal, WritableSignal } from '@angular/core';
+import Chart, { ChartOptions } from 'chart.js/auto';
+import { ChartjsComponent } from '@coreui/angular-chartjs';
+import {
+  AvatarComponent,
+  ButtonDirective,
+  ButtonGroupComponent,
+  CardBodyComponent,
+  CardComponent,
+  CardFooterComponent,
+  CardHeaderComponent,
+  ColComponent,
+  FormCheckLabelDirective,
+  GutterDirective,
+  ProgressBarDirective,
+  ProgressComponent,
+  RowComponent,
+  TableDirective,
+  TextColorDirective
+} from '@coreui/angular';
+import { IconDirective } from '@coreui/icons-angular';
 
 
 
@@ -77,6 +84,18 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     ExcelComponent,
     LoginComponent,
     RegistrationComponent,
+    MicrocreditsComponent,
+    MicroCreditListComponent,
+    MicroCreditDetailsComponent,
+    MyMicroCreditsComponent,
+    EditCreditStatusDialogComponentcomponent,
+    LoanCalculatorComponent,
+    GridAppComponent,
+    BarChartComponentComponent,
+    HomeComponent,
+    DashboardComponent,
+    InputComponent,
+    StatementComponent,
     FinancingRequestComponent,
     OfferComponent,
     AllTemplateFrontComponent,
@@ -93,34 +112,22 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     HeaderhomeFrontComponent,
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
-    
-    
-    
-    
-    
-
     ClaimsAllComponent,
     ClaimDetailsComponent,
-    ClaimsListComponent,
     YourOpenClaimsComponent,
-
     HomebackComponent,
     OfferDetailsComponent,
     FiancingFrontComponent,
-
     DevisExcelComponent,
     MyFinancingsComponent,
     StripeComponent,
-
     AllofferComponent,
+    OfferPopUpComponent,
+    PerformanceLineChartComponent
+
     OfferPopUpComponent,
 
     PerformanceLineChartComponent,
-
-
-   
-
-
   ],
   imports: [
     BrowserModule,
@@ -128,26 +135,53 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    
-
-    NgbModule,
-    MatDialogModule,
-    GridModule,
-    SpreadsheetAllModule,
-    DropDownButtonModule
-    
-    
-    
+    MatCardModule,
+    DropzoneMaterialModule,
+    MatFormFieldModule,
+    NgxDropzoneModule,
+    MessagesModule,
+    TreeGridModule,
+    DatePickerModule,
+    ChartModule,
+    AccumulationChartModule,
+    RadioButtonModule,
+    NumericTextBoxModule,
+    SliderModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    TextColorDirective,
+    CardComponent,
+    CardBodyComponent,
+    RowComponent,
+    ColComponent,
+    ButtonDirective,
+    IconDirective,
+    ReactiveFormsModule,
+    ButtonGroupComponent,
+    FormCheckLabelDirective,
+    ChartjsComponent, NgStyle,
+    CardFooterComponent,
+    GutterDirective,
+    ProgressBarDirective,
+    ProgressComponent,
+    CardHeaderComponent,
+    TableDirective,
+    AvatarComponent
   ],
   providers: [
+    OfferService, DataService,
     provideAnimationsAsync(),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     DatePipe,
+    NgbModule,
+    MatDialogModule,
+    GridModule,
+    SpreadsheetAllModule,
+    DropDownButtonModule,
+  
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-
    
   ],
   bootstrap: [AppComponent]

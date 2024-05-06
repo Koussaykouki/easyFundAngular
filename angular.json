@@ -41,6 +41,7 @@
               "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
             "scripts": [
+              "node_modules/echarts/dist/echarts.min.js",
               "src/assets/FrontOffice/assets/js/jquery.min.js",
               "src/assets/FrontOffice/assets/js/popper.min.js",
               "src/assets/FrontOffice/assets/js/bootstrap.min.js",
@@ -57,8 +58,7 @@
               "src/assets/FrontOffice/assets/js/custom.js",
               "src/assets/FrontOffice/assets/js/jquery.validate.min.js",
               "src/assets/FrontOffice/assets/js/form.js"
-             
-              
+
             ]
           },
           "configurations": {

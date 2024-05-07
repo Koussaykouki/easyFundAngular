@@ -1,0 +1,45 @@
+.form-panel {
+    background-color: white;
+    border-radius: 15px;
+    /* Creates the curved edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: adds shadow for 3D effect */
+    width: 1000px;
+    margin: auto;
+    /* Center the panel */
+    padding: 20px;
+    border: 1px solid #0e37db;
+}
+
+
+
+select.form-control {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+
+.readonly-wrapper {
+    cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+    pointer-events: none;
+}
+
+/* component.css */
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .success-message p {
+    margin: 0;
+  }
+  

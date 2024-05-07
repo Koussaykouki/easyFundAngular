@@ -1,4 +1,12 @@
 @import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-base/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-grids/styles/bootstrap.css';
+@import '../node_modules/@syncfusion/ej2-treegrid/styles/bootstrap.css';
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }

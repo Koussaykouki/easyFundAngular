@@ -26,5 +26,14 @@ export class FinancingRequestService {
  add(form :any):Observable<any>{
   return this.http.post(`${this.url}/addfinancing`,form);
  }
+ findByStatus(status:string):Observable<any>{
+  return  this.http.get(`${this.url}/findByStatus/${status}`);
+ }
+ approve(id:number,status:string):Observable<any>{
+  return  this.http.put(`${this.url}/descision/${id}/${status}`,{id,status} ); 
+ }
+ delete(id:number):Observable<any>{
+  return  this.http.delete(`${this.url}/delete/${id}`); 
+ }
  
 }

@@ -6,6 +6,11 @@ import { FinancingsComponent } from './BackOffice/financings/financings.componen
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
 
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
@@ -37,8 +42,12 @@ import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-fr
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
+
+import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
+
 const routes: Routes = [
  
   {
@@ -102,12 +111,25 @@ const routes: Routes = [
        
       },
       {
+        path: 'offer',
+        component: AllofferComponent
+      },
+      {
         path: 'claims',
         component: ClaimsAllComponent
+
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
+
       },
       {
         path: 'users',
         component: UserListComponent
+
       }
     ]
   },
@@ -192,6 +214,12 @@ const routes: Routes = [
        
       { path: 'demandFinancing',
       component: FiancingFrontComponent
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
       }
 
      
@@ -248,6 +276,22 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'credit/applyMicrocredit',
+    component: MicrocreditsComponent
+  },
+  {
+    path: 'credit/getCreditByConnectedUser',
+    component: MyMicroCreditsComponent
+  },
+  {
+    path: 'admin/getAllMicroCredits',
+    component: MicroCreditListComponent
+  },
+  {
+    path: 'admin/simulator',
+    component: LoanCalculatorComponent
   }
   
 
@@ -259,4 +303,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

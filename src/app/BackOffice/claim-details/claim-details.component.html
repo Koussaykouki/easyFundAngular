@@ -2,39 +2,51 @@
 <div class="row">
   <div class="col-lg-12 d-flex flex-column">
     <div class="row flex-grow">
-      <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card card-rounded">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h4 class="card-title">Claim Details</h4>
+                        <h5 class="card-subtitle">{{ claim?.title }}</h5>
+                        <h6 class="card-subtitle">{{ claim?.claimType }} - {{ claim?.createdAt | date }}</h6>
+                    </div>
+                    <!-- Close Claim Button -->
+                    <button type="button" class="btn btn-danger" (click)="closeClaim()" *ngIf="claim?.status !== 'CLOSED'"style="color: white;">Close Claim</button>
+                </div>
+                <p class="mt-4"><strong>Content:</strong> {{ claim?.description }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Replies Section -->
+    <div class="row flex-grow mt-3">
+      <div class="col-12 grid-margin stretch-card">
         <div class="card card-rounded">
           <div class="card-body">
-            <div class="d-sm-flex justify-content-between align-items-start">
-              <div>
-                <h4 class="card-title card-title-dash">Claim Details</h4>
-                <h5 class="card-subtitle card-subtitle-dash">{{ claim?.title }}</h5>
-                <h5 class="card-subtitle card-subtitle-dash">{{ claim?.claimType }} - {{ claim?.createdAt | date }}</h5>
-              </div>
-              <!-- Close Claim Button -->
-              <button type="button" class="btn btn-danger" (click)="closeClaim()" *ngIf="claim?.status !== 'CLOSED'">Close Claim</button>
-            </div>
-            <div class="mt-5">
-              <p><strong>Content:</strong> {{ claim?.description }}</p>
-              <!-- Replies Section -->
-              <div *ngIf="replies.length > 0">
-                <h4 class="mt-4">Replies</h4>
-                <ul>
-                  <li *ngFor="let reply of replies">
-                    <p><strong>Date:</strong> {{ reply.createdAt | date }}</p>
-                    <p><strong>Message:</strong> {{ reply.message }}</p>
-                  </li>
+            <h4>Replies</h4>
+            <div *ngIf="replies.length > 0; else noRepliesTemplate">
+                <ul class="list-unstyled">
+                    <li *ngFor="let reply of replies" class="reply-item">
+                        <div class="reply-details">
+                          <div class="reply-date">{{ reply.createdAt | date }}</div>
+                          <div class="reply-message">{{ reply.message }}</div>
+                        </div>
+                    </li>
                 </ul>
-              </div>
-              <!-- Reply Form -->
-              <form [formGroup]="replyForm" (ngSubmit)="submitReply()" class="mt-4">
-                <div class="form-group">
-                  <label for="reply">Reply:</label>
-                  <textarea formControlName="message" class="form-control" id="reply" placeholder="Type your reply..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2" [disabled]="!replyForm.valid">Send Reply</button>
-              </form>
             </div>
+            <ng-template #noRepliesTemplate>
+              <p>No replies yet.</p>
+            </ng-template>
+            <!-- Reply Form -->
+            <form [formGroup]="replyForm" (ngSubmit)="submitReply()" class="mt-4">
+                <div class="form-group">
+                    <label for="reply">Reply:</label>
+                    <textarea formControlName="message" class="form-control" id="reply" placeholder="Type your reply..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!replyForm.valid" style="color: white;">Send Reply</button>
+
+            </form>
           </div>
         </div>
       </div>

@@ -97,9 +97,14 @@ import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+
+import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
+import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
+
 import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
 import { OfferService } from './services/offer.service';
 import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -154,7 +159,17 @@ import { MatDialogModule } from '@angular/material/dialog';
     StripeComponent,
     AllofferComponent,
     OfferPopUpComponent,
-    PerformanceLineChartComponent
+
+
+    PerformanceLineChartComponent,
+      FinancingRequestAllComponent,
+      StatOfferComponent,
+
+
+   
+
+
+
   ],
   imports: [
     BrowserModule,

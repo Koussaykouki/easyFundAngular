@@ -3,7 +3,11 @@ import { FinancingRequestService } from '../../services/financing-request.servic
 import { FinancingsService } from '../../services/financings.service';
 import { ItemModel, MenuEventArgs } from '@syncfusion/ej2-angular-splitbuttons';
 import { saveAs } from 'file-saver';
-
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { OfferPopUpComponent } from '../offer-pop-up/offer-pop-up.component';
+import { Offer } from '../../models/Offer.model';
+import { OfferService } from '../../services/offer.service';
 @Component({
   selector: 'app-financing-request',
   templateUrl: './financing-request.component.html',
@@ -15,8 +19,10 @@ export class FinancingRequestComponent implements OnInit {
   financings: any[] =[];
   user :any;
   file1:any ="";
-  constructor(private financingService : FinancingRequestService,financingsS:FinancingsService){
-   
+  offer:any;
+  
+  constructor(private financingService : FinancingRequestService,financingsS:FinancingsService,private dialog:MatDialog,private offerService :OfferService){
+     
   }
   ngOnInit(): void {
     this.getFinancings();
@@ -73,7 +79,7 @@ export class FinancingRequestComponent implements OnInit {
     switch (status) {
       case 'PENDING':
         return 'yellow';
-      case 'ACTIVE':
+      case 'ACCEPTED':
         return 'green';
       case 'ARCHIED':
         return 'black';
@@ -109,7 +115,8 @@ export class FinancingRequestComponent implements OnInit {
     });
   }
   approve(id:number,status:string){
-    this.financingService.approve(id,status).subscribe({
+
+    this.financingService.approve(id,status,Number(this.user)).subscribe({
       next: (data) => {
         this.getFinancings();
        
@@ -128,4 +135,18 @@ export class FinancingRequestComponent implements OnInit {
       error: (error) => console.error('failed  to delete:', error)
     });
   }
+  openDetails(id: number) {
+    this.offerService.byId(id).subscribe({
+      next: (data) => {
+        this.offer=data;
+       
+        console.log('detected  ', data);
+      },
+      error: (error) => console.error('failed  to detect:', error)
+    });
+    const dialogRef = this.dialog.open(OfferPopUpComponent, {
+      width: '1200ox',
+      data: this.offer
+    });
+}
 }

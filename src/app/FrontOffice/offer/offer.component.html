@@ -26,14 +26,14 @@
         <input type="text" class="form-control" placeholder="Recherche..." (input)="onSearch($event)">
       </div>
       <h1>Liste des offres</h1>
-      <div class="row">
+      <div class="row" [scrollTop]="">
         <div class="col-md-4" *ngFor="let offer of offers">
           <div class="card" [attr.id]="offer.offreId">
             <img class="card-img-top" [src]=" offer.offerImage" alt="Offer Image">
             <div class="card-body" >
               <h5 class="card-title">{{ offer.offerPrice | currency }}</h5>
               <p class="card-text">{{ offer.offerDescription }}</p>
-              <button class="btn btn-sm btn-primary me-1" (click)="openPopup(offer)">Deatils<i class="bi bi-eye"></i></button>
+              <button class="btn btn-sm btn-primary me-1"  (click)="openPopup(offer,offer.offreId)">Deatils<i class="bi bi-eye"></i></button>
               
             </div>
           </div>

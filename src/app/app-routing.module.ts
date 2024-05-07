@@ -43,6 +43,8 @@ import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.compo
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
+import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
 const routes: Routes = [
 
   {
@@ -57,6 +59,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'stat',
+    component: StatOfferComponent
   },{
 
 
@@ -119,6 +125,11 @@ const routes: Routes = [
         path: 'financingRequest',
         component: FinancingRequestComponent
       }
+      ,{
+
+         path: 'allf',
+        component: FinancingRequestAllComponent
+      }
     ]
   },
   {
@@ -167,6 +178,10 @@ const routes: Routes = [
 
       { path: 'demandFinancing',
       component: FiancingFrontComponent
+     },
+     {
+       path: 'myfinancing',
+       component: MyFinancingsComponent
      }
     ]
   },{
@@ -216,6 +231,12 @@ const routes: Routes = [
 
         path: 'financingRequest',
         component: FinancingRequestComponent
+      },{
+
+   
+
+        path: 'ALLF',
+        component: FinancingRequestAllComponent
       }
 
 

@@ -1,140 +1,149 @@
 <div class="row">
-<section class="contact-area section-padding-bottom">
-      <div class="container">  
-             
-                  <div>
-                    <div class="popup" *ngIf="show" (click)="closePopup($event)">
-                        <div class="popup-content" (click)="stopPropagation($event)">
-                          <h2>test</h2>
-                          <p>financing requests</p>
-                          <button (click)="closePopup()">Close</button>
-                          <ul>
-                            <li *ngFor="let financing of financings">
-                                <p><strong>user</strong>{{financing.userId}}</p>
-                                <p><strong>excel</strong><a [href]="financing.excel" target="_blank">{{financing.excel}}</a></p>
-                            </li>
-                          </ul>
+  <section class="contact-area section-padding-bottom">
+        <div class="container">  
+               
+                    <div>
+                      <div class="popup" *ngIf="show" (click)="closePopup($event)">
+                          <div class="popup-content" (click)="stopPropagation($event)">
+                            <h2>test</h2>
+                            <p>financing requests</p>
+                            <button (click)="closePopup()">Close</button>
+                            <ul>
+                              <li *ngFor="let financing of financings">
+                                  <p><strong>user</strong>{{financing.userId}}</p>
+                                  <p><strong>excel</strong><a [href]="financing.excel" target="_blank">{{financing.excel}}</a></p>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
+                        
+                        <button class="btn btn-sm btn-primary me-1"  *ngIf="!show" (click)="show = !show">add offer </button>
+                        <button class="btn btn-sm btn-primary me-1"  *ngIf="show" (click)="show = !show">Go to List</button>
+                        
+                        <div *ngIf="!show">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              choose Status
+                            </button>
+                            <div class="dropdown-menu">
+                              <button class="dropdown-item" (click)="status( 'ACTIVE')">ACCEPTED</button>
+                              <button class="dropdown-item" (click)="status('PENDING')">PENDING</button>
+                              <button class="dropdown-item" (click)="getOffers()">ALL</button>
+                            </div>
+                          </div>
+                     
+                    
+                      <button class="btn btn-sm btn-primary me-1" *ngIf="!show" (click)="scrap()">Scrap offers</button>
+                        <button class="btn btn-danger" *ngIf="!show"(click)="deleteAll()">Delete All</button>
                       </div>
-                      <button class="btn btn-sm btn-primary me-1"  *ngIf="!show" (click)="show = !show">add offer </button>
-                      <button class="btn btn-sm btn-primary me-1"  *ngIf="show" (click)="show = !show">Go to List</button>
                       
-                      <div *ngIf="!show">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            choose Status
-                          </button>
-                          <div class="dropdown-menu">
-                            <button class="dropdown-item" (click)="status( 'ACCEPTED')">ACCEPTED</button>
-                            <button class="dropdown-item" (click)="status('PENDING')">PENDING</button>
-                            <button class="dropdown-item" (click)="getOffers()">ALL</button>
-                          </div>
+                      <div *ngIf="show">
+                        <div class="container form-panel" style="width: 1400px;">
+                          <h2 class="form-header" style="margin-bottom: 30px; font-weight: bold;">ADD Offer</h2>
+                          <!-- Form -->
+                          <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+                            <!-- Description -->
+                            <div class="form-group">
+                              <label>Description:</label>
+                              <input formControlName="offerDescription" type="text">
+                            </div>
+                            <!-- Link -->
+                            <div class="form-group">
+                              <label>Link:</label>
+                              <input formControlName="offerLink" type="text">
+                            </div>
+                            <!-- Price -->
+                            <div class="form-group">
+                              <label>Price:</label>
+                              <input formControlName="offerPrice" type="text">
+                            </div>
+                            <!-- Image -->
+                            <div class="form-group">
+                              <label>Image:</label>
+                              <input formControlName="offerImage" (change)="onFileChange($event)" type="file">
+                            </div>
+                            <!-- Status -->
+                            <div class="form-group">
+                              <label>Status:</label>
+                              <select formControlName="offerStatus">
+                                <option value="PENDING">Pending</option>
+                                <option value="LISTED">Listed</option>
+                              </select>
+                            </div>
+                            <!-- Category -->
+                            <div class="form-group">
+                              <label>Category:</label>
+                              <select class="select.form-control" formControlName="offerCategory">
+                                <option value="TECH">Technology</option>
+                                <option value="MEC">Mecanique</option>
+                              </select>
+                            </div>
+                            <!-- Submit Button -->
+                            <button class="btn btn-sm btn-primary me-1" type="submit">Submit</button>
+                          </form>
                         </div>
-                    </div>
-                    <button class="btn btn-sm btn-primary me-1" *ngIf="!show" (click)="scrap()">Scrap offers</button>
-                      <button class="btn btn-danger" *ngIf="!show"(click)="deleteAll()">Delete All</button>
-                    <div *ngIf="show">
-                      <div class="form-panel">
-                        <h1 class="form-header">Create Offer</h1>
-                      <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
-                          <div class="form-group">
-                            <label>Description:</label>
-                            <input formControlName="offerDescription" type="text">
-                          </div>
-                          <div class="form-group">
-                            <label>Link:</label>
-                            <input formControlName="offerLink" type="text">
-                          </div>
-                          <div class="form-group">
-                            <label>Price:</label>
-                            <input formControlName="offerPrice" type="text">
-                          </div >
-                          <div class="form-group">
-                            <label>Price:</label>
-                            <input formControlName="offerImage"  type="file">
+                        </div> 
+                      </div>
+                        <div *ngIf="!show" class="table-responsive  mt-1">
+                          <h4 class="card-title card-title-dash">all offers</h4>
                             
-                          </div >
-                          <div class="form-group">
-                            <label>Status:</label>
-                            <select formControlName="offerStatus">
-                              <option value="PENDING">Pending</option>
-                              <option value="LISTED">Listed</option>
+                           
+                            
+                            <table class="table select-table" >
+                            <thead>
+                              <tr class="fixed">
+                                <th></th>
+                                <th>Description</th>
+                                
+                                <th>Status</th>
+                                
+                                <th>Fianancings</th>
+                                <th>Details</th>
+                                <th >actions</th>
+                                
+                            </tr>
+                          </thead>
+                            <tbody>
+                            <tr *ngFor="let offer of offers">
+                              <td>
+                                <img [src]="image" *ngIf="isBase64(offer.offerImage); else otherURL">
+                                <ng-template #otherURL><img [src]="offer.offerImage"></ng-template></td>
+                              <td>{{ offer.offerDescription }}</td>
                               
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label>Category:</label>
-                            <select class="select.form-control" formControlName="offerCategory">
-                              <option value="TECH">Technology</option>
-                              <option value="MEC">mecanique</option>
+                              <td>
+                                <span [ngStyle]="{'background-color': getStatus(offer.offerStatus), 'border-radius': '5px', 'padding': '5px', 'color': 'white'}">
+                                  {{ offer.offerStatus }}
+                                </span>
+                              </td>
                               
-                            </select>
-                          </div >
-                          <button cclass="btn btn-sm btn-primary me-1" type="submit">Submit</button>
-                          
-                          
-                        </form>
-                      </div> 
-                    </div>
-                      <div *ngIf="!show" class="table-responsive  mt-1">
-                        <h4 class="card-title card-title-dash">all offers</h4>
-                          
-                         
-                          
-                          <table class="table select-table" >
-                          <thead>
-                            <tr class="fixed">
-                              <th></th>
-                              <th>Description</th>
                               
-                              <th>Status</th>
+                              <td><button class="btn btn-sm btn-primary me-1"  (click)="openPopup(offer.offreId)"><i class="bi bi-eye"></i> Display</button> </td>
+                              <td><button class="btn btn-sm btn-primary me-1"  (click)="openDetails(offer)"><i class="bi bi-info-circle"></i> Details
+                               </button> </td>
                               
-                              <th>Fianancings</th>
-                              <th>Details</th>
-                              <th >actions</th>
+                              <td >
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ selectedOption }}
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <button class="dropdown-item" (click)="approve(offer.offreId, 'ACTIVE')"><i class="bi bi-check"></i> Approve</button>
+                                    <button class="dropdown-item" (click)="approve(offer.offreId, 'CLOSED')"><i class="bi bi-x"></i>Refuse</button>
+                                    <button  class="dropdown-item"  (click)="delete(offer.offreId)">Delete</button>
+                                  </div>
+                                </div>
+                              </td>
                               
                           </tr>
-                        </thead>
-                          <tbody>
-                          <tr *ngFor="let offer of offers">
-                            <td>
-                              <img [src]="image" *ngIf="isBase64(offer.offerImage); else otherURL">
-                              <ng-template #otherURL><img [src]="offer.offerImage"></ng-template></td>
-                            <td>{{ offer.offerDescription }}</td>
-                            
-                            <td>
-                              <span [ngStyle]="{'background-color': getStatus(offer.offerStatus), 'border-radius': '5px', 'padding': '5px', 'color': 'white'}">
-                                {{ offer.offerStatus }}
-                              </span>
-                            </td>
-                            
-                            
-                            <td><button class="btn btn-sm btn-primary me-1"  (click)="openPopup(offer.offreId)"> Display</button> </td>
-                            <td><button class="btn btn-sm btn-primary me-1"  (click)="openDetails(offer)"> Details
-                             </button> </td>
-                            
-                            <td >
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  {{ selectedOption }}
-                                </button>
-                                <div class="dropdown-menu">
-                                  <button class="dropdown-item" (click)="approve(offer.offreId, 'ACTIVE')">Approve</button>
-                                  <button class="dropdown-item" (click)="approve(offer.offreId, 'CLOSED')">Refuse</button>
-                                  <button  class="dropdown-item"  (click)="delete(offer.offreId)">Delete</button>
-                                </div>
-                              </div>
-                            </td>
-                            
-                        </tr>
-                    
-                      </tbody>
-                  </table>
-                </div>
-                </div>
+                      
+                        </tbody>
+                    </table>
                   </div>
-                  
-                 
-                </section>
-
-              </div>
+                  </div>
+                   
+                    
+                   
+                  </section>
+  
+                </div>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">

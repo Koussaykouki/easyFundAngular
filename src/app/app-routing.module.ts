@@ -42,7 +42,12 @@ import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-fr
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
+
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+
+import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
+import { UserListComponent } from './BackOffice/user-list/user-list.component';
+
 const routes: Routes = [
  
   {
@@ -112,12 +117,19 @@ const routes: Routes = [
       {
         path: 'claims',
         component: ClaimsAllComponent
+
       },{
 
    
 
         path: 'financingRequest',
         component: FinancingRequestComponent
+
+      },
+      {
+        path: 'users',
+        component: UserListComponent
+
       }
     ]
   },
@@ -143,6 +155,11 @@ const routes: Routes = [
 
         path: 'claims',
         component: ClaimslistfrontComponent,
+      },
+      {
+
+        path: 'addclaim',
+        component: AddclaimComponent,
       },{
         path: 'devis',
         component: DevisExcelComponent

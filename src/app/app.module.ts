@@ -97,9 +97,18 @@ import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+
 import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
 import { OfferService } from './services/offer.service';
 import { MatDialogModule } from '@angular/material/dialog';
+
+
+import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-chart-top-urls.component';
+import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
+import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.component';
+import { UserListComponent } from './BackOffice/user-list/user-list.component';
+import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
+import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
 
 
 
@@ -143,6 +152,15 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderhomeFrontComponent,
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
+
+
+    PerformanceLineChartComponent,
+    
+    
+    
+    
+    
+
     ClaimsAllComponent,
     ClaimDetailsComponent,
     YourOpenClaimsComponent,
@@ -154,7 +172,23 @@ import { MatDialogModule } from '@angular/material/dialog';
     StripeComponent,
     AllofferComponent,
     OfferPopUpComponent,
-    PerformanceLineChartComponent
+    PerformanceLineChartComponent,
+
+    BarChartTopUrlsComponent,
+    AddclaimComponent,
+    UserdetailsComponent,
+    UserListComponent,
+    UserDetailDialogComponent,
+    UserBannedListComponent
+    
+    
+    
+
+
+   
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -162,6 +196,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
     MatCardModule,
     DropzoneMaterialModule,
     MatFormFieldModule,
@@ -193,7 +228,20 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProgressComponent,
     CardHeaderComponent,
     TableDirective,
-    AvatarComponent
+    AvatarComponent,
+
+
+    
+
+    NgbModule,
+    MatDialogModule,
+    GridModule,
+    SpreadsheetAllModule,
+    
+    
+    
+    
+
   ],
   providers: [
     OfferService, DataService,

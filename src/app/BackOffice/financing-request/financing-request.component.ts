@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FinancingRequestService } from '../../services/financing-request.service';
 import { FinancingsService } from '../../services/financings.service';
-
+import { ItemModel, MenuEventArgs } from '@syncfusion/ej2-angular-splitbuttons';
 import { saveAs } from 'file-saver';
 
 @Component({
@@ -10,12 +10,22 @@ import { saveAs } from 'file-saver';
   styleUrl: './financing-request.component.css'
 })
 export class FinancingRequestComponent implements OnInit {
+  items: ItemModel[] = [];
+  action: ItemModel[] = [];
   financings: any[] =[];
   user :any;
   file1:any ="";
-  constructor(private financingService : FinancingRequestService,financingsS:FinancingsService){}
+  constructor(private financingService : FinancingRequestService,financingsS:FinancingsService){
+   
+  }
   ngOnInit(): void {
     this.getFinancings();
+    this.items=[
+      { text: 'ACCEPTED', id: '1' },
+    { text: 'CLOSE', id: '2' }];
+    this.action=[
+      { text: 'APPROVE', id: '1' },
+    { text: 'Refuse', id: '2' }];
   }
    getFinancings(){
     this.financingService.findAll().subscribe({
@@ -59,4 +69,63 @@ export class FinancingRequestComponent implements OnInit {
       //window.open(url);
     }, error: (error) => console.log('Error downloading the file')});
    }
+   getStatus(status: string): string {
+    switch (status) {
+      case 'PENDING':
+        return 'yellow';
+      case 'ACTIVE':
+        return 'green';
+      case 'ARCHIED':
+        return 'black';
+      default:
+        return 'blue';
+    }
+  }
+  onItemSelect(event: { item: ItemModel }): void {
+    console.log('Item selected:', event.item.text); // Check if this line is executed
+    switch (event.item.id) {
+      case 'item1':
+        console.log('Item 1 clicked');
+        break;
+      case 'item2':
+        console.log('Item 2 clicked');
+        break;
+      default:
+        console.log('Unknown item clicked:', event.item.id); // Check if this line is executed for debugging
+        break;
+    }
+  }
+  geBytStatus(status:string){
+    this.financingService.findByStatus(status).subscribe({
+      next: (data) => {
+        this.financings = data;
+        this.financings.forEach(fr => {
+          this.getUser(fr.financingRequestId); // Fetch and store user IDs
+        });
+        
+        console.log('Data fetched successfully', data);
+      },
+      error: (error) => console.error('Error fetching messages:', error)
+    });
+  }
+  approve(id:number,status:string){
+    this.financingService.approve(id,status).subscribe({
+      next: (data) => {
+        this.getFinancings();
+       
+        console.log('approved ', data);
+      },
+      error: (error) => console.error('failed :', error)
+    });
+  }
+  delet(id:number){
+    this.financingService.delete(id).subscribe({
+      next: (data) => {
+        this.getFinancings();
+       
+        console.log('deleted  ', data);
+      },
+      error: (error) => console.error('failed  to delete:', error)
+    });
+  }
 }

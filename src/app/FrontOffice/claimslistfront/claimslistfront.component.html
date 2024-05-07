@@ -32,7 +32,8 @@
                     <!-- comments -->
                     <div class="comment-box section-padding-top p-relative">
                         <div id="comment-box">
-                            <ul class="comments">
+                            <!-- Check if there are any claims -->
+                            <ul class="comments" *ngIf="(claims$ | async)?.length; else noClaims">
                                 <li class="comment" *ngFor="let claim of claims$ | async">
                                     <article>
                                         <div class="comment-content">
@@ -61,8 +62,15 @@
                                     </article>
                                 </li>
                             </ul>
+                            <!-- Template for no claims -->
+                            <ng-template #noClaims>
+                                <div class="no-claims">
+                                    <p>You have no claims at the moment, <a [routerLink]="'/front/addclaim'" class="text-custom-blue">add a claim?</a></p>
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
+                    
                     <!-- comments -->
                 </div>
             </div>

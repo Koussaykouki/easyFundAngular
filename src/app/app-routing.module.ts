@@ -6,6 +6,11 @@ import { FinancingsComponent } from './BackOffice/financings/financings.componen
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
+import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
+import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
+import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
+import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
+import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
 
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
@@ -33,8 +38,12 @@ import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-fr
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
+
+import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
+
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
+
 import { ViewInsuranceComponent } from './BackOffice/view-insurance/viewInsurance.component';
 import { CreateInsuranceComponent } from './BackOffice/create-insurance/createInsurance.component';
 import { InsuranceComponent } from './FrontOffice/insurance/insurance.component';
@@ -94,18 +103,23 @@ const routes: Routes = [
       {
         path: '',
         component: HomebackComponent,
+       
       },
       {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegistrationComponent,
+        path: 'offer',
+        component: AllofferComponent
       },
       {
         path: 'claims',
         component: ClaimsAllComponent,
+
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
+
       },
       {
         path: 'users',
@@ -122,6 +136,7 @@ const routes: Routes = [
       {
         path: 'view-insurance-contract',
         component: ViewInsuranceContractComponent,
+
       },
     ],
   },
@@ -206,17 +221,29 @@ const routes: Routes = [
       },
       {
         path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent,
-      },
+        component: ResetpasswordfrontComponent},
 
-      {
-        path: 'offer-details',
-        component: OfferDetailsComponent,
-        outlet: 'popup',
-      },
+      
 
-      { path: 'demandFinancing', component: FiancingFrontComponent },
-    ],
+      { path: 'offer-details',
+        component: OfferDetailsComponent, 
+        outlet: 'popup'
+       },
+       
+      { path: 'demandFinancing',
+      component: FiancingFrontComponent
+      },{
+
+   
+
+        path: 'financingRequest',
+        component: FinancingRequestComponent
+      }
+
+     
+
+    ]
+
   },
   {
     path: 'addoffre',
@@ -246,6 +273,22 @@ const routes: Routes = [
   {
     path: 'insurance',
     component: InsuranceComponent,
+  },
+  {
+    path: 'credit/applyMicrocredit',
+    component: MicrocreditsComponent
+  },
+  {
+    path: 'credit/getCreditByConnectedUser',
+    component: MyMicroCreditsComponent
+  },
+  {
+    path: 'admin/getAllMicroCredits',
+    component: MicroCreditListComponent
+  },
+  {
+    path: 'admin/simulator',
+    component: LoanCalculatorComponent
   },
 ];
 

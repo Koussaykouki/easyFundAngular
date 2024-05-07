@@ -24,7 +24,16 @@ export class UserService {
   banUser(userId: number): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/ban/${userId}`, {});
   }
+
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiUrl}/all`);
   }
+
+  getBannedUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/banned`);
+  }
+  unbanUser(userId: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}/unban/${userId}`, {});
+  }
+  
 }

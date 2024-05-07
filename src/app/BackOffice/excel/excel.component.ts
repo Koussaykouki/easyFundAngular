@@ -20,7 +20,7 @@ export class ExcelComponent implements OnInit {
     }, error: (error) => console.log('Error downloading the file')});
   }
   excel(){
-    this.fileService.excel(6).subscribe(arrayBuffer => {
+    this.fileService.excel(29).subscribe(arrayBuffer => {
       // Convert ArrayBuffer to Binary String
       const data = new Uint8Array(arrayBuffer);
       let binaryString = '';

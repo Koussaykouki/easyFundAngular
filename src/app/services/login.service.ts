@@ -20,29 +20,16 @@ export interface AuthenticationResponse {
   providedIn: 'root'
 })
 export class LoginService {
-  private authAdminAgentUrl = `${environment.apiBaseUrl}/api/v1/auth/authenticate-admin-agent`;
-  private authInvestorClientUrl = `${environment.apiBaseUrl}/api/v1/auth/authenticate-investor-client`;
-  private auth = `${environment.apiBaseUrl}/api/v1/auth/authenticate`;
+  private authUrl = `${environment.apiBaseUrl}/api/v1/auth/authenticate`; // Adjust based on your API URL setup
 
+  constructor(private http: HttpClient,private router: Router) {}
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  authenticateAdminAgent(authRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
-    return this.http.post<AuthenticationResponse>(this.authAdminAgentUrl, authRequest);
-  }
-
-  authenticateInvestorClient(authRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
-    return this.http.post<AuthenticationResponse>(this.authInvestorClientUrl, authRequest);
-  }
   authenticate(authRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
-    return this.http.post<AuthenticationResponse>(this.auth, authRequest);
+    return this.http.post<AuthenticationResponse>(this.authUrl, authRequest);
   }
-
   logout(): void {
     // Clear user data from localStorage
     localStorage.removeItem('accessToken');
-    // Optionally clear refreshToken if stored
-    localStorage.removeItem('refreshToken');
     // Redirect to login page
     this.router.navigate(['/login']);
   }

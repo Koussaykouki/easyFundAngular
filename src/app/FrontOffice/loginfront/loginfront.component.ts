@@ -26,9 +26,7 @@ export class LoginfrontComponent {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const pageUrl = this.router.url;
-
-        this.PageViewService.logPageView(pageUrl).subscribe(response => {
+        this.PageViewService.logPageView().subscribe(response => {
           console.log('Page view logged:', response);
         });
       }
@@ -60,34 +58,24 @@ export class LoginfrontComponent {
 
     // Call the login service to authenticate the user
     this.loginService.authenticate(authRequest)
-    .subscribe(
+      .subscribe(
         (response) => {
-            // If authentication is successful, save tokens to localStorage and redirect to another component
-            localStorage.setItem('accessToken', response.accessToken);
-            localStorage.setItem('refreshToken', response.refreshToken);
-            console.log('Access token and refresh token saved to localStorage.');
-            this.router.navigate(['/front']);
+          // If authentication is successful, save tokens to localStorage and redirect to another component
+          localStorage.setItem('accessToken', response.accessToken);
+          localStorage.setItem('refreshToken', response.refreshToken);
+          console.log('Access token and refresh token saved to localStorage.');
+          this.router.navigate(['/front']);
         },
         (error) => {
-            // If authentication fails, display error message
-            if (error && error.error && error.error.message) {
-                this.handleError(error.error.message);
-            } else {
-                this.handleError('You are not authorized to access ');
-            }
+          // If authentication fails, display error message
+          this.handleError(error);
         }
-    );
-
-
-  
-} handleError(errorMessage: string): void {
-  console.error(errorMessage);
-
-  // Assuming there's an element in your component's HTML to display the error message
-  const errorElement = document.getElementById('error-message');
-  if (errorElement) {
-    errorElement.innerText = errorMessage;
-    errorElement.style.display = 'block';  // Make the error message visible
+      );
   }
-}
+
+  handleError(error: any) {
+    this.loading = false;
+    this.error = 'An error occurred';
+    console.error('An error occurred:', error);
+  }
 }

@@ -1,0 +1,78 @@
+<div class="sub-header overlapsec p-relative">
+    <div class="overlay overlay-bg-black"></div>
+    <div class="pattern"></div>
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sub-header-content p-relative">
+                        <h1 class="text-custom-white lh-default fw-600">Projects</h1>
+                        <ul class="custom">
+                            <li> <a href="index.html" class="text-custom-white">Home</a>
+                            </li>
+                            <li class="text-custom-white active">Projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><section class="section-padding-bottom user-info-details">
+    <div class="container-fluid">
+        <div class="row projects">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="card-body project-box">
+                        <div class="img-wrapper">
+                            <div class="front">
+                                <img [src]="project.imageUrl" class="img-fluid blur-up lazyload bg-img" alt="Project Image">
+                            </div>
+                        </div>
+                        <div class="project-detail">
+                            <h3>{{ project.name }}</h3>
+                            <p>{{ project.description }}</p>
+                            <div class="detail-row">
+                                <span><strong>Start Date:</strong> {{ project.startDate | date:'dd/MM/yyyy' }}</span>
+                                <span><strong>End Date:</strong> {{ project.endDate | date:'dd/MM/yyyy' }}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span><strong>Amount Required:</strong> {{ project.amountRequired }}</span>
+                                <span><strong>Current Amount:</strong> {{ project.currentAmount }}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span><strong>Project Status:</strong> {{ project.projectStatus }}</span>
+                            </div>
+                        </div>
+                        <div class="investment">
+                            <input type="number" [(ngModel)]="project.investmentRequest" placeholder="Enter investment amount">
+                            <button (click)="addInvestmentToProject(project.investmentRequest)" class="investment-button">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </button>
+                        </div>
+                        <div class="comments">
+                            <h4>Comments:</h4>
+                            <form (ngSubmit)="onSubmit(project.newComment)">
+                                <div class="form-group comment-input">
+                                    <input type="text" class="form-control" id="comment" [(ngModel)]="project.newComment"
+                                        name="comment" placeholder="Add a comment...">
+                                    <button type="submit" class="send-button">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form> 
+                            <div *ngFor="let comment of project.listComments" class="comment">
+                                <p>{{ comment.comment }}</p>
+                                <span class="date">{{ comment.date }}</span>
+                            </div>
+                            <div>
+                                <button (click)="generatePDF(project)" class="pdf-download-button">
+                                    Download PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

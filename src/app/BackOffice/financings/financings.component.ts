@@ -1,4 +1,4 @@
-import { Component,OnInit,Inject } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FinancingsService  } from '../../services/financings.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';  // Import Router
@@ -8,10 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 import{PopupService} from '../../services/popup.service';
 import * as XLSX from 'xlsx';
 import { Workbook } from 'exceljs';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { saveAs } from 'file-saver';
-import { FinancingRequestService } from '../../services/financing-request.service';
 @Component({
   selector: 'app-financings',
   templateUrl: './financings.component.html',
@@ -22,27 +20,17 @@ export class FinancingsComponent implements OnInit {
   id:number=0;
   excelData: any[]=[];
   file1:any ="";
-  user:any;
-  constructor(public dialogRef: MatDialogRef<FinancingsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private router: Router,private fb: FormBuilder,private offerservice : FinancingsService,private route: ActivatedRoute,private popupService: PopupService, private financing:FinancingRequestService) {
-      
-    }
+  constructor(private fb: FormBuilder,private offerservice : FinancingsService,private route: ActivatedRoute,private popupService: PopupService) {}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params['id'];  
     });
-    const numberValue1: number = Number(this.data);
-    console.log('id dended :'+numberValue1);
-    console.log('id dended :'+this.data);
-    this.getfinancings(this.data);
+    this.getfinancings(this.id);
   }
   getfinancings(id:number){
     this.offerservice.findByOffer(id).subscribe({
       next : (data) => {
         this.financings = data;  
-        this.financings.forEach(fr => {
-          this.getUser(fr.financingRequestId); // Fetch and store user IDs
-        });
         console.log('financings successfully', data);
         
       },
@@ -53,6 +41,8 @@ export class FinancingsComponent implements OnInit {
 downloadFile(name:any) {
   this.offerservice.downloadFile(name).subscribe({
     next :(data) => {
+      
+     
     const blob = new Blob([data], { type: 'application/vnd.ms-excel' });
    // saveAs(blob,name);
    const now = new Date();
@@ -87,17 +77,4 @@ openPopup() {
   this.popupService.open();
   console.log(`popup`);
 }
-closePopup(): void {
-  this.dialogRef.close();
-}
-getUser(id:number){
-  this.financing.findUser(id).subscribe({
-    next: (data) => {
-     // this.financings = data;
-       this.user=data;
-      console.log('User detedcted', data);
-    },
-    error: (error) => console.error('user non detected:', error)
-  });
- }
 }

@@ -6,11 +6,6 @@ import { FinancingsComponent } from './BackOffice/financings/financings.componen
 import { ExcelComponent } from './BackOffice/excel/excel.component';
 import { LoginComponent } from './BackOffice/login/login.component';
 import { RegistrationComponent } from './BackOffice/registration/registration.component';
-import { MicrocreditsComponent } from './BackOffice/credit/microcredits/microcredits.component';
-import { MicroCreditListComponent } from './BackOffice/credit/micro-credit-list/micro-credit-list.component';
-import { MyMicroCreditsComponent } from './BackOffice/credit/my-micro-credits/my-micro-credits.component';
-import { LoanCalculatorComponent } from './BackOffice/credit/loan-calculator/loan-calculator.component';
-import { DashboardComponent } from './BackOffice/credit/loan-calculator/home/dashboard/dashboard.component';
 
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
@@ -42,19 +37,11 @@ import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-fr
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
-
-import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
-
-import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
-import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
-
-
-import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
-import { UserListComponent } from './BackOffice/user-list/user-list.component';
-
-
+import { AddProjectComponent } from './BackOffice/add-project/add-project.component';
+import { AllProjectsComponent } from './FrontOffice/all-projects/all-projects.component';
+import { ProjectDetailsComponent } from './FrontOffice/project-details/project-details.component';
+import { AllCommentComponent } from './BackOffice/all-comment/all-comment.component';
 const routes: Routes = [
-
   {
 
     path: '',
@@ -67,10 +54,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
-  },
-  {
-    path: 'stat',
-    component: StatOfferComponent
   },{
 
 
@@ -90,15 +73,16 @@ const routes: Routes = [
     path: 'devis',
     component: DevisExcelComponent
   },
+   
   { path: 'offer-details',
     component: OfferDetailsComponent,
     outlet: 'popup'
-   },
+  },
 
   { path: 'demandFinancing',
-  component: FiancingFrontComponent
+    component: FiancingFrontComponent
 
- },
+  },
 
   {
     path: 'offerFront',
@@ -120,30 +104,8 @@ const routes: Routes = [
 
       },
       {
-        path: 'offer',
-        component: AllofferComponent
-      },
-      {
         path: 'claims',
         component: ClaimsAllComponent
-
-      },{
-
-
-
-        path: 'financingRequest',
-        component: FinancingRequestComponent
-
-      },
-      {
-        path: 'users',
-        component: UserListComponent
-
-      }
-      ,{
-
-         path: 'allf',
-        component: FinancingRequestAllComponent
       }
     ]
   },
@@ -157,36 +119,18 @@ const routes: Routes = [
         component: HomefrontComponent,
 
       },
-
-         {
-        path: 'simulator',
-        component: LoanCalculatorComponent,
-
-      },
-      {
-        path: 'applyMicrocredit',
-        component: MicrocreditsComponent
-      },
-      {
-        path: 'getCreditByConnectedUser',
-        component: MyMicroCreditsComponent
-      },
       {
         path: 'claimsallfront/:id',
         component: ClaimsallfrontComponent,
       },{
         path: 'offerFront',
         component: OfferComponent
+
       },
       {
 
         path: 'claims',
         component: ClaimslistfrontComponent,
-      },
-      {
-
-        path: 'addclaim',
-        component: AddclaimComponent,
       },{
         path: 'devis',
         component: DevisExcelComponent
@@ -194,15 +138,11 @@ const routes: Routes = [
       { path: 'offer-details',
         component: OfferDetailsComponent,
         outlet: 'popup'
-       },
+      },
 
       { path: 'demandFinancing',
-      component: FiancingFrontComponent
-     },
-     {
-       path: 'myfinancing',
-       component: MyFinancingsComponent
-     }
+        component: FiancingFrontComponent
+      }
     ]
   },{
     path: 'home',
@@ -213,7 +153,7 @@ const routes: Routes = [
         path: '',
         component: HomefrontComponent,
       },{
-
+        
         path: 'register',
         component: RegisterComponent
 
@@ -223,6 +163,12 @@ const routes: Routes = [
         component:LoginfrontComponent
 
       },
+      {
+        path:'projects',
+        component: AllProjectsComponent
+
+      },  {path: 'projects/:id', component: ProjectDetailsComponent},
+
       {
         path: 'devis',
         component: DevisExcelComponent
@@ -241,26 +187,10 @@ const routes: Routes = [
       { path: 'offer-details',
         component: OfferDetailsComponent,
         outlet: 'popup'
-       },
+      },
 
       { path: 'demandFinancing',
-      component: FiancingFrontComponent
-      },
-      {
-        path: 'addoffre',
-        component: OffreComponent
-      },{
-
-
-
-        path: 'financingRequest',
-        component: FinancingRequestComponent
-      },{
-
-   
-
-        path: 'ALLF',
-        component: FinancingRequestAllComponent
+        component: FiancingFrontComponent
       }
 
 
@@ -271,6 +201,14 @@ const routes: Routes = [
   {
     path: 'addoffre',
     component: OffreComponent
+  },
+  {
+    path: 'add-project',
+    component: AddProjectComponent
+  },
+  {
+    path: 'allComment',
+    component: AllCommentComponent
   },
   {
     path: 'excel',
@@ -307,7 +245,7 @@ const routes: Routes = [
 
 
 
- {
+  {
 
 
     path: 'login',
@@ -317,22 +255,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
-  },
-  {
-    path: 'credit/applyMicrocredit',
-    component: MicrocreditsComponent
-  },
-  {
-    path: 'credit/getCreditByConnectedUser',
-    component: MyMicroCreditsComponent
-  },
-  {
-    path: 'admin/getAllMicroCredits',
-    component: MicroCreditListComponent
-  },
-  {
-    path: 'admin/simulator',
-    component: LoanCalculatorComponent
   }
 
 

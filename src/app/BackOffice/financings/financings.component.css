@@ -1,32 +1,4 @@
-.popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #ccc; /* Border style for the popup */
-    border-radius: 10px; /* Border radius for curved edges */
-    overflow: hidden;
-  }
-  
-  .popup-content {
-    width: 50%; /* Adjust width as needed */
-    height: 50%;
-    background-color: #fff; /* White background */
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-  .offer-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .offer-details-content {
-    display: flex;
-  }
+a {
+    color: blue; /* Example: making sure links are blue */
+    text-decoration: underline; /* Example: underlining links */
+}

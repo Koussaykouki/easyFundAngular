@@ -9,23 +9,20 @@
     <form [formGroup]="financingForm" (ngSubmit)="onSubmit()" >
         
             <label>Start Date:</label>
-            <input formControlName="dateFinancingRequest" (change)="date1($event)" type="date">
+            <input formControlName="dateFinancingRequest" type="date">
           
           <div class="form-group">
-            <div *ngIf="test" class="text-danger">
-              Final Date should be bigger than start date
-            </div>
             <label>End Date</label>
-            <input formControlName="finalDate"  (change)="date2($event)" type="date">
+            <input formControlName="finalDate" type="date">
           </div>
           
-          <div *ngIf="starDate!== null && endDate!== null  " >
-            <button   class="btn btn-sm btn-primary me-1" (click)="calculateAmortizationSchedule(offer.offerPrice,endDate,starDate)">Devis</button>
-          </div>
+         
           <button class="btn btn-sm btn-primary me-1" type="submit">Submit</button>
     </form>
    
  </div>  
- 
+ <div *ngIf="starDate!== null && endDate!== null" >
+    <button  (click)="calculateAmortizationSchedule(offer.offerPrice,endDate,starDate)">Devis</button>
+  </div>
 </div> 
 </section>

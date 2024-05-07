@@ -1,0 +1,281 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.select-table{
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden; /* Ensures the border-radius is applied to the content as well */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.td,th{
+    padding: 15px 20px;
+    text-align: center;
+    background-image: linear-gradient(to top left, #f9f9f9, #fff);
+    position: relative; /* Needed for the pseudo-elements */
+}
+tr:not(:first-child) th, tr:not(:first-child) td {
+    border-radius: 12px solid #f0f0f0;
+    border-spacing: 5;
+}
+.text-active {
+    color: green;
+  }
+  .text-pending {
+    color: blue;
+  }
+  .text-expired {
+    color: red;
+  }
+/* This is not shown by default */
+.popup {
+    display: none;
+}
+.form-panel {
+    background-color: white;
+    border-radius: 15px;  /* Creates the curved edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Optional: adds shadow for 3D effect */
+    width: 600px;
+    margin: auto;  /* Center the panel */
+    padding: 20px;
+    border: 1px solid #0e37db;
+}
+
+.form-header {
+    text-align: center;
+    color: white;
+    background-color: #007BFF;  /* Bootstrap primary blue */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin: -20px -20px 20px -20px;  /* Aligns header background with curved panel */
+    padding: 10px;
+}
+
+.form-group {
+    width: 100%;  /* Full width to align text and inputs */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center aligns both label and input */
+    margin: 10px 0;/* Center align the form elements */
+    border: 1px solid #505052;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;  /* Includes padding and border in the element's width */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.table-responsive {
+    max-height: 400px; /* Adjust based on your preference */
+    overflow-y: scroll;
+    overflow-x: scroll; /* Optionally hide horizontal scrollbar if not needed */
+}
+.form-panel {
+    background-color: white;
+    border-radius: 15px;
+    /* Creates the curved edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: adds shadow for 3D effect */
+    width: 1000px;
+    margin: auto;
+    /* Center the panel */
+    padding: 20px;
+    border: 1px solid #0e37db;
+}
+
+
+
+select.form-control {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+
+.readonly-wrapper {
+    cursor: not-allowed;
+}
+
+.readonly-wrapper .readonly-block {
+    pointer-events: none;
+}
+.custom-file-selected {
+    background-color: #fe7f4c; /* Couleur de fond lorsque le fichier est sélectionné */
+    color: #fff; /* Couleur du texte lorsque le fichier est sélectionné */
+  }
+  
+  .custom-file-default {
+    background-color: #fe7f4c; /* Couleur de fond par défaut */
+    color: #fff; /* Couleur du texte par défaut */
+  }
+  
+  .custom-upload-btn {
+    background-color: #fe7f4c; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none; /* Supprimer la bordure */
+    padding: 5px 10px; /* Ajuster le rembourrage selon vos préférences */
+    cursor: pointer; /* Changer le curseur au survol */
+  }
+  
+  .custom-upload-btn:hover {
+    background-color: #fe7f4c; /* Couleur de fond du bouton au survol */
+  }
+  #map {
+    height: 60vh;
+    width: 80vh;
+    margin: auto;
+  }
+  .form-panel {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .form-header {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .project-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .custom-file {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .custom-file-label {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .custom-file-default {
+    background-color: #ccc;
+  }
+  
+  .custom-file-selected {
+    background-color: #28a745; /* Green color for selected file */
+  }
+  
+  .selected-image {
+    display: block;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+  }
+  .add-button,
+.list-button {
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.add-button:hover,
+.list-button:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover */
+}
+.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.project-table th, .project-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.project-table th {
+    background-color: #f2f2f2;
+}
+
+.project-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.project-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.delete-button, .update-button {
+    background-color: #dc3545; /* Red color for delete button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button {
+    background-color: #007bff; /* Blue color for update button */
+}
+
+.delete-button:hover, .update-button:hover {
+    background-color: #c82333; /* Darker shade of red on hover */
+}

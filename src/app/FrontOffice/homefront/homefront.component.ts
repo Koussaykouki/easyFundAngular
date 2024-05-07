@@ -13,9 +13,7 @@ export class HomefrontComponent {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const pageUrl = this.router.url;
-
-        this.pageViewService.logPageView(pageUrl).subscribe(response => {
+        this.pageViewService.logPageView().subscribe(response => {
           console.log('Page view logged:', response);
         });
       }

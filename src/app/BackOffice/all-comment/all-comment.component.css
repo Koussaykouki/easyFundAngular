@@ -1,0 +1,22 @@
+/* Style pour la liste des commentaires */
+.comment-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none; /* Supprime les puces de liste */
+  }
+  
+  /* Style pour chaque élément de commentaire */
+  .comment-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour le texte du commentaire */
+  .comment-text {
+    color: #333;
+    font-size: 16px;
+  }
+  

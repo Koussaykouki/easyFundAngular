@@ -84,7 +84,6 @@ if (stripeChargeValue) {
       },
       error: (error) => console.error('Error de paiement:', error)
     });
-    this.closePopup();
      
   }
 }

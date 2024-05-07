@@ -29,8 +29,8 @@ export class FinancingRequestService {
  findByStatus(status:string):Observable<any>{
   return  this.http.get(`${this.url}/findByStatus/${status}`);
  }
- approve(id:number,status:string):Observable<any>{
-  return  this.http.put(`${this.url}/descision/${id}/${status}`,{id,status} ); 
+ approve(id:number,status:string,idU:number):Observable<any>{
+  return  this.http.put(`${this.url}/descision/${id}/${status}/${idU}`,{id,status,idU} ); 
  }
  delete(id:number):Observable<any>{
   return  this.http.delete(`${this.url}/delete/${id}`); 

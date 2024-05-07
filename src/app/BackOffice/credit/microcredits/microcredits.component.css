@@ -1,16 +1,11 @@
 .form-panel {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 15px;
-    /* Creates the curved edges */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Optional: adds shadow for 3D effect */
-    width: 1000px;
-    margin: auto;
-    /* Center the panel */
     padding: 20px;
     border: 1px solid #0e37db;
+    width: 1500px;
 }
-
 
 
 select.form-control {

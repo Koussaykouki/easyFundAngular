@@ -1,48 +1,32 @@
-/* Custom CSS */
-.custom-blue {
-    color: #1F3BB2; /* Blue color */
-}
 
-.custom-black {
-    color: #000000; /* Black color */
-}
 
-.custom-gray {
-    color: #8D8D8D; /* Gray color */
-}
 
-/* Custom CSS for table */
-.table td,
-.table th {
-  font-size: 18px; /* Adjust the font size as per your preference */
+select.form-control {
+  background-color: white;
+  color: black;
+  font-weight: bold;
 }
 
 
-/* Custom CSS for table */
-.table {
-  border-collapse: collapse; /* Ensure borders collapse properly */
-  width: 100%; /* Optional: adjust width as per your layout */
-}
-.table th,
-.table td {
-  padding: 8px; /* Optional: add padding for better spacing */
+.readonly-wrapper {
+  cursor: not-allowed;
 }
 
+.readonly-wrapper .readonly-block {
+  pointer-events: none;
+}
 
-/* Custom CSS for table */
-.table {
-    border-collapse: separate; /* Ensure borders between rows are separate */
-    border-spacing: 0 5px; /* Add spacing between rows */
-    width: 100%; /* Optional: adjust width as per your layout */
-  }
-  
-  .table tr {
-    border-bottom: 1px solid black; /* Add thin line as separator between rows */
-  }
-  
-  .table th,
-  .table td {
-    padding: 20px; /* Optional: add padding for better spacing */
-  }
+/* component.css */
 
-  
+.success-message {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d6e9c6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success-message p {
+  margin: 0;
+}

@@ -18,6 +18,9 @@ export class OfferService {
   bystaus(status : string):Observable<any>{
     return this.http.get(`${this.url}/getbystatus/${status}`)
   }
+  byId(id :number):Observable<any>{
+    return this.http.get(`${this.url}/findOffer/${id}`)
+  }
   delete(id : number): Observable<any> {
     let httpheaders=new HttpHeaders()
     .set('Content-type','application/Json');
@@ -41,5 +44,14 @@ export class OfferService {
   }
   test(some:any[]){
     console.log('destroyed :'+some);
+  }
+  submitOffer(formData: any): Observable<any> {
+    // Définir les en-têtes pour la requête HTTP
+    const headers = new HttpHeaders();
+    // Le type de contenu doit être défini sur 'multipart/form-data' pour gérer les fichiers
+    headers.append('Content-Type', 'multipart/form-data');
+
+    // Effectuer la requête HTTP POST avec les données du formulaire
+    return this.http.post<any>(`${this.url}/submitOffer`, formData, { headers: headers });
   }
 }

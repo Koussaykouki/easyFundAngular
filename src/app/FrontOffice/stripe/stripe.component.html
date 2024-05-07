@@ -1,8 +1,9 @@
 <div class="popup-container">
     <div class="popup-content">
       <div class="offer-details">
-        <h2>Payment Form</h2>
+        <h2>Pay </h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+        <img src="assets/FrontOffice/assets/images/mastercard.png" alt="Payment Image" class="payment-image">
         <div class="payment-form">
           <!-- Payment Inputs -->
           <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">

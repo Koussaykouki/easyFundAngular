@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FinancingRequestService } from '../../services/financing-request.service';
-import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Offer } from '../../models/Offer.model';
 import { AmortizationRow } from '../../models/amortizationRow.model';
@@ -15,36 +15,86 @@ export class FiancingFrontComponent  implements OnInit{
   offer :Offer | null =null;
   starDate:Date| null=null;
   endDate:Date| null=null;
-  constructor(private datePipe: DatePipe,private fb: FormBuilder,private financingService:FinancingRequestService,private route :ActivatedRoute,private router: Router,private cookie:CookieService){}
-  financingForm : FormGroup = this.fb.group({
+  financingForm !:FormGroup;
+  test!:boolean;
+  test1!:boolean;
+  test2!:boolean;
+  
+
+  constructor(private datePipe: DatePipe,private fb: FormBuilder,private financingService:FinancingRequestService,private route :ActivatedRoute,private router: Router,private cookie:CookieService){
+    this.financingForm = this.fb.group({
     
-    offer :[''],
-    dateFinancingRequest :[''],
-    finalDate: ['']
-    
-  })
+      offer :[''],
+      dateFinancingRequest :['', Validators.required],
+      finalDate: ['', [Validators.required]]
+      
+    })
+    this.test1=false;
+    this.test2=false;
+  }
+ 
+  
+  finalDateValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const dateFinancingRequest = this.financingForm.get('dateFinancingRequest')?.value;
+  
+    // Check if both dates are valid
+    if (!dateFinancingRequest || !control.value) {
+      return null;
+    }
+  
+    const twoMonthsLater = new Date(dateFinancingRequest);
+    twoMonthsLater.setMonth(twoMonthsLater.getMonth() + 2);
+  
+    const finalDate = new Date(control.value);
+  
+    // Check if finalDate is at least two months later than dateFinancingRequest
+    if (finalDate < twoMonthsLater) {
+      return { finalDateInvalid: true };
+    }
+  
+    return null;
+  };
+  date1(event:any){
+    this.starDate = event.target.value;
+  }
+  date2(event:any){
+    this.endDate = event.target.value;
+  }
   onSubmit(){
     console.log('submit');
     
-    console.log(this.financingForm.value);
-    var s = this.datePipe.transform(this.financingForm.get('dateFinancingRequest')?.value, 'yyyy-MM-dd') || '';
-    var f = this.datePipe.transform(this.financingForm.get('finalDate')?.value, 'yyyy-MM-dd') || '';
-    this.financingForm.patchValue({
-      startDate :s,
-    endDate: f
-    });
-    this.financingService.add(this.financingForm.value).subscribe(
-      {
-        next: (data) => {
-
-          console.log('fiancing added :', data);
-        },
-        error: (error) => console.error('error adding offer', error)
-      });;
-      this.router.navigate(['/myfinancing']);
+      console.log('Form submitted successfully');
+      console.log(this.financingForm.value);
+      var s = this.datePipe.transform(this.financingForm.get('dateFinancingRequest')?.value, 'yyyy-MM-dd') || '';
+      var f = this.datePipe.transform(this.financingForm.get('finalDate')?.value, 'yyyy-MM-dd') || '';
+      if(s<f){
+        this.financingForm.patchValue({
+          startDate :s,
+        endDate: f
+        });
+        this.financingService.add(this.financingForm.value).subscribe(
+          {
+            next: (data) => {
+    
+              console.log('fiancing added :', data);
+            },
+            error: (error) => console.error('error adding offer', error)
+          });;
+          this.test=false;
+          this.router.navigate(['/myfinancing']);
+      }else{
+          this.test=true;
+      }
+      
+      
+      // You can access form values using this.financingForm.value
+    
+   
   }
   //Oninit
   ngOnInit() {
+  
+    
     this.route.paramMap.subscribe(params => {
       const offerJson = params.get('offer');
       if (offerJson) {

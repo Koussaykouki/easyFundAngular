@@ -32,9 +32,10 @@
         <tbody>
           <tr *ngFor="let financingRequest of financings">
            <td>{{financingRequest.financingRequestId}}</td>
-           <td>  <button class="btn btn-success" (click)="downloadFile(financingRequest.excel)"><i class="bi bi-download"></i>download Excel</button></td>
+           <td>  <button class="btn btn-success" (click)="downloadFile(financingRequest.excel)"><i class="bi bi-cloud-arrow-down"></i>download Excel</button></td>
            <td > <span [ngStyle]="{'background-color': getStatus(financingRequest.requestStatus), 'border-radius': '5px', 'padding': '5px', 'color': 'white'}">{{financingRequest.requestStatus}}</span></td>
-           <td>{{financingRequest.offer.offreId}}</td>
+           <td><button class="btn btn-sm btn-primary me-1"  (click)="openDetails(financingRequest.offer.offreId)"><i class="bi bi-eye"></i> Show Offer
+          </button> </td>
            <td>{{user}}</td>
            <td>  <td>
             <div class="btn-group">
@@ -60,6 +61,7 @@
 </div>   
 </section>
 </div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
       
  
        

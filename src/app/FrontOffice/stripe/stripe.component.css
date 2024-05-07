@@ -12,3 +12,9 @@
     border-radius: 10px; /* Border radius for curved edges */
     overflow: hidden;
   }
+  .payment-image {
+    width: 100%; /* Définit la largeur de l'image à 30% de la largeur du conteneur */
+    display: block; /* Assure que l'image est affichée en tant que bloc pour appliquer la largeur */
+    margin: auto; /* Centre l'image horizontalement */
+    margin-bottom: 20px; /* Ajoute un espace en bas de l'image */
+  }

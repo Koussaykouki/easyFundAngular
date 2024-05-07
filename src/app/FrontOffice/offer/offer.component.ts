@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { OfferDetailsComponent } from '../offer-details/offer-details.component';
 import { MatDialog } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table'
+import { ParametreService } from '../../services/parametre.service';
 
 interface ElementInfo {
   id: string;
@@ -24,13 +25,16 @@ export class OfferComponent implements OnInit ,OnDestroy{
    approved :string='';
   scrollingStartTime: number=0;
   info:ElementInfo[]=[];
+  infoOne:any;
   scrol:boolean=false;
+  cookTimer:number=0;
   //stored:ElementInfo[]=[];
 
-  constructor(private cookie:CookieService,private offerservice:OfferService,private PageViewService:PageViewService,private router:Router,private dialog:MatDialog){
+  constructor(private infoservice:ParametreService ,private cookie:CookieService,private offerservice:OfferService,private PageViewService:PageViewService,private router:Router,private dialog:MatDialog){
 
     this.approved='ACTIVE';
     this.scrollingStartTime = Date.now();
+    this.cookTimer = Date.now();
 
   }
   ngOnInit(): void {
@@ -49,6 +53,8 @@ export class OfferComponent implements OnInit ,OnDestroy{
    console.log(JSON.parse(this.cookie.get('info')));
 
   }
+  
+
   
   ngOnDestroy(): void {
     this.offerservice.test(this.info);
@@ -76,10 +82,21 @@ export class OfferComponent implements OnInit ,OnDestroy{
     // Convertir le tableau mis à jour en chaîne JSON
     let updatedCookieData = JSON.stringify(dataArray);
     //let finalUpdate = this.calculateTotalTimes(updatedCookieData)
-
+       this.send(dataArray);
     // Définir le cookie avec les données mises à jour
     this.cookie.set('info', updatedCookieData, { expires: 30 });
   }
+  send(list :ElementInfo[]){
+    this.infoservice.saveElementInfo(list).subscribe({
+      next: (data) => {
+        
+  
+        console.log('Data Sended', data);
+      },
+      error: (error) => console.error('Error sending messages:', error)
+    });
+  }
+  
   getoffers(){
     this.offerservice.showAll().subscribe({
       next: (data) => {
@@ -102,36 +119,50 @@ export class OfferComponent implements OnInit ,OnDestroy{
     });
     
   }
-  //event listener pour scrolling
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    if (!this.scrollingStartTime) {
+  @HostListener('window:beforeunload', [])
+  beforeunload(): void {
+    console.log('loaded');
+    // Call the method on your service or component
+    this.addElementInfo(this.info);
+  }
+  @HostListener('window:scrollend', [])
+  onScrollEnd(): void {
+    
+      if (!this.scrollingStartTime) {
+        this.scrollingStartTime = Date.now();
+        
+      }
+     
+       setTimeout(() => {
+        
+        
+        const topElementInfo = this.getTopElementInfo();
+      this.info.push({ id: topElementInfo.id,time:  topElementInfo.time })
+      this.info=this.calculateTotalTimes(this.info);
+      console.log(this.info);
+    // this.addElementInfo(this.info);//envoie de cookies
+        console.log("L'écran est maintenant fixe.");
+      }, 2000);
+      //lazem yarja3 bch nakhedh il interval
       this.scrollingStartTime = Date.now();
       
+      
+      //this.cookie.set('destroy','destroyed');
+      
+      
+      
+     // this.cookie.set('info', JSON.stringify(this.info), { expires: 365 });
+      
     }
+  @HostListener('window:scroll', [])
+  onScroll(): void {
    
-     setTimeout(() => {
-      
-      
-      const topElementInfo = this.getTopElementInfo();
-    this.info.push({ id: topElementInfo.id,time:  topElementInfo.time })
-    this.info=this.calculateTotalTimes(this.info);
-    console.log(this.info);
-    this.addElementInfo(this.info);//envoie de cookies
-      console.log("L'écran est maintenant fixe.");
-    }, 2000);
-    //lazem yarja3 bch nakhedh il interval
-    this.scrollingStartTime = Date.now();
-    
-    
-    //this.cookie.set('destroy','destroyed');
-    
-    
-    
-   // this.cookie.set('info', JSON.stringify(this.info), { expires: 365 });
-    
-  }
-      //id in topscrolling + timer
+    //this.scrollingStartTime = Date.now();
+
+    console.log('scrolling');
+   
+  
+    } //id in topscrolling + timer
      getTopElementInfo(): ElementInfo {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const elements = document.querySelectorAll('.card'); // Assuming this is the class of your offer elements
@@ -173,6 +204,7 @@ export class OfferComponent implements OnInit ,OnDestroy{
         console.log('Le terme de recherche est vide');
       }
     }
+
   
     search(searchTerm: string): void {
       // Implémentez ici la logique de recherche
@@ -204,7 +236,8 @@ export class OfferComponent implements OnInit ,OnDestroy{
     
       return result;
     }
-    openPopup(credit: any) {
+    openPopup(credit: any,id:any) {
+      
       const dialogRef = this.dialog.open(OfferDetailsComponent, {
         width: '1200ox',
         data: credit

@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './alloffer.component.css'
 })
 export class AllofferComponent {
+  show:boolean;
+  constructor(){
+    this.show=false;
+  }
+  financing(event:Event){
+    this.show=true;
+
+  }
+  offer(event:Event){
+    this.show=false;
+  }
 
 }

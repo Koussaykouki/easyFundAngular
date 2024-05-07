@@ -16,7 +16,7 @@ import { FinancingRequestComponent } from './BackOffice/financing-request/financ
 import { OfferComponent } from './FrontOffice/offer/offer.component';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
-import { HomebackComponent } from './BackOffice/homeback/homeback.component'  
+import { HomebackComponent } from './BackOffice/homeback/homeback.component'
 import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
@@ -45,11 +45,16 @@ import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 
+import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
+import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
+
+
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
 
+
 const routes: Routes = [
- 
+
   {
 
     path: '',
@@ -62,9 +67,13 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'stat',
+    component: StatOfferComponent
   },{
 
-   
+
 
     path: 'financingRequest',
     component: FinancingRequestComponent
@@ -82,10 +91,10 @@ const routes: Routes = [
     component: DevisExcelComponent
   },
   { path: 'offer-details',
-    component: OfferDetailsComponent, 
+    component: OfferDetailsComponent,
     outlet: 'popup'
    },
-   
+
   { path: 'demandFinancing',
   component: FiancingFrontComponent
 
@@ -108,7 +117,7 @@ const routes: Routes = [
       {
         path: '',
         component: HomebackComponent,
-       
+
       },
       {
         path: 'offer',
@@ -120,7 +129,7 @@ const routes: Routes = [
 
       },{
 
-   
+
 
         path: 'financingRequest',
         component: FinancingRequestComponent
@@ -130,6 +139,11 @@ const routes: Routes = [
         path: 'users',
         component: UserListComponent
 
+      }
+      ,{
+
+         path: 'allf',
+        component: FinancingRequestAllComponent
       }
     ]
   },
@@ -141,7 +155,21 @@ const routes: Routes = [
       {
         path: '',
         component: HomefrontComponent,
-       
+
+      },
+
+         {
+        path: 'simulator',
+        component: LoanCalculatorComponent,
+
+      },
+      {
+        path: 'applyMicrocredit',
+        component: MicrocreditsComponent
+      },
+      {
+        path: 'getCreditByConnectedUser',
+        component: MyMicroCreditsComponent
       },
       {
         path: 'claimsallfront/:id',
@@ -149,7 +177,6 @@ const routes: Routes = [
       },{
         path: 'offerFront',
         component: OfferComponent
-       
       },
       {
 
@@ -165,18 +192,22 @@ const routes: Routes = [
         component: DevisExcelComponent
       },
       { path: 'offer-details',
-        component: OfferDetailsComponent, 
+        component: OfferDetailsComponent,
         outlet: 'popup'
        },
-       
+
       { path: 'demandFinancing',
       component: FiancingFrontComponent
+     },
+     {
+       path: 'myfinancing',
+       component: MyFinancingsComponent
      }
     ]
   },{
     path: 'home',
     component: AllhomefrontComponent,
-   
+
     children: [
       {
         path: '',
@@ -205,13 +236,13 @@ const routes: Routes = [
         path: 'resetpasswordfront',
         component: ResetpasswordfrontComponent},
 
-      
+
 
       { path: 'offer-details',
-        component: OfferDetailsComponent, 
+        component: OfferDetailsComponent,
         outlet: 'popup'
        },
-       
+
       { path: 'demandFinancing',
       component: FiancingFrontComponent
       },
@@ -220,13 +251,19 @@ const routes: Routes = [
         component: OffreComponent
       },{
 
-   
+
 
         path: 'financingRequest',
         component: FinancingRequestComponent
+      },{
+
+   
+
+        path: 'ALLF',
+        component: FinancingRequestAllComponent
       }
 
-     
+
 
     ]
 
@@ -260,16 +297,16 @@ const routes: Routes = [
 
   },
 
-  
-  
-  
-  
 
 
 
-  
 
- 
+
+
+
+
+
+
  {
 
 
@@ -297,7 +334,7 @@ const routes: Routes = [
     path: 'admin/simulator',
     component: LoanCalculatorComponent
   }
-  
+
 
 
 ];

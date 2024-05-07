@@ -26,10 +26,13 @@
                   
                   <div class="row">
                     <div class="col-lg-24 d-flex flex-column">
-                      
-                     
-              <app-offre></app-offre>    
-              <app-financing-request></app-financing-request>                  
+                <div>
+                  <button class="btn btn-primary" *ngIf="show" (click)="offer($event)"><i class="bi bi-arrow-down-circle-fill"></i> offers </button> 
+                  <button class="btn btn-primary" *ngIf="!show" (click)="financing($event)"> <i class="bi bi-arrow-down-circle-fill"></i>financingRequest</button> 
+                </div>    
+                    
+              <app-offre *ngIf="!show" ></app-offre>    
+              <app-financing-request *ngIf="show"></app-financing-request>                  
                     </div>
                     
                   </div>

@@ -98,6 +98,11 @@ import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
 
+
+import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
+import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
+
+
 import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
 import { OfferService } from './services/offer.service';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -110,6 +115,7 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
 import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
 import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+
 
 
 @NgModule({
@@ -173,6 +179,13 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
     StripeComponent,
     AllofferComponent,
     OfferPopUpComponent,
+
+
+
+    PerformanceLineChartComponent,
+      FinancingRequestAllComponent,
+      StatOfferComponent,
+
     PerformanceLineChartComponent,
 
     BarChartTopUrlsComponent,
@@ -184,6 +197,7 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
     
     
     
+
 
 
    

@@ -61,7 +61,8 @@ import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-ch
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
-
+import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
+import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
 
 
 @NgModule({
@@ -114,7 +115,11 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     BarChartTopUrlsComponent,
     AddclaimComponent,
     UserdetailsComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailDialogComponent,
+    UserBannedListComponent
+    
+    
     
 
 

@@ -688,3 +688,12 @@ body {
 .e-grid.e-default .e-rowcell.e-lastrowcell:not(.e-xlsel-bottom-border) {
     border-bottom-width: 0px;
 }
+
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  

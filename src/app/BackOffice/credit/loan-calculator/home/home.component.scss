@@ -4,6 +4,7 @@ $primary1: #0a1b89;
 $btnColor: #f7941d;
 
 
+
 @mixin main-font {
   font-family: "Helvetica", "Poppins", sans-serif;
 }
@@ -496,7 +497,6 @@ a:focus {
       justify-content: center;
       align-items: center;
       border-radius: 10px;
-      background-image: url(./assests/news-img.jpg);
       background-size: 100% 100%;
       transition: all .3s;
 
@@ -516,7 +516,6 @@ a:focus {
     &:hover {
 
       .number_box {
-        background-image: url(./assests/news-img.jpg);
         color: $white;
       }
     }
@@ -759,7 +758,6 @@ a:focus {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url(./assests/news-img.jpg);
       background-size: 100% 100%;
 
       &:before {
@@ -770,7 +768,6 @@ a:focus {
         top: 53%;
         left: 45%;
         transform: translate(-50%, -50%);
-        background-image: url(./assests/news-img.jpg);
         background-size: 100% 100%;
         opacity: 0;
         transition: all .3s;
@@ -1049,8 +1046,7 @@ a:focus {
 // client section
 
 .client_section {
-  background-image: url(./assests/news-img.jpg);
-  background-size: cover;
+    background-size: cover;
 
   .heading_container {
     align-items: center;

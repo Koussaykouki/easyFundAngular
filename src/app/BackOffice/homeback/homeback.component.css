@@ -1,0 +1,43 @@
+.card-color-1 {
+    background-color: #F7CAC9; /* Example color 1 */
+  }
+  
+  .card-color-2 {
+    background-color: #A6E7E7; /* Example color 2 */
+  }
+  
+  .card-color-3 {
+    background-color: #F9E79F; /* Example color 3 */
+  }
+  
+  .card-color-4 {
+    background-color: #D7BDE2; /* Example color 4 */
+  }
+  
+  .card-color-5 {
+    background-color: #D5DBDB; /* Example color 5 */
+  }
+
+  
+  .smaller-title {
+    font-size: 18px; /* Decrease the title font size */
+  }
+  
+  .normal-weight {
+    font-size: 16px; /* Increase the value font size */
+    font-weight: normal; /* Set the title weight to normal */
+  }
+  
+  .bigger-value {
+  }
+  
+  .bold-font {
+    font-size: 24px;
+    font-weight: bold; /* Set the value font weight to bold */
+  }
+  
+
+  .container
+  {
+    width: 100%;
+}

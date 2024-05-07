@@ -32,21 +32,21 @@ export class MicrocreditsComponent implements OnInit {
   defaultPeriodType = 'Monthly';
 
   microcreditForm: FormGroup = this.fb.group({
-    startDate: ['',Validators.required],
-    dueDate: ['',Validators.required],
+  startDate: ['',Validators.required],
+  dueDate: ['',Validators.required],
 
-    period: [12,''],
-    interestRate: ['',],
-    creditStatus: [this.defaultCreditStatus,''],
-    creditType: [this.defaultCreditType, ''],
-    typePeriod: [this.defaultPeriodType,''],
+  period: [12,''],
+  interestRate: ['',],
+  creditStatus: [this.defaultCreditStatus,''],
+  creditType: [this.defaultCreditType, ''],
+  typePeriod: [this.defaultPeriodType,''],
 
-    creditAmmount: ['', [Validators.required, Validators.min(100), Validators.max(40000)]],
-    payedAmount: ['',],
+  creditAmmount: ['', [Validators.required, Validators.min(100), Validators.max(40000)]],
+  payedAmount: ['',],
 
-    cinGuarantor: [''],
-    guarantorFile: [,''],
-    accountFK: [,'']
+  cinGuarantor: [''],
+  guarantorFile: [,''],
+  accountFK: [,'']
   });
 
   constructor(private fb: FormBuilder, private microcreditservice: MicroCreditService, private router: Router

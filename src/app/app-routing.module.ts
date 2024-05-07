@@ -16,7 +16,7 @@ import { FinancingRequestComponent } from './BackOffice/financing-request/financ
 import { OfferComponent } from './FrontOffice/offer/offer.component';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
-import { HomebackComponent } from './BackOffice/homeback/homeback.component'  
+import { HomebackComponent } from './BackOffice/homeback/homeback.component'
 import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
 import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
@@ -44,7 +44,7 @@ import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 const routes: Routes = [
- 
+
   {
 
     path: '',
@@ -59,7 +59,7 @@ const routes: Routes = [
     component: RegistrationComponent
   },{
 
-   
+
 
     path: 'financingRequest',
     component: FinancingRequestComponent
@@ -77,10 +77,10 @@ const routes: Routes = [
     component: DevisExcelComponent
   },
   { path: 'offer-details',
-    component: OfferDetailsComponent, 
+    component: OfferDetailsComponent,
     outlet: 'popup'
    },
-   
+
   { path: 'demandFinancing',
   component: FiancingFrontComponent
 
@@ -103,7 +103,7 @@ const routes: Routes = [
       {
         path: '',
         component: HomebackComponent,
-       
+
       },
       {
         path: 'offer',
@@ -114,7 +114,7 @@ const routes: Routes = [
         component: ClaimsAllComponent
       },{
 
-   
+
 
         path: 'financingRequest',
         component: FinancingRequestComponent
@@ -129,7 +129,21 @@ const routes: Routes = [
       {
         path: '',
         component: HomefrontComponent,
-       
+
+      },
+
+         {
+        path: 'simulator',
+        component: LoanCalculatorComponent,
+
+      },
+      {
+        path: 'applyMicrocredit',
+        component: MicrocreditsComponent
+      },
+      {
+        path: 'getCreditByConnectedUser',
+        component: MyMicroCreditsComponent
       },
       {
         path: 'claimsallfront/:id',
@@ -137,7 +151,6 @@ const routes: Routes = [
       },{
         path: 'offerFront',
         component: OfferComponent
-       
       },
       {
 
@@ -148,10 +161,10 @@ const routes: Routes = [
         component: DevisExcelComponent
       },
       { path: 'offer-details',
-        component: OfferDetailsComponent, 
+        component: OfferDetailsComponent,
         outlet: 'popup'
        },
-       
+
       { path: 'demandFinancing',
       component: FiancingFrontComponent
      }
@@ -159,7 +172,7 @@ const routes: Routes = [
   },{
     path: 'home',
     component: AllhomefrontComponent,
-   
+
     children: [
       {
         path: '',
@@ -188,24 +201,24 @@ const routes: Routes = [
         path: 'resetpasswordfront',
         component: ResetpasswordfrontComponent},
 
-      
+
 
       { path: 'offer-details',
-        component: OfferDetailsComponent, 
+        component: OfferDetailsComponent,
         outlet: 'popup'
        },
-       
+
       { path: 'demandFinancing',
       component: FiancingFrontComponent
       },{
 
-   
+
 
         path: 'financingRequest',
         component: FinancingRequestComponent
       }
 
-     
+
 
     ]
 
@@ -239,16 +252,16 @@ const routes: Routes = [
 
   },
 
-  
-  
-  
-  
 
 
 
-  
 
- 
+
+
+
+
+
+
  {
 
 
@@ -276,7 +289,7 @@ const routes: Routes = [
     path: 'admin/simulator',
     component: LoanCalculatorComponent
   }
-  
+
 
 
 ];

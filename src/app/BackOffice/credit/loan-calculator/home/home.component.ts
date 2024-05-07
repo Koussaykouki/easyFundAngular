@@ -5,7 +5,7 @@ import { DataService } from '../data-service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css','./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 
 })

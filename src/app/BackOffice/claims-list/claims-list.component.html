@@ -23,9 +23,9 @@
                 <tr *ngFor="let claim of claims">
                   <td>{{ claim.title }}</td>
                   <td>{{ claim.claimType }}</td>
-                  <!-- <td>{{ claim.createdAt | date }}</td> -->
+                   <td>{{ claim.createdAt | date }}</td> 
                   <td>
-                    <button class="btn btn-success btn-sm" (click)="resolveClaim(claim.claimId)">Resolve</button>
+                    <button class="btn btn-success btn-sm" (click)="resolveClaim(claim.claimId)"style="color: white;">Take</button>
                   </td>
                 </tr>
               </tbody>

@@ -11,7 +11,7 @@ export class PageViewService {
 
   constructor(private http: HttpClient) { }
 
-  logPageView(): Observable<any> {
-    return this.http.post(this.apiUrl, {});
+  logPageView(pageUrl: string): Observable<any> {
+    return this.http.post(this.apiUrl, {pageUrl});
   }
 }

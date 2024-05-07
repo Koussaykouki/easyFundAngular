@@ -49,7 +49,7 @@ import { NgxBootstrapIconsModule, alarm, alarmFill, alignBottom } from 'ngx-boot
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DOCUMENT, DatePipe, NgStyle } from '@angular/common';
 import { Component, DestroyRef, effect, inject, OnInit, Renderer2, signal, WritableSignal } from '@angular/core';
-import Chart, { ChartOptions } from 'chart.js/auto';
+import {Chart} from 'chart.js/auto';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
 import {
   AvatarComponent,
@@ -98,13 +98,23 @@ import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AllofferComponent } from './BackOffice/alloffer/alloffer.component';
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
 
+
 import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
 import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
+
 
 import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.component';
 import { OfferService } from './services/offer.service';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
+import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-chart-top-urls.component';
+import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
+import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.component';
+import { UserListComponent } from './BackOffice/user-list/user-list.component';
+import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
+import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
 
 
 
@@ -148,6 +158,16 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderhomeFrontComponent,
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
+    ClaimsListComponent,
+
+
+    PerformanceLineChartComponent,
+    
+    
+    
+    
+    
+
     ClaimsAllComponent,
     ClaimDetailsComponent,
     YourOpenClaimsComponent,
@@ -161,9 +181,23 @@ import { MatDialogModule } from '@angular/material/dialog';
     OfferPopUpComponent,
 
 
+
     PerformanceLineChartComponent,
       FinancingRequestAllComponent,
       StatOfferComponent,
+
+    PerformanceLineChartComponent,
+
+    BarChartTopUrlsComponent,
+    AddclaimComponent,
+    UserdetailsComponent,
+    UserListComponent,
+    UserDetailDialogComponent,
+    UserBannedListComponent
+    
+    
+    
+
 
 
    
@@ -177,6 +211,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
     MatCardModule,
     DropzoneMaterialModule,
     MatFormFieldModule,
@@ -208,7 +243,20 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProgressComponent,
     CardHeaderComponent,
     TableDirective,
-    AvatarComponent
+    AvatarComponent,
+
+
+    
+
+    NgbModule,
+    MatDialogModule,
+    GridModule,
+    
+    
+    
+    
+    
+
   ],
   providers: [
     OfferService, DataService,

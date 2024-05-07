@@ -46,12 +46,25 @@
                           <p class="text-danger d-flex" *ngIf="percentageChange < 0"><i class="mdi mdi-menu-down"></i><span>{{ percentageChange }}%</span></p>
                         </div>
 
+                        
+                        
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="row">
+                   <app-performance-line-chart></app-performance-line-chart>
+                    <div class="col-lg-4 d-flex flex-column">
+                      <div class="row flex-grow">
+                       
+                       
+
                       </div>
                     </div>
                   </div>
 
 
                   <div class="row">
+
                     <app-performance-line-chart></app-performance-line-chart>
                      <div class="col-lg-4 d-flex flex-column">
                        <div class="row flex-grow">
@@ -94,6 +107,75 @@
                           <div class="card-body custom-light-purple">
                             <h5 class="card-title bigger-text normal-weight">Average Credit Period</h5>
                             <p class="card-text bigger-text bold-font">{{ kpis.averageCreditPeriod | number:'1.0-0' }} months</p>
+
+                    <div class="col-lg-16 d-flex flex-column">
+                      <div class="row flex-grow">
+                     <app-bar-chart-top-urls></app-bar-chart-top-urls> 
+                      </div>
+                      
+                     
+                      <div class="row flex-grow">
+                        
+                        <div class="col-md-6 col-lg-6 grid-margin stretch-card">
+                          <div class="card card-rounded">
+                            <div class="card-body">
+                              <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4 class="card-title card-title-dash">Activities</h4>
+                                <p class="mb-0">20 finished, 5 remaining</p>
+                              </div>
+                              <ul class="bullet-line-list">
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
+                                    <p>Just now</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Oliver Noah</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Jack William</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Leo Lucas</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Thomas Henry</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="d-flex justify-content-between">
+                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
+                                    <p>1h</p>
+                                  </div>
+                                </li>
+                              </ul>
+                              <div class="list align-items-center pt-3">
+                                <div class="wrapper w-100">
+                                  <p class="mb-0">
+                                    <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
                         </div>
                       </div>

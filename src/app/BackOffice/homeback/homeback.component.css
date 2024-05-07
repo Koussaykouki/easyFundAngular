@@ -1,43 +1,214 @@
 .card-color-1 {
     background-color: #F7CAC9; /* Example color 1 */
   }
-  
+
   .card-color-2 {
     background-color: #A6E7E7; /* Example color 2 */
   }
-  
+
   .card-color-3 {
     background-color: #F9E79F; /* Example color 3 */
   }
-  
+
   .card-color-4 {
     background-color: #D7BDE2; /* Example color 4 */
   }
-  
+
   .card-color-5 {
     background-color: #D5DBDB; /* Example color 5 */
   }
 
-  
+
   .smaller-title {
     font-size: 18px; /* Decrease the title font size */
   }
-  
+
   .normal-weight {
     font-size: 16px; /* Increase the value font size */
     font-weight: normal; /* Set the title weight to normal */
   }
-  
+
   .bigger-value {
   }
-  
+
   .bold-font {
     font-size: 24px;
     font-weight: bold; /* Set the value font weight to bold */
   }
-  
+
 
   .container
   {
     width: 100%;
+}
+
+
+
+/* Custom CSS Colors for Website Chart */
+
+.custom-white {
+  color: #FFFFFF; /* White color */
+}
+
+.custom-blue {
+  color: #1F3BB2; /* Blue color */
+}
+
+.custom-black {
+  color: #000000; /* Black color */
+}
+
+.custom-gray {
+  color: #8D8D8D; /* Gray color */
+}
+
+.custom-red {
+  color: #FF0000; /* Red color */
+}
+
+.custom-purple {
+  color: #6368DA; /* #6368DA color */
+}
+
+.custom-light-blue {
+  color: #80D6F2; /* #80D6F2 color */
+}
+
+.custom-light-pink {
+  color: #F0D7F1; /* #F0D7F1 color */
+}
+
+.custom-light-purple {
+  color: #CFCAF0; /* #CFCAF0 color */
+}
+
+
+.custom-dark-blue {
+  color: #10454F; /* #10454F color */
+}
+
+.custom-dark-teal {
+  color: #506266; /* #506266 color */
+}
+
+.custom-dark-gray {
+  color: #818274; /* #818274 color */
+}
+
+.custom-dark-green {
+  color: #A3AB78; /* #A3AB78 color */
+}
+
+
+
+/* Custom CSS Colors for Website Chart */
+
+.custom-white {
+  color: #FFFFFF; /* White color */
+}
+
+.custom-blue {
+  color: #1F3BB2; /* Blue color */
+}
+
+.custom-black {
+  color: #000000; /* Black color */
+}
+
+.custom-gray {
+  color: #8D8D8D; /* Gray color */
+}
+
+.custom-red {
+  color: #FF0000; /* Red color */
+}
+
+.custom-purple {
+  color: #6368DA; /* #6368DA color */
+}
+
+.custom-light-blue {
+  color: #80D6F2; /* #80D6F2 color */
+}
+
+.custom-light-pink {
+  color: #F0D7F1; /* #F0D7F1 color */
+}
+
+.custom-light-purple {
+  color: #CFCAF0; /* #CFCAF0 color */
+}
+
+
+.custom-dark-blue {
+  color: #10454F; /* #10454F color */
+}
+
+.custom-dark-teal {
+  color: #506266; /* #506266 color */
+}
+
+.custom-dark-gray {
+  color: #818274; /* #818274 color */
+}
+
+.custom-dark-green {
+  color: #A3AB78; /* #A3AB78 color */
+}
+
+
+
+/* Custom CSS Colors for Website Chart */
+
+.custom-white {
+  color: #FFFFFF; /* White color */
+}
+
+.custom-blue {
+  color: #1F3BB2; /* Blue color */
+}
+
+.custom-black {
+  color: #000000; /* Black color */
+}
+
+.custom-gray {
+  color: #8D8D8D; /* Gray color */
+}
+
+.custom-red {
+  color: #FF0000; /* Red color */
+}
+
+.custom-purple {
+  color: #6368DA; /* #6368DA color */
+}
+
+.custom-light-blue {
+  color: #80D6F2; /* #80D6F2 color */
+}
+
+.custom-light-pink {
+  color: #F0D7F1; /* #F0D7F1 color */
+}
+
+.custom-light-purple {
+  color: #CFCAF0; /* #CFCAF0 color */
+}
+
+
+.custom-dark-blue {
+  color: #10454F; /* #10454F color */
+}
+
+.custom-dark-teal {
+  color: #506266; /* #506266 color */
+}
+
+.custom-dark-gray {
+  color: #818274; /* #818274 color */
+}
+
+.custom-dark-green {
+  color: #A3AB78; /* #A3AB78 color */
 }

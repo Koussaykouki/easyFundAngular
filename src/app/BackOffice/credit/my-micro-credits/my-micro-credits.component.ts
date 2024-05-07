@@ -100,7 +100,7 @@ export class MyMicroCreditsComponent {
 
   // Method to filter microCredits based on selected filters
   applyFilters(): void {
-    this.microCreditService.showAllCredits().subscribe({
+    this.microCreditService.getCreditByAccount().subscribe({
       next: (data) => {
         this.microCredits = data.filter((credit: { typePeriod: string; creditType: string; creditStatus: string; }) =>
           (this.typePeriodFilter === '' || credit.typePeriod === this.typePeriodFilter) &&

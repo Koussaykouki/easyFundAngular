@@ -1,0 +1,59 @@
+<!-- End Type of payment -->
+<!-- Start Main Services -->
+<div class="sub-header p-relative">
+  <div class="overlay overlay-bg-black"></div>
+  <div class="pattern"></div>
+  <div class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="sub-header-content p-relative">
+            <h1 class="text-custom-white lh-default fw-600"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="main-services section-padding p-relative m-4">
+  <div class="side-lines">
+    <span class="box"></span>
+    <span class="text">EasyFund</span>
+    <span class="line"></span>
+  </div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-heading">
+        <h3 class="text-custom-black fw-700">Insurance</h3>
+        <div class="section-description">
+          <p class="text-light-white">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngFor="let insurance of insurances">
+      <div class="col-lg-3 col-sm-6">
+        <div class="main-services-box p-relative mb-xl-30">
+          <div class="main-service-wrapper padding-20">
+            <div class="icon-box"><i class="flaticon-family"></i></div>
+            <h5 class="fw-700">
+              <a
+                [routerLink]="['/front/contract', insurance.id]"
+                class="text-custom-black"
+                >{{ insurance.name }} - {{ insurance.type }}
+              </a>
+            </h5>
+            <p class="text-light-white no-margin">
+              Lorem ipsum dolor sit amet consecte adipiscing elit sed do
+              eiusincidunt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Main Services -->
+<!-- start Loan Calculator -->

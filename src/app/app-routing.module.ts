@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes,withInMemoryScrolling } from '@angular/router';
+import { RouterModule, Routes, withInMemoryScrolling } from '@angular/router';
 import { AllTemplateBackComponent } from './BackOffice/all-template-back/all-template-back.component';
 import { OffreComponent } from './BackOffice/offre/offre.component';
 import { FinancingsComponent } from './BackOffice/financings/financings.component';
@@ -10,10 +10,8 @@ import { RegistrationComponent } from './BackOffice/registration/registration.co
 import { FinancingRequestComponent } from './BackOffice/financing-request/financing-request.component';
 import { OfferComponent } from './FrontOffice/offer/offer.component';
 import { ClaimsAllComponent } from './BackOffice/claims-all/claims-all.component';
-import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
-import { HomebackComponent } from './BackOffice/homeback/homeback.component'  
-import { HeaderFrontComponent } from './FrontOffice/header-front/header-front.component';
-import { FooterFrontComponent } from './FrontOffice/footer-front/footer-front.component';
+
+import { HomebackComponent } from './BackOffice/homeback/homeback.component';
 import { RegisterComponent } from './FrontOffice/register/register.component';
 
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
@@ -28,8 +26,6 @@ import { AllhomefrontComponent } from './FrontOffice/allhomefront/allhomefront.c
 import { ClaimsallfrontComponent } from './FrontOffice/claimsallfront/claimsallfront.component';
 import { ClaimslistfrontComponent } from './FrontOffice/claimslistfront/claimslistfront.component';
 
-
-import { YourOpenClaimsComponent } from './BackOffice/your-open-claims/your-open-claims.component';
 import { AllTemplateFrontComponent } from './FrontOffice/all-template-front/all-template-front.component';
 
 import { OfferDetailsComponent } from './FrontOffice/offer-details/offer-details.component';
@@ -39,53 +35,54 @@ import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
+import { ViewInsuranceComponent } from './BackOffice/view-insurance/viewInsurance.component';
+import { CreateInsuranceComponent } from './BackOffice/create-insurance/createInsurance.component';
+import { InsuranceComponent } from './FrontOffice/insurance/insurance.component';
+import { ViewInsuranceContractComponent } from './BackOffice/view-insurance-contracts/viewInsuranceContracts.component';
+import { ContractRequestComponent } from './FrontOffice/contract-request/contractRequest.component';
 const routes: Routes = [
- 
   {
-
     path: '',
-    component: AllTemplateFrontComponent
-  },{
+    component: AllhomefrontComponent,
 
+    children: [
+      {
+        path: '',
+        component: HomefrontComponent,
+      },
+    ],
+  },
+  {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
-    component: RegistrationComponent
-  },{
-
-   
-
+    component: RegistrationComponent,
+  },
+  {
     path: 'financingRequest',
-    component: FinancingRequestComponent
+    component: FinancingRequestComponent,
   },
   {
     path: 'myfinancing',
-    component: MyFinancingsComponent
+    component: MyFinancingsComponent,
   },
   {
     path: 'pay',
-    component: StripeComponent
+    component: StripeComponent,
   },
   {
     path: 'devis',
-    component: DevisExcelComponent
+    component: DevisExcelComponent,
   },
-  { path: 'offer-details',
-    component: OfferDetailsComponent, 
-    outlet: 'popup'
-   },
-   
-  { path: 'demandFinancing',
-  component: FiancingFrontComponent
+  { path: 'offer-details', component: OfferDetailsComponent, outlet: 'popup' },
 
- },
+  { path: 'demandFinancing', component: FiancingFrontComponent },
 
   {
     path: 'offerFront',
-    component: OfferComponent
-
+    component: OfferComponent,
   },
   {
     path: 'admin',
@@ -93,23 +90,40 @@ const routes: Routes = [
 
     canActivate: [AuthGuard],
 
-
-
     children: [
       {
         path: '',
         component: HomebackComponent,
-       
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'register',
+        component: RegistrationComponent,
       },
       {
         path: 'claims',
-        component: ClaimsAllComponent
+        component: ClaimsAllComponent,
       },
       {
         path: 'users',
-        component: UserListComponent
-      }
-    ]
+        component: UserListComponent,
+      },
+      {
+        path: 'create-insurance',
+        component: CreateInsuranceComponent,
+      },
+      {
+        path: 'view-insurance',
+        component: ViewInsuranceComponent,
+      },
+      {
+        path: 'view-insurance-contract',
+        component: ViewInsuranceContractComponent,
+      },
+    ],
   },
   {
     path: 'front',
@@ -119,144 +133,124 @@ const routes: Routes = [
       {
         path: '',
         component: HomefrontComponent,
-       
       },
       {
         path: 'claimsallfront/:id',
         component: ClaimsallfrontComponent,
-      },{
-        path: 'offerFront',
-        component: OfferComponent
-       
       },
       {
-
+        path: 'contract/:id',
+        component: ContractRequestComponent,
+      },
+      {
+        path: 'insurance',
+        component: InsuranceComponent,
+      },
+      {
+        path: 'offerFront',
+        component: OfferComponent,
+      },
+      {
         path: 'claims',
         component: ClaimslistfrontComponent,
       },
       {
-
         path: 'addclaim',
         component: AddclaimComponent,
-      },{
-        path: 'devis',
-        component: DevisExcelComponent
       },
-      { path: 'offer-details',
-        component: OfferDetailsComponent, 
-        outlet: 'popup'
-       },
-       
-      { path: 'demandFinancing',
-      component: FiancingFrontComponent
-     }
-    ]
-  },{
+      {
+        path: 'devis',
+        component: DevisExcelComponent,
+      },
+      {
+        path: 'offer-details',
+        component: OfferDetailsComponent,
+        outlet: 'popup',
+      },
+
+      { path: 'demandFinancing', component: FiancingFrontComponent },
+    ],
+  },
+  {
     path: 'home',
     component: AllhomefrontComponent,
-   
+
     children: [
       {
         path: '',
         component: HomefrontComponent,
-      },{
-
-        path: 'register',
-        component: RegisterComponent
-
       },
       {
-        path:'login',
-        component:LoginfrontComponent
-
+        path: 'insurance',
+        component: InsuranceComponent,
+      },
+      {
+        path: 'contract/:id',
+        component: ContractRequestComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
+        path: 'login',
+        component: LoginfrontComponent,
       },
       {
         path: 'devis',
-        component: DevisExcelComponent
-
+        component: DevisExcelComponent,
       },
       {
         path: 'sendcodefront',
-        component: SendresetcodefrontComponent
+        component: SendresetcodefrontComponent,
       },
       {
         path: 'resetpasswordfront',
-        component: ResetpasswordfrontComponent},
+        component: ResetpasswordfrontComponent,
+      },
 
-      
+      {
+        path: 'offer-details',
+        component: OfferDetailsComponent,
+        outlet: 'popup',
+      },
 
-      { path: 'offer-details',
-        component: OfferDetailsComponent, 
-        outlet: 'popup'
-       },
-       
-      { path: 'demandFinancing',
-      component: FiancingFrontComponent
-      }
-
-     
-
-    ]
-
+      { path: 'demandFinancing', component: FiancingFrontComponent },
+    ],
   },
   {
     path: 'addoffre',
-    component: OffreComponent
+    component: OffreComponent,
   },
   {
     path: 'excel',
-    component: ExcelComponent
+    component: ExcelComponent,
   },
   {
     path: 'financings/:id',
-    component: FinancingsComponent
-
+    component: FinancingsComponent,
   },
   {
     path: 'sendresetcode',
-    component: SendresetcodeComponent
-
+    component: SendresetcodeComponent,
   },
   {
     path: 'reset-password',
-    component: ResetPasswordComponent
-
+    component: ResetPasswordComponent,
   },
   {
     path: 'claimsaa',
-    component: ClaimslistfrontComponent
-
+    component: ClaimslistfrontComponent,
   },
 
-  
-  
-  
-  
-
-
-
-  
-
- 
- {
-
-
-    path: 'login',
-    component: LoginComponent
-  }
-  ,
   {
-    path: 'register',
-    component: RegistrationComponent
-  }
-  
-
-
+    path: 'insurance',
+    component: InsuranceComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}

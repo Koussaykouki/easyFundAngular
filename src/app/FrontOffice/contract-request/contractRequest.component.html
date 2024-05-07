@@ -1,0 +1,104 @@
+<div class="sub-header p-relative">
+  <div class="overlay overlay-bg-black"></div>
+  <div class="pattern"></div>
+  <div class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="sub-header-content p-relative">
+            <h1 class="text-custom-white lh-default fw-600">
+              Contract Request
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subheader -->
+<!-- Start Blog -->
+<section class="section-padding bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="blog-detail padding-20">
+          <!-- article -->
+          <!-- article -->
+          <!-- tags & social -->
+          <div class="post-details-tags-social"></div>
+          <!-- tags & social -->
+          <hr class="mt-0" />
+          <!-- post pagination -->
+          <!-- post pagination -->
+          <!-- comments -->
+          <div class="comment-box section-padding-top p-relative">
+            <div id="comment-box">
+              <ul class="comments">
+                <div class="comment-respond" id="respond">
+                  <h4 class="text-custom-black fw-600">Request</h4>
+                  <form (ngSubmit)="submitContract()">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="text-custom-black fw-600 fs-14"
+                            >Title</label
+                          >
+                          <input
+                            type="text"
+                            [(ngModel)]="claim.title"
+                            name="title"
+                            class="form-control form-control-custom"
+                            placeholder="Title"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="text-custom-black fw-600 fs-14"
+                            >Category</label
+                          >
+                          <select
+                            [(ngModel)]="claim.claimType"
+                            name="claimType"
+                            class="form-control form-control-custom"
+                          >
+                            <option value="TECHNICAL">Technical</option>
+                            <option value="INSURANCE">Insurance</option>
+                            <option value="LOAN">Loan</option>
+                            <option value="INVESTMENT">Investment</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label class="text-custom-black fw-600 fs-14"
+                            >Description</label
+                          >
+                          <textarea
+                            rows="4"
+                            [(ngModel)]="claim.description"
+                            name="description"
+                            class="form-control form-control-custom"
+                            placeholder="Description"
+                          ></textarea>
+                        </div>
+                        <button
+                          type="submit"
+                          class="btn-first btn-submit text-light-blue"
+                        >
+                          Send claim
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </ul>
+            </div>
+          </div>
+
+          <!-- comments -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

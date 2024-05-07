@@ -1,0 +1,36 @@
+<!-- src/app/components/user-list/user-list.component.html -->
+<div class="col-12 grid-margin stretch-card">
+  <div class="card card-rounded">
+    <div class="card-body">
+      <div class="d-sm-flex justify-content-between align-items-start">
+        <div>
+          <h4 class="card-title card-title-dash">Insurance</h4>
+        </div>
+      </div>
+      <div class="table-responsive mt-1">
+        <table class="table select-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Coverage Amount</th>
+              <th>Type</th>
+              <th>Beneficiary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let insurance of insurances">
+              <td>{{ insurance.name }}</td>
+              <td>{{ insurance.coverageAmount }}</td>
+              <td>{{ insurance.type }}</td>
+              <td>{{ insurance.beneficiary }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm">Edit</button>
+                <!-- Only render the button if userId is defined -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

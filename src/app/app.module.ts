@@ -31,14 +31,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FiancingFrontComponent } from './FrontOffice/fiancing-front/fiancing-front.component';
 import { DevisExcelComponent } from './FrontOffice/devis-excel/devis-excel.component';
-import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '@syncfusion/ej2-angular-spreadsheet';
+import {
+  SpreadsheetComponent,
+  BeforeSaveEventArgs,
+  BeforeOpenEventArgs,
+} from '@syncfusion/ej2-angular-spreadsheet';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { SpreadsheetAllModule } from '@syncfusion/ej2-angular-spreadsheet';
 import { DatePipe } from '@angular/common';
 import { MyFinancingsComponent } from './FrontOffice/my-financings/my-financings.component';
 import { StripeComponent } from './FrontOffice/stripe/stripe.component';
-
-
 
 import { LoginfrontComponent } from './FrontOffice/loginfront/loginfront.component';
 import { SendresetcodeComponent } from './BackOffice/sendresetcode/sendresetcode.component';
@@ -61,8 +63,13 @@ import { BarChartTopUrlsComponent } from './BackOffice/bar-chart-top-urls/bar-ch
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
-
-
+import { ViewInsuranceComponent } from './BackOffice/view-insurance/viewInsurance.component';
+import { CreateInsuranceComponent } from './BackOffice/create-insurance/createInsurance.component';
+import { InsuranceDetailsComponent } from './BackOffice/insurance-details/insurancedetails.component';
+import { InsuranceComponent } from './FrontOffice/insurance/insurance.component';
+import { ViewInsuranceContractComponent } from './BackOffice/view-insurance-contracts/viewInsuranceContracts.component';
+import { InsuranceContractsDetailsComponent } from './BackOffice/insurance-contract-details/insurancecontractdetails.component';
+import { ContractRequestComponent } from './FrontOffice/contract-request/contractRequest.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +93,15 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     SendresetcodeComponent,
     ResetPasswordComponent,
     ResetpasswordfrontComponent,
+
+    CreateInsuranceComponent,
+    ViewInsuranceComponent,
+    InsuranceDetailsComponent,
+    InsuranceComponent,
+    ViewInsuranceContractComponent,
+    InsuranceContractsDetailsComponent,
+    ContractRequestComponent,
+
     SendresetcodefrontComponent,
     HomefrontComponent,
     AllhomefrontComponent,
@@ -93,11 +109,6 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
     PerformanceLineChartComponent,
-    
-    
-    
-    
-    
 
     ClaimsAllComponent,
     ClaimDetailsComponent,
@@ -114,13 +125,7 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     BarChartTopUrlsComponent,
     AddclaimComponent,
     UserdetailsComponent,
-    UserListComponent
-    
-
-
-   
-
-
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,17 +133,11 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    
-
+    ReactiveFormsModule,
     NgbModule,
     MatDialogModule,
     GridModule,
     SpreadsheetAllModule,
-    
-    
-    
-    
   ],
   providers: [
     provideAnimationsAsync(),
@@ -146,10 +145,8 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
     HttpClientModule,
     ReactiveFormsModule,
     DatePipe,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-
-   
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

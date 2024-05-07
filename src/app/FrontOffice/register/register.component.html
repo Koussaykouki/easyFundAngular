@@ -1,85 +1,161 @@
 <div class="sub-header overlapsec p-relative">
-    <div class="overlay overlay-bg-black"></div>
-    <div class="pattern"></div>
-    <div class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="sub-header-content p-relative">
-                        <h1 class="text-custom-white lh-default fw-600">Register</h1>
-                        <ul class="custom">
-                            <li> <a href="index.html" class="text-custom-white">Home</a>
-                            </li>
-                            <li class="text-custom-white active">Register</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <div class="overlay overlay-bg-black"></div>
+  <div class="pattern"></div>
+  <div class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="sub-header-content p-relative">
+            <h1 class="text-custom-white lh-default fw-600">Register</h1>
+            <ul class="custom">
+              <li><a href="index.html" class="text-custom-white">Home</a></li>
+              <li class="text-custom-white active">Register</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- End Subheader -->
 <!-- Start User Details -->
 <section class="section-padding-bottom user-info-details">
-    <div class="container">
-        <div class="row">
-            <div class="offset-lg-3 col-lg-6">
-                <div class="user-info-tabs">
-                    <div class="step-content">
-                        <div class="step-tab-panel active" id="step-1">
-                            <div class="step-tab-inner">
-                                <div class="heading text-center">
-                                    <h4 class="text-custom-black fw-600">Registration form</h4>
-                                    <p class="text-custom-black">Please fill out this form to register to our services <sup>*</sup></p>
-                                </div>
-                                <form class="pt-3" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-                                    <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control form-control-custom" id="firstname" placeholder="First Name" [formControlName]="'firstname'" [ngClass]="{'is-invalid': submitted && formGroup.get('firstname')?.errors}">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control form-control-custom" id="lastname" placeholder="Last Name" [formControlName]="'lastname'" [ngClass]="{'is-invalid': submitted && formGroup.get('lastname')?.errors}">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control form-control-custom" id="phoneNumber" placeholder="Phone Number" [formControlName]="'phoneNumber'">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input type="email" class="form-control form-control-custom" id="email" placeholder="Email" [formControlName]="'email'" [ngClass]="{'is-invalid': submitted && formGroup.get('email')?.errors}">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input type="password" class="form-control form-control-custom" id="password" placeholder="Password" [formControlName]="'password'" [ngClass]="{'is-invalid': submitted && formGroup.get('password')?.errors}">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control form-control-custom" id="cin" placeholder="CIN" [formControlName]="'cin'">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-custom" id="dateOfBirth" placeholder="Date of Birth (YYYY-MM-DD)" [formControlName]="'dateOfBirth'">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control form-control-custom" id="salary" placeholder="Salary" [formControlName]="'salary'">
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="form-control form-control-custom" id="role" [formControlName]="'role'">
-                                            <option value="">Select Role</option>
-
-                                            
-
-                                            <option value="USER">User</option>
-                                            <option value="AGENT">Agent</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <button type="submit" class="btn-first btn-submit-fill" [disabled]="loading">Submit</button>
-                                    </div>
-                                </form>
-                                
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="offset-lg-3 col-lg-6">
+        <div class="user-info-tabs">
+          <div class="step-content">
+            <div class="step-tab-panel active" id="step-1">
+              <div class="step-tab-inner">
+                <div class="heading text-center">
+                  <h4 class="text-custom-black fw-600">Registration form</h4>
+                  <p class="text-custom-black">
+                    Please fill out this form to register to our services
+                    <sup>*</sup>
+                  </p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <form
+                  class="pt-3"
+                  [formGroup]="formGroup"
+                  (ngSubmit)="onSubmit()"
+                >
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        id="firstname"
+                        placeholder="First Name"
+                        [formControlName]="'firstname'"
+                        [ngClass]="{
+                          'is-invalid':
+                            submitted && formGroup.get('firstname')?.errors
+                        }"
+                      />
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        id="lastname"
+                        placeholder="Last Name"
+                        [formControlName]="'lastname'"
+                        [ngClass]="{
+                          'is-invalid':
+                            submitted && formGroup.get('lastname')?.errors
+                        }"
+                      />
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        id="phoneNumber"
+                        placeholder="Phone Number"
+                        [formControlName]="'phoneNumber'"
+                      />
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="email"
+                        class="form-control form-control-custom"
+                        id="email"
+                        placeholder="Email"
+                        [formControlName]="'email'"
+                        [ngClass]="{
+                          'is-invalid':
+                            submitted && formGroup.get('email')?.errors
+                        }"
+                      />
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="password"
+                        class="form-control form-control-custom"
+                        id="password"
+                        placeholder="Password"
+                        [formControlName]="'password'"
+                        [ngClass]="{
+                          'is-invalid':
+                            submitted && formGroup.get('password')?.errors
+                        }"
+                      />
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-custom"
+                        id="cin"
+                        placeholder="CIN"
+                        [formControlName]="'cin'"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      id="dateOfBirth"
+                      placeholder="Date of Birth (YYYY-MM-DD)"
+                      [formControlName]="'dateOfBirth'"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control form-control-custom"
+                      id="salary"
+                      placeholder="Salary"
+                      [formControlName]="'salary'"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <select
+                      class="form-control form-control-custom"
+                      id="role"
+                      [formControlName]="'role'"
+                    >
+                      <option value="">Select Role</option>
 
+                      <option value="CLIENT">CLIENT</option>
+                      <option value="INVESTOR">INVESTOR</option>
+                    </select>
+                  </div>
+                  <div class="form-group text-center">
+                    <button
+                      type="submit"
+                      class="btn-first btn-submit-fill"
+                      [disabled]="loading"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

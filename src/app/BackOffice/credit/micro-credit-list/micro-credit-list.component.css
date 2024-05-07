@@ -1,0 +1,55 @@
+/* Custom CSS */
+.custom-blue {
+    color: #1F3BB2; /* Blue color */
+}
+
+.custom-black {
+    color: #000000; /* Black color */
+}
+
+.custom-gray {
+    color: #8D8D8D; /* Gray color */
+}
+
+/* Custom CSS for table */
+.table td,
+.table th {
+  font-size: 18px; /* Adjust the font size as per your preference */
+}
+
+
+/* Custom CSS for table */
+.table {
+  border-collapse: collapse; /* Ensure borders collapse properly */
+  width: 100%; /* Optional: adjust width as per your layout */
+}
+.table th,
+.table td {
+  padding: 8px; /* Optional: add padding for better spacing */
+}
+
+
+/* Custom CSS for table */
+.table {
+    border-collapse: separate; /* Ensure borders between rows are separate */
+    border-spacing: 0 5px; /* Add spacing between rows */
+    width: 100%; /* Optional: adjust width as per your layout */
+  }
+  
+  .table tr {
+    border-bottom: 1px solid black; /* Add thin line as separator between rows */
+  }
+  
+  .table th,
+  .table td {
+    padding: 20px; /* Optional: add padding for better spacing */
+  }
+
+  
+
+  /* Styling for the filter labels */
+.form-label {
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+  margin-bottom: 0.5rem; /* Adjust margin as needed */
+}

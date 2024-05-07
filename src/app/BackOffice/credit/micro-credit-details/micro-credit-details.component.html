@@ -1,0 +1,215 @@
+<div class="popup-container">
+  <div class="popup-content">
+    <button class="close-button" (click)="closePopup()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <h1 style="padding-bottom:20px; padding-top:20px;"><strong>Microcredit Details</strong></h1>
+    <hr>
+
+    <h2 style="margin-bottom: 20px;"><strong>Account Details</strong></h2>
+    <hr>
+    <div class="details-container" *ngIf="data.credit.accountFK">
+      <form class="details-form">
+        <div class="details-container">
+          <div class="form-group row">
+            <div class="col" style="margin: 20px;">
+              <label for="accountId" style="font-size: 18px;">Account ID:</label>
+              <input type="text" id="accountId" name="accountId" [value]="data.credit.accountFK?.accountId"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <label for="lastLogin" style="font-size: 18px;">Last Login:</label>
+              <input type="text" id="lastLogin" name="lastLogin" [value]="data.credit.accountFK?.lastLogin"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <label for="creationDate" style="font-size: 18px;">Creation Date:</label>
+              <input type="text" id="creationDate" name="creationDate" [value]="data.credit.accountFK?.creationDate"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <label for="updateDate" style="font-size: 18px;">Update Date:</label>
+              <input type="text" id="updateDate" name="updateDate" [value]="data.credit.accountFK?.updateDate"
+                     readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="details-container">
+          <div class="form-group row">
+            <div class="col" style="margin: 20px;">
+              <label for="balance" style="font-size: 18px;">Balance:</label>
+              <input type="text" id="balance" name="balance" [value]="data.credit.accountFK?.balance"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <label for="score" style="font-size: 18px;">Account Score:</label>
+              <input type="text" id="score" name="score" [value]="data.credit.accountFK?.score"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <label for="AccountType" style="font-size: 18px;">AccountType</label>
+              <input type="text" id="AccountType" name="AccountType" [value]="data.credit.accountFK?.AccountType"
+                     readonly>
+            </div>
+            <div class="col" style="margin: 20px;">
+              <!--                            <label for="isActive" style="font-size: 18px;">Is Active?</label>-->
+              <br>
+              <div
+                [ngClass]="{'circle': true, 'green': data.accountFK?.isActive, 'red': !data.credit.accountFK?.isActive}"></div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <hr>
+    <div class="details-container">
+      <h2><strong>Credit Details</strong></h2>
+    </div>
+    <hr>
+    <form class="details-form">
+      <div class="details-container">
+        <div class="form-group row">
+          <div class="col" style="margin: 20px;">
+            <label for="microCreditId" style="font-size: 18px;">Credit ID:</label>
+            <input type="text" id="microCreditId" name="microCreditId" [value]="data.credit.microCreditId"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="startDate" style="font-size: 18px;">Start Date:</label>
+            <input type="text" id="startDate" name="startDate" [value]="data.credit.startDate"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="dueDate" style="font-size: 18px;">Due Date:</label>
+            <input type="text" id="dueDate" name="dueDate" [value]="data.credit.dueDate"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="CreditStatus" style="font-size: 18px;">Credit Status:</label>
+            <input type="text" id="CreditStatus" name="CreditStatus" [value]="data.credit.CreditStatus"
+                   readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-container">
+        <div class="form-group row">
+          <div class="col" style="margin: 20px;">
+            <label for="period" style="font-size: 18px;">Period:</label>
+            <input type="text" id="period" name="period" [value]="data.credit.period"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="typePeriod" style="font-size: 18px;">Type Period:</label>
+            <input type="text" id="typePeriod" name="typePeriod" [value]="data.credit.typePeriod"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="creditAmmount" style="font-size: 18px;">AccountType</label>
+            <input type="text" id="creditAmmount" name="creditAmmount" [value]="data.credit.creditAmmount"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="creditRemaining" style="font-size: 18px;">AccountType</label>
+            <input type="text" id="creditRemaining" name="creditRemaining" [value]="data.credit.creditRemaining"
+                   readonly>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="details-container">
+        <div class="form-group row">
+          <div class="col" style="margin: 20px;">
+            <label for="payedAmount" style="font-size: 18px;">Payed Amount:</label>
+            <input type="text" id="payedAmount" name="payedAmount" [value]="data.credit.payedAmount"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label for="interestRate" style="font-size: 18px;">Type Period:</label>
+            <input type="text" id="interestRate" name="interestRate" [value]="data.credit.interestRate"
+                   readonly>
+          </div>
+          <div class="col" style="margin: 20px;">
+            <label style="font-size: 18px;">Guarantor's File:</label>
+            <div>
+              <a [href]="downloadGuarantorFile()" target="_blank">Download Guarantor's File</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="details-container">
+        <h2><strong>Simulation Data</strong></h2>
+      </div>
+      <hr>
+      <div class="details-container">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Index</th>
+            <th>Amount Remaining</th>
+            <th>Credit Amount</th>
+            <th>Interest Amount</th>
+            <th>Payment Link</th>
+            <th>Bill payment (Tax excluded)</th>
+            <!-- Add more headers as needed -->
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let simData of data?.simulation; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ simData['Amount Remaining'] }}</td>
+            <td>{{ simData['Credit Amount'] }}</td>
+            <td>{{ simData['Interest Amount'] }}</td>
+            <td>{{ simData['Payment Link'] }}</td>
+            <td>{{ simData['Bill payment (Tax excluded)'] }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!--
+<div class="popup-container">
+    <div class="popup-content">
+        <button class="close-button" (click)="closePopup()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        <h2 style="padding-bottom:60px; padding-top:20px;"> <strong> Microcredit Details </strong></h2>
+        <div class="details-container">
+            <p><strong>ID Account:</strong> {{ data.idAccount }}</p>
+            <p><strong>Microcredit ID:</strong> {{ data.microCreditId }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Credit Amount:</strong> {{ data.creditAmount }} TND</p>
+            <p><strong>Period:</strong> {{ data.period }}</p>
+            <p><strong>Type Period:</strong> {{ data.typePeriod }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Start Date:</strong> {{ data.startDate }}</p>
+            <p><strong>Due Date:</strong> {{ data.dueDate }}</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Payed Amount:</strong> {{ data.payedAmount }} TND</p>
+            <p><strong>Credit Remaining:</strong> {{ data.creditRemaining }} TND</p>
+            <p><strong>Interest Rate:</strong> {{ data.interestRate }}%</p>
+        </div>
+
+        <div class="details-container">
+            <p><strong>Status:</strong> {{ data.creditstatus }}</p>
+            <p><strong>Type:</strong> {{ data.creditType }}</p>
+        </div>
+    </div>
+</div>  -->

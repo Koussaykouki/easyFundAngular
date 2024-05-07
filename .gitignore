@@ -173,3 +173,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 >>>>>>> b8495bbfdccce9412a63a267d6ba6985ba32eff4
+
+
+.nx/cache

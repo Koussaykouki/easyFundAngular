@@ -45,7 +45,6 @@ export class OffreComponent implements OnInit ,AfterViewInit {
 
   ngOnInit() {
     this.getOffers();
-
   }
 
   onFileChange(event: any) {

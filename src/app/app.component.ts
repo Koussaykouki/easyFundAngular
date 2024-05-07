@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PopupService } from './services/popup.service';
-import { SpreadsheetComponent, BeforeSaveEventArgs, BeforeOpenEventArgs } from '@syncfusion/ej2-angular-spreadsheet';
 
 @Component({
   selector: 'app-root',

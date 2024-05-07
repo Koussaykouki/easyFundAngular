@@ -62,6 +62,8 @@ import { OfferPopUpComponent } from './BackOffice/offer-pop-up/offer-pop-up.comp
 import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
 
 import { PerformanceLineChartComponent } from './BackOffice/performance-line-chart/performance-line-chart.component';
+import { FinancingRequestAllComponent } from './BackOffice/financing-request-all/financing-request-all.component';
+import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component';
 
 
 
@@ -116,6 +118,8 @@ import { PerformanceLineChartComponent } from './BackOffice/performance-line-cha
     OfferPopUpComponent,
 
     PerformanceLineChartComponent,
+      FinancingRequestAllComponent,
+      StatOfferComponent,
 
 
    

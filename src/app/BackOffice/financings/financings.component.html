@@ -23,7 +23,7 @@
                   <td><a [href]="financing.excel">{{ financing.excel }}</a></td>
                   <td>{{ financing.requestStatus }}</td>
                   <td>{{user}}</td>
-                  <td><button cclass="btn btn-sm btn-primary me-1"  (click)="downloadFile(financing.excel)">Download Excel File</button></td>
+                  <td><button class="btn btn-sm btn-primary me-1"  (click)="downloadFile(financing.excel)"><i class="bi bi-cloud-arrow-down"></i>Excel</button></td>
                 </tr>
               </tbody>
             </table>
@@ -33,3 +33,4 @@
     </section>
   </div>
 </div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">

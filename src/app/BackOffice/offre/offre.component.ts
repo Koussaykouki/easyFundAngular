@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { FinancingsComponent } from '../financings/financings.component';
 import { OfferPopUpComponent } from '../offer-pop-up/offer-pop-up.component';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-offre',
   templateUrl: './offre.component.html',
@@ -30,7 +31,7 @@ export class OffreComponent implements OnInit ,AfterViewInit {
     offerImage: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private offerservice: OfferService,private router:Router,private dialog:MatDialog) {
+  constructor(private fb: FormBuilder, private offerservice: OfferService,private router:Router,private dialog:MatDialog, private http: HttpClient) {
     this.statusOffer = ['PENDING', 'ARCHIVED', 'ACTIVE']
     //this.getOffers();
   }
@@ -47,37 +48,15 @@ export class OffreComponent implements OnInit ,AfterViewInit {
 
   }
 
-  onFileChange(event: Event): void {
-    const eventTarget = event.target as HTMLInputElement;
-  if (eventTarget.files && eventTarget.files.length > 0) {
-    const file = eventTarget.files[0];
-    const fullPath = eventTarget.value; // This should contain the full path, but it may be sanitized by the browser
-    const fileName = file.name;
-   console.log('filepath : '+fullPath);
-    var reader = new FileReader();
-    reader.onload = (event: ProgressEvent) => {
-      this.imageUrl = (<FileReader>event.target).result ;
-      console.log('filepath : '+this.imageUrl);
-      const base = this.imageUrl.replace('data:image/png;base64,','');
-      this.offerForm.get('offerImage')?.setValue(this.imageUrl);
-     const aaa=  atob(decodeURIComponent(this.imageUrl));
-      if(this.isBase64(this.imageUrl)){
-        
-        var test = atob(this.imageUrl);
-        console.log('decoded: '+aaa);
-        
-      }
-       
-      
-    
+  onFileChange(event: any) {
+    const files = event.target.files;
+    if (files.length > 0) {
+      const file = files[0];
+      this.offerForm.get('offerImage')?.setValue(file);
     }
-
-    reader.readAsDataURL(eventTarget.files[0]);
-    
-    // Set the form control value to the full path if available, otherwise set it to just the file name
-    
-  }}
-  onSubmit() {
+  }
+  //fonctionelle #############################################################################
+ /* onSubmit() {
     const formData = this.offerForm.value;
    
     const fileInput = this.offerForm.get('offerImage') ;
@@ -95,36 +74,31 @@ export class OffreComponent implements OnInit ,AfterViewInit {
 
 
     console.log(this.offerForm.value);
-  }
-  /*onSubmit() {
+  }*/
+
+ 
+  onSubmit(): void {
+   
     const formData = new FormData();
+    formData.append('offerDescription', this.offerForm.get('offerDescription')?.value);
+    formData.append('offerLink', this.offerForm.get('offerLink')?.value);
+    formData.append('offerPrice', this.offerForm.get('offerPrice')?.value);
+    formData.append('offerImage', this.offerForm.get('offerImage')?.value);
+    formData.append('offerStatus', this.offerForm.get('offerStatus')?.value);
+    formData.append('offerCategory', this.offerForm.get('offerCategory')?.value);
     
-    // Append all other form fields
-    Object.keys(this.offerForm.value).forEach(key => {
-        if (key !== 'offerImage') {
-            formData.append(key, this.offerForm.value[key]);
-        }
-    });
+    // Appeler le service pour soumettre l'offre
+    this.offerservice.submitOffer(formData).subscribe(
+     {next: (data) => {
+      this.offers = data;
+      //this.offerForm.reset();
+      console.log('Offer approved successfully', data);
+    },
+    error: (error) => console.error('Error approving offer:', error)
+  });
 
-    // Handle the file upload
-    const fileInput = this.offerForm.get('offerImage');
-    if (fileInput && fileInput.value) {
-        const file: File = (fileInput.value.files ? fileInput.value.files[0] : null);
-        if (file) {
-            formData.append('offerImage', file, file.name);
-        }
-    }
+  }
 
-    // Use your service to send formData to your server
-    this.offerservice.addOffer(formData).subscribe({
-        next: (data) => {
-            console.log('Offer added:', data);
-        },
-        error: (error) => {
-            console.error('Error adding offer', error);
-        }
-    });
-}*/
   approve(id : number,status:string){
     
     this.offerservice.approve(id,status).subscribe({

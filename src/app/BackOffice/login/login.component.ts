@@ -27,7 +27,7 @@ export class LoginComponent {
             localStorage.setItem('accessToken', response.accessToken);
             localStorage.setItem('refreshToken', response.refreshToken);
             this.cookie.set("emailUser", this.email);
-            this.router.navigate(['/addoffre']);
+            this.router.navigate(['/admin']);
           }
         },
         error: (error) => {

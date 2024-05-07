@@ -214,6 +214,10 @@ const routes: Routes = [
        
       { path: 'demandFinancing',
       component: FiancingFrontComponent
+      },
+      {
+        path: 'addoffre',
+        component: OffreComponent
       },{
 
    

@@ -49,7 +49,7 @@ import { NgxBootstrapIconsModule, alarm, alarmFill, alignBottom } from 'ngx-boot
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DOCUMENT, DatePipe, NgStyle } from '@angular/common';
 import { Component, DestroyRef, effect, inject, OnInit, Renderer2, signal, WritableSignal } from '@angular/core';
-import Chart, { ChartOptions } from 'chart.js/auto';
+import {Chart} from 'chart.js/auto';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
 import {
   AvatarComponent,
@@ -109,7 +109,7 @@ import { UserdetailsComponent } from './BackOffice/userdetails/userdetails.compo
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
 import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
 import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
-
+import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
 
 
 @NgModule({
@@ -152,6 +152,7 @@ import { UserBannedListComponent } from './BackOffice/user-banned-list/user-bann
     HeaderhomeFrontComponent,
     ClaimsallfrontComponent,
     ClaimslistfrontComponent,
+    ClaimsListComponent,
 
 
     PerformanceLineChartComponent,
@@ -236,7 +237,7 @@ import { UserBannedListComponent } from './BackOffice/user-banned-list/user-bann
     NgbModule,
     MatDialogModule,
     GridModule,
-    SpreadsheetAllModule,
+    
     
     
     

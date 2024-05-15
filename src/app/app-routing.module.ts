@@ -58,7 +58,7 @@ const routes: Routes = [
   {
 
     path: '',
-    component: AllTemplateFrontComponent
+    component: AllTemplateFrontComponent,
   },{
 
     path: 'login',

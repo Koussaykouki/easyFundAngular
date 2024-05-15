@@ -1,95 +1,91 @@
 <div class="container-fluid page-body-wrapper">
-    <!-- partial:partials/_settings-panel.html -->
+  <!-- partial:partials/_settings-panel.html -->
 
-    <!-- partial -->
-    <!-- partial:partials/_sidebar.html -->
-    <app-sidebar-back></app-sidebar-back>
-    <!-- partial -->
-    <div class="main-panel">
-      <div class="content-wrapper">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="home-tab">
-              <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Demographics</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
-                  </li>
-                </ul>
-                <div>
-                  <div class="btn-wrapper">
-                    <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
-                    <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                    <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
-                  </div>
+  <!-- partial -->
+  <!-- partial:partials/_sidebar.html -->
+  <app-sidebar-back></app-sidebar-back>
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="home-tab">
+            <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab"
+                    aria-controls="overview" aria-selected="true">Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab"
+                    aria-selected="false">Audiences</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab"
+                    aria-selected="false">Demographics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab"
+                    aria-selected="false">More</a>
+                </li>
+              </ul>
+              <div>
+                <div class="btn-wrapper">
+                  <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                  <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                  <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
                 </div>
               </div>
-              <div class="tab-content tab-content-basic">
-                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="statistics-details d-flex align-items-center justify-content-between">
+            </div>
+            <div class="tab-content tab-content-basic">
+              <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="statistics-details d-flex align-items-center justify-content-between">
 
-                        <div>
-                          <p class="statistics-title">Today's Views</p>
-                          <h3 class="rate-percentage">{{ todayViews }}</h3>
-                          <p class="text-success d-flex" *ngIf="percentageChange >= 0"><i class="mdi mdi-menu-up"></i><span>+{{ percentageChange }}%</span></p>
-                          <p class="text-danger d-flex" *ngIf="percentageChange < 0"><i class="mdi mdi-menu-down"></i><span>{{ percentageChange }}%</span></p>
-                        </div>
-
-                        
-                        
-                      </div>
-                    </div>
-                  </div> 
-                  <div class="row">
-                   <app-performance-line-chart></app-performance-line-chart>
-                    <div class="col-lg-4 d-flex flex-column">
-                      <div class="row flex-grow">
-                       
-                       
-
+                      <div>
+                        <p class="statistics-title">Today's Views</p>
+                        <h3 class="rate-percentage">{{ todayViews }}</h3>
+                        <p class="text-success d-flex" *ngIf="percentageChange >= 0"><i
+                            class="mdi mdi-menu-up"></i><span>+{{ percentageChange }}%</span></p>
+                        <p class="text-danger d-flex" *ngIf="percentageChange < 0"><i
+                            class="mdi mdi-menu-down"></i><span>{{ percentageChange }}%</span></p>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div class="row">
+                  <app-performance-line-chart></app-performance-line-chart>
+                  <div class="col-lg-4 d-flex flex-column">
+                    <div class="row flex-grow">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-16 d-flex flex-column">
+                    <div class="row flex-grow">
+                      <app-bar-chart-top-urls></app-bar-chart-top-urls>
+                    </div>
+                  </div>
+                </div>
 
 
-                  <div class="row">
-
-                    <app-performance-line-chart></app-performance-line-chart>
-                     <div class="col-lg-4 d-flex flex-column">
-                       <div class="row flex-grow">
-
-                       </div>
-                     </div>
-                   </div>
-
-                   <div class="row">
-                    <hr>
-                    <h1 class="rate-percentage custom-dark-blue" style="font-size:36px; margin-top: 30px; margin-bottom: 20px;">MicroCredit Dashboard</h1>
-                    <br>
-                    <!-- <app-bar-chart-top-urls></app-bar-chart-top-urls> -->
-                    <div class="col-lg-4 d-flex flex-column">
-                       <div class="row flex-grow">
-
-                       </div>
-                     </div>
-                   </div>
-                   <div class="container mt-3">
+                <div class="row">
+                  <hr>
+                  <h1 class="rate-percentage custom-dark-blue"
+                    style="font-size:36px; margin-top: 30px; margin-bottom: 20px;">MicroCredit Dashboard</h1>
+                  <br>
+                </div>
+                <div class="row">
+                  <div class="container mt-3">
                     <div class="row mt-3">
                       <div class="col-md-4 mb-3">
                         <div class="card">
                           <div class="card-body custom-purple">
-                            <h5 class="card-title bigger-text normal-weight custom-blue">Total Number of Microcredits</h5>
+                            <h5 class="card-title bigger-text normal-weight custom-blue">Total Number of Microcredits
+                            </h5>
                             <p class="card-text bigger-text bold-font">{{ kpis.totalMicrocredits }}</p>
                           </div>
                         </div>
@@ -98,7 +94,8 @@
                         <div class="card">
                           <div class="card-body custom-light-blue">
                             <h5 class="card-title bigger-text normal-weight">Total Amount of Microcredits</h5>
-                            <p class="card-text bigger-text bold-font">{{ kpis.totalMicrocreditAmount | currency:'TND':true }}</p>
+                            <p class="card-text bigger-text bold-font">{{ kpis.totalMicrocreditAmount |
+                              currency:'TND':true }}</p>
                           </div>
                         </div>
                       </div>
@@ -106,113 +103,50 @@
                         <div class="card">
                           <div class="card-body custom-light-purple">
                             <h5 class="card-title bigger-text normal-weight">Average Credit Period</h5>
-                            <p class="card-text bigger-text bold-font">{{ kpis.averageCreditPeriod | number:'1.0-0' }} months</p>
-
-                    <div class="col-lg-16 d-flex flex-column">
-                      <div class="row flex-grow">
-                     <app-bar-chart-top-urls></app-bar-chart-top-urls> 
+                            <p class="card-text bigger-text bold-font">{{ kpis.averageCreditPeriod | number:'1.0-0' }}
+                              months</p>
+                          </div>
+                        </div>
                       </div>
-                      
-                     
-                      <div class="row flex-grow">
-                        
-                        <div class="col-md-6 col-lg-6 grid-margin stretch-card">
-                          <div class="card card-rounded">
-                            <div class="card-body">
-                              <div class="d-flex align-items-center justify-content-between mb-3">
-                                <h4 class="card-title card-title-dash">Activities</h4>
-                                <p class="mb-0">20 finished, 5 remaining</p>
-                              </div>
-                              <ul class="bullet-line-list">
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                    <p>Just now</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Oliver Noah</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Jack William</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Leo Lucas</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Thomas Henry</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-flex justify-content-between">
-                                    <div><span class="text-light-green">Ben Tossell</span> assign you a task</div>
-                                    <p>1h</p>
-                                  </div>
-                                </li>
-                              </ul>
-                              <div class="list align-items-center pt-3">
-                                <div class="wrapper w-100">
-                                  <p class="mb-0">
-                                    <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                  </p>
-                                </div>
+                    </div>
+                      <div class="row">
+                        <div class="row mt-3">
+                          <div class="col-md-4 mb-3">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title bigger-text normal-weight">Total Interest Earned</h5>
+                                <p class="card-text bigger-text bold-font custom-dark-teal">{{
+                                  kpis.totalInterestEarned
+                                  | currency:'TND':true }}</p>
                               </div>
                             </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title bigger-text normal-weight custom-dark-green">Total Overdue
+                                  Amount
+                                </h5>
+                                <p class="card-text bigger-text bold-font custom-dark-green">{{
+                                  kpis.totalOverdueAmount
+                                  | currency:'TND':true }}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mt-3">
-                      <div class="col-md-4 mb-3">
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title bigger-text normal-weight">Total Interest Earned</h5>
-                            <p class="card-text bigger-text bold-font custom-dark-teal">{{ kpis.totalInterestEarned | currency:'TND':true }}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title bigger-text normal-weight custom-dark-green">Total Overdue Amount</h5>
-                            <p class="card-text bigger-text bold-font custom-dark-green">{{ kpis.totalOverdueAmount | currency:'TND':true }}</p>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
+
+
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <app-footer-back></app-footer-back>
+            <!-- partial -->
           </div>
+          <!-- main-panel ends -->
         </div>
-      </div>
-
-
-      <!-- content-wrapper ends -->
-      <!-- partial:partials/_footer.html -->
-      <app-footer-back></app-footer-back>
-      <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
-  </div>

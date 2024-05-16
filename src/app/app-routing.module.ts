@@ -51,6 +51,7 @@ import { StatOfferComponent } from './BackOffice/stat-offer/stat-offer.component
 
 import { AddclaimComponent } from './FrontOffice/addclaim/addclaim.component';
 import { UserListComponent } from './BackOffice/user-list/user-list.component';
+import { ArchivedClaimsAllComponent } from './BackOffice/archived-claims-all/archived-claims-all.component';
 
 
 const routes: Routes = [
@@ -126,6 +127,11 @@ const routes: Routes = [
       {
         path: 'claims',
         component: ClaimsAllComponent
+
+      },
+      {
+        path: 'archivedclaims',
+        component: ArchivedClaimsAllComponent
 
       },{
 

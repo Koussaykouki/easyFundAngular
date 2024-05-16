@@ -19,6 +19,9 @@ export class ClaimService {
   getAllOpenClaims(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+  getAllClosedClaims(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/closed`);
+  }
 
   saveClaim(claim: any): Observable<any> {
     return this.http.post(this.apiUrl, claim, {
@@ -52,6 +55,9 @@ export class ClaimService {
   }
   closeClaim(claimId: number): Observable<any> {
     return this.http.post(`${this.apiUrl}/${claimId}/close`, null);
+  }
+  reopenClaim(claimId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${claimId}/reopen`, null);
   }
 
   // Replies methods

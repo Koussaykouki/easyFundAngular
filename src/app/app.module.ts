@@ -115,6 +115,8 @@ import { UserListComponent } from './BackOffice/user-list/user-list.component';
 import { UserDetailDialogComponent } from './BackOffice/user-detail-dialog/user-detail-dialog.component';
 import { UserBannedListComponent } from './BackOffice/user-banned-list/user-banned-list.component';
 import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.component';
+import { ClosedClaimsComponent } from './BackOffice/closed-claims/closed-claims.component';
+import { ArchivedClaimsAllComponent } from './BackOffice/archived-claims-all/archived-claims-all.component';
 
 
 
@@ -193,7 +195,9 @@ import { ClaimsListComponent } from './BackOffice/claims-list/claims-list.compon
     UserdetailsComponent,
     UserListComponent,
     UserDetailDialogComponent,
-    UserBannedListComponent
+    UserBannedListComponent,
+    ClosedClaimsComponent,
+    ArchivedClaimsAllComponent
     
     
     

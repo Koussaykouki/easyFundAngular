@@ -32,7 +32,7 @@ export class MyMicroCreditsComponent {
   }
 
   getMicroCredits() {
-    this.microCreditService.showAllCredits().subscribe({
+    this.microCreditService.getCreditByAccount().subscribe({
       next: (data) => {
         this.microCredits = data;
         console.log('Data fetched successfully', data);
